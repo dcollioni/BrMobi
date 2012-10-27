@@ -1,0 +1,290 @@
+﻿/* Logon Form */
+#logonForm
+{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    
+    float: right;
+    position: absolute;
+    top: 42px;
+    right: 50px;
+}
+
+#logonForm div
+{
+    display: inline;
+}
+
+#logonForm .label
+{
+    color: #ddd;
+    font-weight: bold;
+    font-size: 12pt;
+    text-shadow: 1px 1px #333;
+}
+
+#logonForm .input
+{
+    margin-right: 10px;
+}
+
+#logonForm input[type=text],
+#logonForm input[type=password]
+{
+    background-color: #f0f0f0;
+    border: 1px solid #888;
+    border-radius: 4px;
+    font-family: 'London', 'Tahoma', 'Arial', 'Maiandra GD', sans-serif;
+    font-size: 11pt;
+    margin: 0;
+    padding: 3px;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+#logonForm input[type=text]:hover,
+#logonForm input[type=password]:hover
+{
+    border-color: #aaa;
+}
+            
+#logonForm input[type=text]:focus,
+#logonForm input[type=password]:focus
+{
+    border-color: #888;
+    box-shadow: 0px 0px 3px #ccc;
+}
+
+#logonForm input[type=text]
+{
+    width: 200px;
+}
+
+#logonForm input[type=password]
+{
+    width: 150px;
+}
+
+/* Submit button */
+#logonForm .content input[type=submit]
+{
+    background-color: #609B63;
+    font-family: 'London', 'Tahoma', 'Arial', 'Maiandra GD', sans-serif;
+    font-size: 11pt;
+	font-weight: bold;
+    color: #ddd;
+    border: 1px solid #6AA57D;
+    border-radius: 4px;
+    outline: none;
+    padding: 3px;
+    width: 65px;
+    letter-spacing: .08em;
+    text-shadow: 1px 1px #444;
+}
+            
+#logonForm .content input[type=submit]:hover,
+#logonForm .content input[type=submit]:focus
+{
+    border-color: #60A070;
+    background-color: #538756;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#609B63), color-stop(1, #538756));
+    background-image: -moz-linear-gradient(top, #609B63 0%, #538756 100%);
+    box-shadow: 0px 0px 5px #2B2F2C;
+}
+            
+#logonForm .content input[type=submit]:focus
+{
+    border-color: #999;
+}
+            
+#logonForm .content input[type=submit]:active
+{
+    border-color: #509060;
+    background-color: #538756;
+    background-image: -webkit-gradient(linear, 0% 60%, 0% 100%, from(#538756), color-stop(1, #609B63));
+    background-image: -moz-linear-gradient(bottom, #609B63 0%, #538756 40%);
+    box-shadow: 0px 0px 5px #3B3F3C;
+}
+
+/* Logon Form 2 */
+#logonForm2
+{
+    width: 350px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    
+    margin-left: -60px;
+    margin-top: 40px;
+}
+
+#logonForm2 .header,
+#logonForm2 .content
+{
+    background-image: url('Images/noise.png');
+    width: 100%;
+}
+
+#logonForm2 .header
+{
+    background-color: #bbb;
+    padding: 8px 30px 8px 30px;
+    box-shadow: 0px 0px 5px #555;
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    cursor: default;
+}
+
+#logonForm2 .header h1
+{
+    font-size: 14pt;
+    font-weight: bold;
+    color: #444;
+    text-shadow: 1px 1px #ccc;
+    margin: 0;
+}
+
+#logonForm2 .content
+{
+    background-color: #ddd;
+    padding: 30px;
+    box-shadow: 0px 0px 5px #888;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#logonForm2 .content .label
+{
+    margin-top: 20px;
+}
+            
+#logonForm2 .content .label:first-child
+{
+    margin-top: 0px;
+}
+            
+#logonForm2 .content input[type=email],
+#logonForm2 .content input[type=password]
+{
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    font-family: 'London', 'Tahoma', 'Arial', 'Maiandra GD', sans-serif;
+    font-size: 11pt;
+    margin: 0;
+    padding: 8px;
+    width: 100%;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+            
+#logonForm2 .content input[type=email]:hover,
+#logonForm2 .content input[type=password]:hover
+{
+    border-color: #9f9f9f;
+}
+            
+#logonForm2 .content input[type=email]:focus,
+#logonForm2 .content input[type=password]:focus
+{
+    border-color: #9f9f9f;
+    box-shadow: 0px 0px 5px #bbb;
+}
+            
+            
+/* Buttons */
+#logonForm2 .content .button
+{
+    margin-top: 20px;
+    text-align: right;
+}
+            
+#logonForm2 .content .button input
+{
+    margin-left: 5px;
+}
+            
+/* Submit button */
+#logonForm2 .content input[type=submit]
+{
+    background-color: #446699;
+    font-family: 'London', 'Tahoma', 'Arial', 'Maiandra GD', sans-serif;
+    font-size: 11pt;
+	font-weight: bold;
+    color: #ddd;
+    border: 1px solid #3a5a8a;
+    border-radius: 5px;
+    outline: none;
+    padding: 8px;
+    width: 80px;
+    letter-spacing: .08em;
+    text-shadow: 1px 1px #444;
+}
+            
+#logonForm2 .content input[type=submit]:hover,
+#logonForm2 .content input[type=submit]:focus
+{
+    border-color: #204070;
+    background-color: #335588;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#446699), color-stop(1, #335588));
+    background-image: -moz-linear-gradient(top, #446699 0%, #335588 100%);
+                
+    box-shadow: 0px 0px 5px #666;
+}
+            
+#logonForm2 .content input[type=submit]:focus
+{
+    border: 1px solid #ddd;
+}
+            
+#logonForm2 .content input[type=submit]:active
+{
+    border-color: #204070;
+    background-color: #335588;
+    background-image: -webkit-gradient(linear, 0% 60%, 0% 100%, from(#335588), color-stop(1, #446699));
+    background-image: -moz-linear-gradient(bottom, #446699 0%, #335588 40%);
+    box-shadow: 0px 0px 5px #888;
+}
+            
+/* Error */
+#logonForm2 .content input.error
+{
+    background-color: #FFECEC;
+    border-color: #EE9494 !important;
+}
+
+#logonError
+{
+    background-color: #fdd;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f0d0d0), color-stop(1, #fdd));
+    
+    border: 1px solid #daa;
+    border-right: none;
+    border-left: none;
+    padding: 15px;
+    width: 70%;
+    box-shadow: 0px 0px 5px #ebb;
+}
+
+#logonError ul
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#logonError ul li
+{
+    color: #422;
+    margin: 0;
+    text-shadow: 1px 1px #f0d0d0;
+}

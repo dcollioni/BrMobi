@@ -1,0 +1,68 @@
+﻿$(function () {
+    $('#mapActions').bind('contextmenu', function () { return false; });
+
+    $('#mapActions .bus').click(markBus);
+    $('#mapActions .rideOffer').click(markRideOffer);
+    $('#mapActions .rideRequest').click(markRideRequest);
+    $('#mapActions .help').click(markHelp);
+
+    function markBus() {
+        mark('bus');
+    }
+
+    function markRideOffer() {
+        mark('rideOffer');
+    }
+
+    function markRideRequest() {
+        mark('rideRequest');
+    }
+
+    function markHelp() {
+        mark('help');
+    }
+
+    function mark(type) {
+        if (!BrMobi.actualLat || !BrMobi.actualLng) {
+            return false;
+        }
+
+        var param = { lat: BrMobi.actualLat.toString().replace('.', ','), lng: BrMobi.actualLng.toString().replace('.', ',') };
+        var url, type;
+
+        switch (type) {
+            case 'bus':
+                url = 'MarkBus';
+                type = 1;
+                break;
+            case 'rideOffer':
+                url = 'MarkRideOffer';
+                type = 2;
+                break;
+            case 'rideRequest':
+                url = 'MarkRideRequest';
+                type = 3;
+                break;
+            case 'help':
+                url = 'MarkHelp';
+                type = 4;
+                break;
+        }
+
+        $('#mapActions').fadeOut(100);
+        BrMobi.mask($('#mapCanvas'));
+
+        $.post('Map/' + url, param, function (response) {
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(BrMobi.actualLat, BrMobi.actualLng),
+                map: BrMobi.map,
+                icon: response.ImagePath,
+                type: type
+            });
+
+            BrMobi.markers.push(marker);
+            BrMobi.markersId.push(response.Id);
+            BrMobi.unmask();
+        });
+    }
+});
