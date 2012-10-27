@@ -1,0 +1,7 @@
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\obj\Release\BrMobi.Data.csprojResolveAssemblyReference.cache
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\bin\Release\BrMobi.Data.dll
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\bin\Release\BrMobi.Data.pdb
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\bin\Release\BrMobi.Core.dll
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\bin\Release\BrMobi.Core.pdb
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\obj\Release\BrMobi.Data.dll
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\obj\Release\BrMobi.Data.pdb
