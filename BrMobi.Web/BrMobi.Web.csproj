@@ -95,6 +95,7 @@
     <Content Include="Content\ChangePicture.css" />
     <Content Include="Content\Images\BrMobi2.png" />
     <Content Include="Content\Images\BrMobi3.png" />
+    <Content Include="Content\Images\BrMobi5.png" />
     <Content Include="Content\Images\busIcon.png" />
     <Content Include="Content\Images\busIcon_20x20.png" />
     <Content Include="Content\Images\busIcon_30x30.png" />
@@ -233,10 +234,14 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_Data\BrMobiObjects.yap" />
+    <None Include="App_Data\BrMobiObjects.yap">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="BrMobi_empty\Apresentação1.pptx" />
     <None Include="BrMobi_empty\fonts\LondonBetween.ttf" />
-    <None Include="Content\Fonts\LondonMM.ttf" />
+    <None Include="Content\Fonts\LondonMM.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
