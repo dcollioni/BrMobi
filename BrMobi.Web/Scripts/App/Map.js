@@ -93,10 +93,10 @@
 
     function loadMarkers() {
         var params = {
-            sLat: BrMobi.map.getBounds().getSouthWest().lat().toString().replace('.', ','),
-            sLng: BrMobi.map.getBounds().getSouthWest().lng().toString().replace('.', ','),
-            nLat: BrMobi.map.getBounds().getNorthEast().lat().toString().replace('.', ','),
-            nLng: BrMobi.map.getBounds().getNorthEast().lng().toString().replace('.', ',')
+            sLat: BrMobi.map.getBounds().getSouthWest().lat(),
+            sLng: BrMobi.map.getBounds().getSouthWest().lng(),
+            nLat: BrMobi.map.getBounds().getNorthEast().lat(),
+            nLng: BrMobi.map.getBounds().getNorthEast().lng()
         };
 
         $.post('Map/LoadMarkers', params, function (response) {

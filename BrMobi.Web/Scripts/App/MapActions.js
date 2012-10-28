@@ -27,7 +27,7 @@
             return false;
         }
 
-        var param = { lat: BrMobi.actualLat.toString().replace('.', ','), lng: BrMobi.actualLng.toString().replace('.', ',') };
+        var param = { lat: BrMobi.actualLat, lng: BrMobi.actualLng };
         var url, type;
 
         switch (type) {

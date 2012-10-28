@@ -2,6 +2,7 @@
 using System.Web.Routing;
 using BrMobi.Web.CastleWindsor;
 using BrMobi.Web.Controllers;
+using BrMobi.Web.CustomModelBinders;
 using Castle.Windsor;
 using CommonServiceLocator.WindsorAdapter;
 using Microsoft.Practices.ServiceLocation;
@@ -43,6 +44,8 @@ namespace BrMobi.Web
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            ModelBinders.Binders.Add(typeof(double), new DoubleModelBinder());
         }
 
         /// <summary>
