@@ -16,6 +16,7 @@
     BrMobi.showRideRequest = false;
     BrMobi.showHelp = false;
     BrMobi.infoWindow = null;
+    BrMobi.locationMarker = null;
 
     var timer;
     var delay = (function () {
@@ -188,5 +189,30 @@
         }
 
         return false;
+    });
+
+    $('#mapHeader input[name=search]').keypress(function (e) {
+        if (e.which == 13) {
+            var geocoder = new google.maps.Geocoder();
+            var $searchField = $(this);
+            var address = $searchField.val();
+
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+
+                    BrMobi.map.setCenter(results[0].geometry.location);
+                    $searchField.val(results[0].formatted_address);
+
+                    if (BrMobi.locationMarker) {
+                        BrMobi.locationMarker.setVisible(false);
+                    }
+
+                    BrMobi.locationMarker = new google.maps.Marker({
+                        map: BrMobi.map,
+                        position: results[0].geometry.location
+                    });
+                }
+            });
+        }
     });
 });
