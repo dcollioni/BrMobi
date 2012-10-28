@@ -1,4 +1,3 @@
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Release\BrMobi.Web.csprojResolveAssemblyReference.cache
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\BrMobi.Web.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\BrMobi.Web.pdb
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\BrMobi.ApplicationServices.dll
@@ -16,5 +15,6 @@ D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\BrMobi.Ap
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\BrMobi.Core.pdb
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\BrMobi.Data.pdb
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\EntityFramework.xml
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Release\BrMobi.Web.csprojResolveAssemblyReference.cache
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Release\BrMobi.Web.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Release\BrMobi.Web.pdb
