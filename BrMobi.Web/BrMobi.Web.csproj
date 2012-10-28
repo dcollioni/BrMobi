@@ -92,7 +92,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ASPNETDB.MDF" />
+    <Content Include="App_Data\aspnetdb_log.ldf">
+      <DependentUpon>ASPNETDB.MDF</DependentUpon>
+    </Content>
     <Content Include="Content\ChangePicture.css" />
+    <Content Include="Content\Images\bottom-arrow.png" />
     <Content Include="Content\Images\BrMobi2.png" />
     <Content Include="Content\Images\BrMobi3.png" />
     <Content Include="Content\Images\BrMobi5.png" />
@@ -110,6 +115,7 @@
     <Content Include="Content\Images\rideRequestIcon.png" />
     <Content Include="Content\Images\rideRequestIcon_30x30.png" />
     <Content Include="Content\Images\rs_mobi_60n.png" />
+    <Content Include="Content\Images\up-arrow.png" />
     <Content Include="Content\Map.css" />
     <Content Include="Content\LoggedUser.css" />
     <Content Include="Content\Logon.css" />
@@ -234,14 +240,15 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_Data\BrMobiObjects.yap">
+    <Content Include="App_Data\BrMobiObjects.yap">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <None Include="BrMobi_empty\Apresentação1.pptx" />
     <None Include="BrMobi_empty\fonts\LondonBetween.ttf" />
-    <None Include="Content\Fonts\LondonMM.ttf">
+    <None Include="Content\Fonts\BuxtonSketch.ttf" />
+    <Content Include="Content\Fonts\LondonMM.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
