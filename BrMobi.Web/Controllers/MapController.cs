@@ -55,7 +55,7 @@ namespace BrMobi.Web.Controllers
             var northEast = new LatLng(nLat, nLng);
 
             var markers = mapService.ListMarkers(southWest, northEast);
-            return Json(markers);
+            return Json(markers, JsonRequestBehavior.AllowGet);
         }
 
         public string GetBusInfo(int id)
