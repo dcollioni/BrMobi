@@ -207,8 +207,6 @@
     <Content Include="Scripts\Default\MicrosoftMvcAjax.debug.js" />
     <Content Include="Scripts\Default\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\Default\MicrosoftMvcValidation.debug.js" />
-    <Content Include="Views\Account\ChangePassword.aspx" />
-    <Content Include="Views\Account\ChangePasswordSuccess.aspx" />
     <Content Include="Views\Account\LogOn.aspx" />
     <Content Include="Views\Home\About.aspx" />
     <Content Include="Views\Home\Index.aspx" />
