@@ -1,4 +1,5 @@
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\App_Data\BrMobiObjects.yap
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Content\Fonts\BuxtonSketch.ttf
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Content\Fonts\LondonMM.ttf
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\BrMobi.Web.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\BrMobi.Web.pdb

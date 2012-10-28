@@ -245,7 +245,9 @@
     </Content>
     <None Include="BrMobi_empty\Apresentação1.pptx" />
     <None Include="BrMobi_empty\fonts\LondonBetween.ttf" />
-    <None Include="Content\Fonts\BuxtonSketch.ttf" />
+    <Content Include="Content\Fonts\BuxtonSketch.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Fonts\LondonMM.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
