@@ -7,5 +7,6 @@ namespace BrMobi.Core.RepositoryInterfaces.Map
     {
         void Create(RideOfferMarker rideOfferMarker);
         IList<RideOfferMarker> List(LatLng southWest, LatLng northEast);
+        RideOfferMarker Get(int id);
     }
 }

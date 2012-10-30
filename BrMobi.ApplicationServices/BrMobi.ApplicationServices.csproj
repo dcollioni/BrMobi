@@ -44,9 +44,11 @@
     <Compile Include="BaseService.cs" />
     <Compile Include="Map\BusLineService.cs" />
     <Compile Include="Map\BusMarkerService.cs" />
+    <Compile Include="Map\RideOfferMarkerService.cs" />
     <Compile Include="Map\MapService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceInterfaces\IAccountService.cs" />
+    <Compile Include="ServiceInterfaces\Map\IRideOfferMarkerService.cs" />
     <Compile Include="ServiceInterfaces\Map\IBusLineService.cs" />
     <Compile Include="ServiceInterfaces\Map\IBusMarkerService.cs" />
     <Compile Include="ServiceInterfaces\Map\IMapService.cs" />

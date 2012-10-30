@@ -137,17 +137,17 @@
 
 #mapFilters .button:hover
 {
-    background-color: #d0d6dd;
-    border: 1px solid #b0b6bd;
-    box-shadow: 0px 0px 1px #a0a6ad;
+    background-color: #b0bad0;
+    border: 1px solid #a0aac0;
+    box-shadow: 0px 0px 1px #a0aac0;
 }
 
 #mapFilters .button:active,
 #mapFilters .button.active
 {
-    background-color: #c0c6cd;
-    background-image: -webkit-gradient(linear, 0% 70%, 0% 100%, from(#c0c6cd), color-stop(1, #d0d6dd));
-    background-image: -moz-linear-gradient(top, #d0d6dd 0%, #c0c6cd 40%);
+    background-color: #d0daf0;
+    background-image: -webkit-gradient(linear, 0% 70%, 0% 100%, from(#b0bad0), color-stop(1, #d0daf0));
+    background-image: -moz-linear-gradient(top, #d0daf0 0%, #b0bad0 40%);
     border-color: #90969d;
     box-shadow: 0px 0px 4px #f2f8ff;
 }
@@ -304,13 +304,16 @@
     vertical-align: middle;
 }
 
-.busInfo
+.busInfo,
+.rideOfferInfo
 {
     font-size: 11pt;
 }
 
 .busInfo h3,
-.busInfo h4
+.busInfo h4,
+.rideOfferInfo h3,
+.rideOfferInfo h4
 {
     font-size: 11pt;
     margin: 0px;
@@ -329,7 +332,8 @@
     margin: 2px;
 }
 
-.busInfo .hr
+.busInfo .hr,
+.rideOfferInfo .hr
 {
     background-color: #AAA;
     height: 1px;
@@ -385,4 +389,20 @@
     background-image: -webkit-gradient(linear, 0% 60%, 0% 100%, from(#335588), color-stop(1, #446699));
     background-image: -moz-linear-gradient(bottom, #446699 0%, #335588 40%);
     box-shadow: 0px 0px 5px #888;
+}
+
+.rideOfferInfo .userPicture
+{
+    margin-left: 5px;
+    vertical-align: bottom;
+    /*
+    float: right;
+    position: absolute;
+    top: 45px;
+    right: 10px;*/
+}
+
+.rideOfferInfo .content
+{
+    margin-top: 5px;
 }

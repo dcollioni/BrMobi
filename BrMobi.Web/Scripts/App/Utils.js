@@ -45,4 +45,54 @@
         $('#mapMask').hide();
         $('#maskText').hide();
     };
+
+    BrMobi.onMarkerClick = function (e, marker) {
+        var infoContent;
+
+        switch (marker.type) {
+            case 1:
+                infoContent = getBusInfo(marker.id);
+                break;
+            case 2:
+                infoContent = getRideOfferInfo(marker.id);
+                break;
+        }
+
+        if (BrMobi.infoWindow) {
+            BrMobi.infoWindow.close();
+        }
+
+        BrMobi.infoWindow = new google.maps.InfoWindow({
+            content: infoContent,
+            markerId: marker.id
+        });
+
+        BrMobi.infoWindow.open(BrMobi.map, marker);
+    };
+
+    function getBusInfo(id) {
+        var content;
+
+        $.ajax({
+            type: 'POST',
+            url: 'Map/GetBusInfo/{0}'.format(id),
+            success: function (response) { content = response; },
+            async: false
+        });
+
+        return content;
+    }
+
+    function getRideOfferInfo(id) {
+        var content;
+
+        $.ajax({
+            type: 'POST',
+            url: 'Map/GetRideOfferInfo/{0}'.format(id),
+            success: function (response) { content = response; },
+            async: false
+        });
+
+        return content;
+    }
 })(jQuery);

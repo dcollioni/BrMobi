@@ -89,7 +89,7 @@ namespace BrMobi.Data.Db4o.Map
 
                     if (busMarker != null)
                     {
-                        busLines = busMarker.Lines.ToList();
+                        busLines = busMarker.Lines.OrderBy(l => l.Name).ToList();
                     }
                 }
             }

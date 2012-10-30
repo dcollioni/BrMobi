@@ -57,11 +57,17 @@
                 position: new google.maps.LatLng(BrMobi.actualLat, BrMobi.actualLng),
                 map: BrMobi.map,
                 icon: response.ImagePath,
-                type: type
+                type: type,
+                id: response.Id
             });
 
             BrMobi.markers.push(marker);
             BrMobi.markersId.push(response.Id);
+
+            google.maps.event.addListener(marker, 'click', function (e) {
+                BrMobi.onMarkerClick(e, marker);
+            });
+
             BrMobi.unmask();
         });
     }

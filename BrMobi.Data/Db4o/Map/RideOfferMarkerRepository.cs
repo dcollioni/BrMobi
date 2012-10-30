@@ -37,5 +37,20 @@ namespace BrMobi.Data.Db4o.Map
 
             return markers;
         }
+
+        public RideOfferMarker Get(int id)
+        {
+            RideOfferMarker marker;
+
+            using (var server = Server)
+            {
+                using (var client = server.OpenClient())
+                {
+                    marker = client.Query<RideOfferMarker>(r => r.Id == id).FirstOrDefault();
+                }
+            }
+
+            return marker;
+        }
     }
 }

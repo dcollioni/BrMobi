@@ -93,10 +93,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ASPNETDB.MDF" />
-    <Content Include="App_Data\aspnetdb_log.ldf">
-      <DependentUpon>ASPNETDB.MDF</DependentUpon>
-    </Content>
     <Content Include="Content\ChangePicture.css" />
     <Content Include="Content\Images\bottom-arrow.png" />
     <Content Include="Content\Images\BrMobi2.png" />
@@ -192,7 +188,8 @@
     <Content Include="Scripts\App\Utils.js" />
     <Content Include="Scripts\Default\underscore.js" />
     <Content Include="Views\Account\Access.aspx" />
-    <Content Include="Views\Map\BusInfo.htm" />
+    <Content Include="Views\Map\Templates\BusInfo.htm" />
+    <Content Include="Views\Map\Templates\RideOfferInfo.htm" />
     <Content Include="Views\Map\MapActions.ascx" />
     <Content Include="Views\Map\MapFilters.ascx" />
     <Content Include="Views\Map\MapHeader.ascx" />

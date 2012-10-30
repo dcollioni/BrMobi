@@ -2,6 +2,7 @@
 using BrMobi.ApplicationServices.ServiceInterfaces.Map;
 using BrMobi.Core.Map;
 using BrMobi.Web.Attributes;
+using BrMobi.Core.Enums;
 
 namespace BrMobi.Web.Controllers
 {
@@ -11,14 +12,17 @@ namespace BrMobi.Web.Controllers
         private readonly IMapService mapService;
         private readonly IBusLineService busLineService;
         private readonly IBusMarkerService busMarkerService;
+        private readonly IRideOfferMarkerService rideOfferMarkerService;
 
         public MapController(IMapService mapService,
                              IBusLineService busLineService,
-                             IBusMarkerService busMarkerService)
+                             IBusMarkerService busMarkerService,
+                             IRideOfferMarkerService rideOfferMarkerService)
         {
             this.mapService = mapService;
             this.busLineService = busLineService;
             this.busMarkerService = busMarkerService;
+            this.rideOfferMarkerService = rideOfferMarkerService;
         }
 
         public JsonResult MarkBus(double lat, double lng)
@@ -55,12 +59,12 @@ namespace BrMobi.Web.Controllers
             var northEast = new LatLng(nLat, nLng);
 
             var markers = mapService.ListMarkers(southWest, northEast);
-            return Json(markers, JsonRequestBehavior.AllowGet);
+            return Json(markers);
         }
 
         public string GetBusInfo(int id)
         {
-            var infoTemplate = GetBusInfoTemplate();
+            var infoTemplate = GetMarkerInfoTemplate(MarkerType.Bus);
             var infoContent = busMarkerService.GetBusMarkerInfoDetails(id, infoTemplate);
 
             return infoContent;
@@ -72,6 +76,14 @@ namespace BrMobi.Web.Controllers
             busLine = busLineService.Create(busLine, busMarkerId);
 
             return Json(busLine);
+        }
+
+        public string GetRideOfferInfo(int id)
+        {
+            var infoTemplate = GetMarkerInfoTemplate(MarkerType.RideOffer);
+            var infoContent = rideOfferMarkerService.GetRideOfferMarkerInfoDetails(id, infoTemplate);
+
+            return infoContent;
         }
     }
 }

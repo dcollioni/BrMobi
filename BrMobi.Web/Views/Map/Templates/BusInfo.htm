@@ -1,0 +1,15 @@
+﻿<div class="busInfo">
+    <h3>Linhas nesse ponto de ônibus</h3>
+    <ul>
+        {details}
+    </ul>
+    <div class="hr"></div>
+    <div class="createLineForm">
+        <h4>Adicione uma linha</h4>
+        <form action="Map/CreateBusLine">
+            <input type="text" name="name" placeholder="Nome da linha" />
+            <input type="text" name="url" placeholder="Link para informações" />
+            <input type="submit" name="create" value="Adicionar" />
+        </form>
+    </div>
+</div>

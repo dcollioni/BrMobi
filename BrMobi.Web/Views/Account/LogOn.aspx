@@ -63,6 +63,10 @@
             </form>
         </div>
     </div>
+    <div>
+        <br />
+        Talvez você queira <a href="/Acesso">criar uma conta</a>.
+    </div>
     </center>
 </asp:Content>
 

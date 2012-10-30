@@ -11,8 +11,8 @@
 
     BrMobi.markers = [];
     BrMobi.markersId = [];
-    BrMobi.showBus = true;
-    BrMobi.showRideOffer = false;
+    BrMobi.showBus = false;
+    BrMobi.showRideOffer = true;
     BrMobi.showRideRequest = false;
     BrMobi.showHelp = false;
     BrMobi.infoWindow = null;
@@ -67,6 +67,10 @@
         $.each(BrMobi.markers, function (i, marker) {
             marker.setVisible(false);
         });
+
+        if (BrMobi.infoWindow) {
+            BrMobi.infoWindow.close();
+        }
     }
 
     function showMarkers() {
@@ -117,52 +121,12 @@
                     BrMobi.markersId.push(item.Id);
 
                     google.maps.event.addListener(marker, 'click', function (e) {
-                        onMarkerClick(e, marker);
+                        BrMobi.onMarkerClick(e, marker);
                     });
                 }
             });
 
             showMarkers();
-        });
-    }
-
-    function onMarkerClick(e, marker) {
-        var infoContent;
-
-        switch (marker.type) {
-            case 1:
-                infoContent = getBusInfo(marker.id);
-                break;
-        }
-
-        if (BrMobi.infoWindow) {
-            BrMobi.infoWindow.close();
-        }
-
-        BrMobi.infoWindow = new google.maps.InfoWindow({
-            content: infoContent,
-            markerId: marker.id
-        });
-
-        BrMobi.infoWindow.open(BrMobi.map, marker);
-    }
-
-    function getBusInfo(id) {
-        var content;
-
-        $.ajax({
-            type: 'POST',
-            url: 'Map/GetBusInfo/{0}'.format(id),
-            success: function (response) { content = response; },
-            async: false
-        });
-
-        return content;
-    }
-
-    function loadBusInfo(id) {
-        $.post('Map/GetBusInfo/' + id, {}, function (response) {
-            $('#busInfo').html(response);
         });
     }
 
@@ -177,6 +141,8 @@
         valid = _.all($this.siblings(), function (item) { return $(item).val() !== ''; });
 
         if (valid) {
+            BrMobi.mask($('#mapCanvas'));
+
             $.post($form.attr('action'), {
                 name: $name.val(),
                 url: $url.val(),
@@ -185,10 +151,15 @@
                 $ul.find('.noLines').remove();
                 $ul.append('<li><a href="{0}" target="_blank">{1}</a></li>'.format(response.InfoUrl, response.Name));
                 BrMobi.infoWindow.setContent($ul.parent().parent()[0].innerHTML);
+                BrMobi.unmask();
             });
         }
 
         return false;
+    });
+
+    $('.rideOfferInfo .userName').live('mouseover', function () {
+        $('.rideOfferInfo .userPicture').show();
     });
 
     $('#mapHeader input[name=search]').keypress(function (e) {

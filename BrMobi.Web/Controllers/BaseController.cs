@@ -70,11 +70,27 @@ namespace BrMobi.Web.Controllers
             return new Uri(uri).AbsoluteUri;
         }
 
-        protected string GetBusInfoTemplate()
+        protected string GetMarkerInfoTemplate(MarkerType markerType)
         {
-            var busInfoHtmlPath = WebConfigurationManager.AppSettings["BusInfoHtmlPath"];
+            string infoHtmlPath = string.Empty;
 
-            return ReadHtmlFile(string.Concat("~", busInfoHtmlPath)).ToString();
+            switch (markerType)
+            {
+                case MarkerType.Bus:
+                    infoHtmlPath = WebConfigurationManager.AppSettings["BusInfoHtmlPath"];
+                    break;
+                case MarkerType.RideOffer:
+                    infoHtmlPath = WebConfigurationManager.AppSettings["RideOfferInfoHtmlPath"];
+                    break;
+                case MarkerType.RideRequest:
+                    break;
+                case MarkerType.Help:
+                    break;
+                default:
+                    break;
+            }
+
+            return ReadHtmlFile(string.Concat("~", infoHtmlPath)).ToString();
         }
 
         protected StringBuilder ReadHtmlFile(string htmlFileNameWithPath)
