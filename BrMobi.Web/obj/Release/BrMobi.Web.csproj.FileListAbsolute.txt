@@ -21,3 +21,26 @@ D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\EntityFra
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Release\BrMobi.Web.csprojResolveAssemblyReference.cache
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Release\BrMobi.Web.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Release\BrMobi.Web.pdb
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\App_Data\BrMobiObjects.yap
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\Content\Fonts\BuxtonSketch.ttf
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\Content\Fonts\LondonMM.ttf
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\BrMobi.Web.dll
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\BrMobi.Web.pdb
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\BrMobi.ApplicationServices.dll
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\BrMobi.Core.dll
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\BrMobi.Data.dll
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\Castle.Core.dll
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\Castle.Windsor.dll
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\CommonServiceLocator.WindsorAdapter.dll
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\EntityFramework.dll
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\Microsoft.Practices.ServiceLocation.dll
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\SharpArch.dll
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\Db4objects.Db4o.CS.dll
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\Db4objects.Db4o.dll
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\BrMobi.ApplicationServices.pdb
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\BrMobi.Core.pdb
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\BrMobi.Data.pdb
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\EntityFramework.xml
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\obj\Release\BrMobi.Web.csprojResolveAssemblyReference.cache
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\obj\Release\BrMobi.Web.dll
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\obj\Release\BrMobi.Web.pdb

@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using System.Linq;
 using BrMobi.ApplicationServices.ServiceInterfaces.Map;
 using BrMobi.Core.Map;
 using BrMobi.Web.Attributes;
@@ -59,6 +60,8 @@ namespace BrMobi.Web.Controllers
             var northEast = new LatLng(nLat, nLng);
 
             var markers = mapService.ListMarkers(southWest, northEast);
+            markers.ToList().ForEach(m => m.ImagePath = GetMarkerImage(m.Type));
+
             return Json(markers);
         }
 

@@ -42,7 +42,7 @@ namespace BrMobi.Web.Controllers
             return GetMarkerImage(MarkerType.Help);
         }
 
-        private string GetMarkerImage(MarkerType markerType)
+        protected string GetMarkerImage(MarkerType markerType)
         {
             var rawUri = WebConfigurationManager.AppSettings["RawUri"];
             string imagePath;
