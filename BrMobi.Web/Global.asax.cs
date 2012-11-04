@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using System.Web.Routing;
 using BrMobi.Web.CastleWindsor;
 using BrMobi.Web.Controllers;
@@ -47,6 +48,8 @@ namespace BrMobi.Web
             RegisterRoutes(RouteTable.Routes);
 
             ModelBinders.Binders.Add(typeof(double), new DoubleModelBinder());
+            ModelBinders.Binders.Add(typeof(DateTime), new DateModelBinder());
+            ModelBinders.Binders.Add(typeof(TimeSpan), new TimeModelBinder());
         }
 
         /// <summary>
