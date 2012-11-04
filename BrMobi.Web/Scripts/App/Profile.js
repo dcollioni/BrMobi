@@ -7,7 +7,7 @@
         var $city = $('#profileContent select[name=cityId]');
         $city.children('[value!=0]').remove();
 
-        $.post('Profile/ListCities',
+        $.post('/Profile/ListCities',
             {
                 stateId: stateId
             },

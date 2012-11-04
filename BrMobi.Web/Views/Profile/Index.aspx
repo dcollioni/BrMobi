@@ -81,7 +81,7 @@
            else
            {
         %>
-        <form action="Profile/Update" method="post">
+        <form action="/Profile/Update" method="post">
             <input type="text" name="name" value="<%: user.Name %>" placeholder="Nome" />
 
             <input type="text" name="birthDate" value="<%: user.BirthDate.HasValue ? user.BirthDate.Value.ToString("d", new CultureInfo("pt-BR")) : "" %>" placeholder="Data de nascimento" />
