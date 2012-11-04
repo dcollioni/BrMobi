@@ -49,6 +49,7 @@ namespace BrMobi.Web
 
             ModelBinders.Binders.Add(typeof(double), new DoubleModelBinder());
             ModelBinders.Binders.Add(typeof(DateTime), new DateModelBinder());
+            ModelBinders.Binders.Add(typeof(DateTime?), new DateModelBinder());
             ModelBinders.Binders.Add(typeof(TimeSpan), new TimeModelBinder());
         }
 
