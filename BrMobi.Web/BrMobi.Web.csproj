@@ -87,6 +87,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="CustomModelBinders\TimeModelBinder.cs" />
+    <Compile Include="CustomModelBinders\DateModelBinder.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
