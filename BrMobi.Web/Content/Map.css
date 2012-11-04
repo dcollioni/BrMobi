@@ -51,8 +51,7 @@
     -moz-box-sizing: border-box;
 }
 
-#mapHeader input[type=text]:hover,
-#mapHeader input[type=text]:focus
+#mapHeader input[type=text]:hover, #mapHeader input[type=text]:focus
 {
     border-color: #999;
 }
@@ -128,9 +127,7 @@
     opacity: .8;
 }
 
-#mapFilters .button:hover img,
-#mapFilters .button:active img,
-#mapFilters .button.active img
+#mapFilters .button:hover img, #mapFilters .button:active img, #mapFilters .button.active img
 {
     opacity: 1;
 }
@@ -142,14 +139,13 @@
     box-shadow: 0px 0px 1px #a0aac0;
 }
 
-#mapFilters .button:active,
-#mapFilters .button.active
+#mapFilters .button:active, #mapFilters .button.active
 {
     background-color: #d0daf0;
     background-image: -webkit-gradient(linear, 0% 70%, 0% 100%, from(#b0bad0), color-stop(1, #d0daf0));
-    background-image: -moz-linear-gradient(top, #d0daf0 0%, #b0bad0 40%);
+    background-image: -moz-linear-gradient(top, #b0bad0 30%, #d0daf0 100%);
     border-color: #90969d;
-    box-shadow: 0px 0px 4px #f2f8ff;
+    box-shadow: 0px 0px 20px #f2f8ff inset;
 }
 
 #mapFilters .button.bus img
@@ -252,8 +248,7 @@
     padding: 10px 1px;
 }
 
-#mapActions ul li,
-#mapActions ul li span
+#mapActions ul li, #mapActions ul li span
 {
     -webkit-transition: background-color 300ms;
     -moz-transition: background-color 300ms;
@@ -304,16 +299,12 @@
     vertical-align: middle;
 }
 
-.busInfo,
-.rideOfferInfo
+.busInfo, .rideOfferInfo
 {
     font-size: 11pt;
 }
 
-.busInfo h3,
-.busInfo h4,
-.rideOfferInfo h3,
-.rideOfferInfo h4
+.busInfo h3, .busInfo h4, .rideOfferInfo h3, .rideOfferInfo h4
 {
     font-size: 11pt;
     margin: 0px;
@@ -332,15 +323,14 @@
     margin: 2px;
 }
 
-.busInfo .hr,
-.rideOfferInfo .hr
+.busInfo .hr, .rideOfferInfo .hr
 {
     background-color: #AAA;
     height: 1px;
     margin: 10px 2px;
 }
 
-.busInfo .createLineForm input[type=text]
+.busInfo form input[type=text], .rideOfferInfo form input[type=text]
 {
     border: 1px solid #BBB;
     border-radius: 3px;
@@ -352,12 +342,12 @@
     width: 160px;
 }
 
-.busInfo form input[type=submit]
+.busInfo form input[type=submit], .rideOfferInfo form input[type=submit], .rideOfferInfo input[type=button]
 {
     background-color: #446699;
     font-family: 'London';
     font-size: 10pt;
-	font-weight: bold;
+    font-weight: bold;
     color: #ddd;
     border: 1px solid #3a5a8a;
     border-radius: 5px;
@@ -366,9 +356,8 @@
     letter-spacing: .08em;
     text-shadow: 1px 1px #444;
 }
-            
-.busInfo form input[type=submit]:hover,
-.busInfo form input[type=submit]:focus
+
+.busInfo form input[type=submit]:hover, .busInfo form input[type=submit]:focus, .rideOfferInfo form input[type=submit]:hover, .rideOfferInfo form input[type=submit]:focus, .rideOfferInfo input[type=button]:hover, .rideOfferInfo input[type=button]:focus
 {
     border-color: #204070;
     background-color: #335588;
@@ -376,13 +365,13 @@
     background-image: -moz-linear-gradient(top, #446699 0%, #335588 100%);
     box-shadow: 0px 0px 5px #666;
 }
-            
-.busInfo form input[type=submit]:focus
+
+.busInfo form input[type=submit]:focus, .rideOfferInfo form input[type=submit]:focus, .rideOfferInfo input[type=button]:focus
 {
     border: 1px solid #ddd;
 }
-            
-.busInfo form input[type=submit]:active
+
+.busInfo form input[type=submit]:active, .rideOfferInfo form input[type=submit]:active, .rideOfferInfo input[type=button]:active
 {
     border-color: #204070;
     background-color: #335588;
@@ -391,18 +380,105 @@
     box-shadow: 0px 0px 5px #888;
 }
 
+.rideOfferInfo
+{
+    text-shadow: 1px 1px #EEE;
+}
+
 .rideOfferInfo .userPicture
 {
+    border: 1px solid #ddd;
+    border-radius: 3px;
     margin-left: 5px;
     vertical-align: bottom;
-    /*
-    float: right;
-    position: absolute;
-    top: 45px;
-    right: 10px;*/
+    box-shadow: 0px 0px 6px #BBB;
+    width: 40px;
+    height: 40px;
 }
 
 .rideOfferInfo .content
 {
     margin-top: 5px;
+}
+
+.rideOfferInfo form p
+{
+    margin-bottom: 2px;
+}
+
+.rideOfferInfo form input[type=text]
+{
+    width: 120px;
+}
+
+.rideOfferInfo form input[name=time]
+{
+    width: 90px;
+}
+
+.rideOfferInfo form input[name=destination]
+{
+    width: 300px;
+}
+
+.rideOfferInfo .hitchhike,
+.rideOfferInfo .undoHitchhike
+{
+    float: right;
+    width: 80px;
+}
+
+.rideOfferInfo .undoHitchhike
+{
+    background-color: #888 !important;
+    font-family: 'London';
+    font-size: 10pt;
+    font-weight: bold;
+    color: #eee !important;
+    border: 1px solid #777 !important;
+    border-radius: 5px;
+    outline: none;
+    padding: 4px;
+    width: 80px;
+    letter-spacing: .08em;
+    text-shadow: 1px 1px #444;
+}
+
+.rideOfferInfo .undoHitchhike:hover, .rideOfferInfo .undoHitchhike:focus
+{
+    border-color: #555 !important;
+    background-color: #666 !important;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#777), color-stop(1, #666)) !important;
+    background-image: -moz-linear-gradient(top, #777 0%, #666 100%) !important;
+    box-shadow: 0px 0px 5px #666 !important;
+}
+
+.rideOfferInfo .undoHitchhike:focus
+{
+    border: 1px solid #ddd !important;
+}
+
+.rideOfferInfo .undoHitchhike:active
+{
+    border-color: #555 !important;
+    background-color: #666 !important;
+    background-image: -webkit-gradient(linear, 0% 60%, 0% 100%, from(#666), color-stop(1, #777)) !important;
+    background-image: -moz-linear-gradient(bottom, #777 0%, #666 40%) !important;
+    box-shadow: 0px 0px 5px #888 !important;
+}
+
+.rideOfferInfo .hitchhikers img
+{
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: 0px 0px 6px #BBB;
+    margin: 6px 3px 3px 3px;
+    height: 40px;
+    width: 40px;
+    vertical-align: bottom;
+}
+
+.rideOfferInfo
+{
+    min-width: 235px;
 }

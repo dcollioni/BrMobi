@@ -1,5 +1,5 @@
 ﻿$(function () {
-    $('#loggedUser .picture').click(function (e) {
+    $('#profileContent .changePicture').click(function (e) {
         $('#changePicture input[type=text], #changePicture input[type=file]').val('');
         $('#changePicture').fadeToggle(200);
         e.stopPropagation();

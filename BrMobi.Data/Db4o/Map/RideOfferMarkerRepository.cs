@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BrMobi.Core;
 using BrMobi.Core.Map;
@@ -22,7 +23,7 @@ namespace BrMobi.Data.Db4o.Map
             }
         }
 
-        public IList<RideOfferMarker> List(LatLng southWest, LatLng northEast)
+        public IList<RideOfferMarker> List(LatLng southWest, LatLng northEast, User loggedUser)
         {
             var markers = new List<RideOfferMarker>();
 
@@ -30,8 +31,13 @@ namespace BrMobi.Data.Db4o.Map
             {
                 using (var client = server.OpenClient())
                 {
-                    markers = client.Query<RideOfferMarker>(m => southWest.Lat() <= m.Lat && m.Lat <= northEast.Lat()
-                                                        && southWest.Lng() <= m.Lng && m.Lng <= northEast.Lng()).ToList();
+                    markers = client.Query<RideOfferMarker>(m => southWest.Lat() <= m.Lat && m.Lat <= northEast.Lat() &&
+                                                                 southWest.Lng() <= m.Lng && m.Lng <= northEast.Lng() &&
+                                                                 (
+                                                                    (m.Owner.Email == loggedUser.Email) ||
+                                                                    (m.Destination != null && m.DateTime >= DateTime.Now)
+                                                                 ))
+                                                                 .ToList();
                 }
             }
 
@@ -47,6 +53,72 @@ namespace BrMobi.Data.Db4o.Map
                 using (var client = server.OpenClient())
                 {
                     marker = client.Query<RideOfferMarker>(r => r.Id == id).FirstOrDefault();
+                }
+            }
+
+            return marker;
+        }
+
+        public RideOfferMarker Update(DateTime dateTime, string destination, int id)
+        {
+            RideOfferMarker marker;
+
+            using (var server = Server)
+            {
+                using (var client = server.OpenClient())
+                {
+                    marker = client.Query<RideOfferMarker>(r => r.Id == id).FirstOrDefault();
+                    marker.DateTime = dateTime;
+                    marker.Destination = destination;
+                    client.Store(marker);
+                }
+            }
+
+            return marker;
+        }
+
+        public RideOfferMarker AddHitchhiker(int rideOfferId, int hitchhikerId)
+        {
+            RideOfferMarker marker = null;
+
+            using (var server = Server)
+            {
+                using (var client = server.OpenClient())
+                {
+                    marker = client.Query<RideOfferMarker>(m => m.Id == rideOfferId).SingleOrDefault();
+
+                    var hitchhiker = client.Query<User>(h => h.Id == hitchhikerId).SingleOrDefault();
+
+                    var hitchhikers = new List<User>();
+                    hitchhikers.AddRange(marker.Hitchhikers);
+                    hitchhikers.Add(hitchhiker);
+
+                    marker.Hitchhikers = hitchhikers;
+                    client.Store(marker);
+                }
+            }
+
+            return marker;
+        }
+
+        public RideOfferMarker RemoveHitchhiker(int rideOfferId, int hitchhikerId)
+        {
+            RideOfferMarker marker = null;
+
+            using (var server = Server)
+            {
+                using (var client = server.OpenClient())
+                {
+                    marker = client.Query<RideOfferMarker>(m => m.Id == rideOfferId).SingleOrDefault();
+
+                    var hitchhiker = client.Query<User>(h => h.Id == hitchhikerId).SingleOrDefault();
+
+                    var hitchhikers = new List<User>();
+                    hitchhikers.AddRange(marker.Hitchhikers);
+                    hitchhikers.Remove(hitchhiker);
+
+                    marker.Hitchhikers = hitchhikers;
+                    client.Store(marker);
                 }
             }
 

@@ -17,6 +17,8 @@
     BrMobi.showHelp = false;
     BrMobi.infoWindow = null;
     BrMobi.locationMarker = null;
+    BrMobi.directionsService = new google.maps.DirectionsService();
+    BrMobi.directionsDisplay = new google.maps.DirectionsRenderer();
 
     var timer;
     var delay = (function () {
@@ -134,7 +136,6 @@
         var valid = true;
         var $this = $(this);
         var $form = $this.parent();
-        var $ul = $form.parent().parent().find('ul');
         var $name = $form.find('input[name=name]');
         var $url = $form.find('input[name=url]');
 
@@ -148,9 +149,7 @@
                 url: $url.val(),
                 busMarkerId: BrMobi.infoWindow.markerId
             }, function (response) {
-                $ul.find('.noLines').remove();
-                $ul.append('<li><a href="{0}" target="_blank">{1}</a></li>'.format(response.InfoUrl, response.Name));
-                BrMobi.infoWindow.setContent($ul.parent().parent()[0].innerHTML);
+                BrMobi.refreshInfoWindow();
                 BrMobi.unmask();
             });
         }
@@ -185,5 +184,80 @@
                 }
             });
         }
+    });
+
+    $('.rideOfferInfo input[name=date]').live('focus', function () { $(this).mask('99/99/9999'); });
+    $('.rideOfferInfo input[name=time]').live('focus', function () { $(this).mask('99:99'); });
+
+    $('.rideOfferInfo form input[type=submit]').live('click', function () {
+        var valid = true;
+        var $this = $(this);
+        var $form = $this.parent();
+        var date = $form.find('input[name=date]').val();
+        var time = $form.find('input[name=time]').val();
+        var destination = $form.find('input[name=destination]').val();
+
+        valid = _.all($this.siblings('input'), function (item) { return $(item).val() !== ''; });
+
+        if (valid) {
+            BrMobi.mask($('#mapCanvas'));
+
+            $.post($form.attr('action'), {
+                date: date,
+                time: time,
+                destination: destination,
+                markerId: BrMobi.infoWindow.markerId
+            }, function (response) {
+                BrMobi.unmask();
+            });
+        }
+
+        return false;
+    });
+
+    $('.rideOfferInfo a.destination').live('click', function () {
+        var start = BrMobi.infoWindow.position;
+        var end = $(this).text();
+
+        var request = {
+            origin: start,
+            destination: end,
+            travelMode: google.maps.DirectionsTravelMode.DRIVING
+        };
+
+        BrMobi.directionsService.route(request, function (response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                BrMobi.directionsDisplay.setMap(BrMobi.map);
+                BrMobi.directionsDisplay.setDirections(response);
+            }
+        });
+    });
+
+    $('.rideOfferInfo .hitchhike').live('click', function () {
+        BrMobi.mask($('#mapCanvas'));
+
+        $.post('Map/AddHitchhiker',
+            {
+                markerId: BrMobi.infoWindow.markerId
+            },
+            function (response) {
+                BrMobi.refreshInfoWindow();
+                BrMobi.unmask();
+            }
+        );
+    });
+
+    $('.rideOfferInfo .undoHitchhike').live('click', function () {
+        BrMobi.mask($('#mapCanvas'));
+
+        $.post('Map/RemoveHitchhiker',
+            {
+                markerId: BrMobi.infoWindow.markerId
+            },
+            function (response) {
+                BrMobi.refreshInfoWindow();
+                BrMobi.unmask();
+            }
+        );
     });
 });

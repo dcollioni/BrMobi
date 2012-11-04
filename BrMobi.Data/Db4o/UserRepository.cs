@@ -75,8 +75,52 @@ namespace BrMobi.Data.Db4o
             {
                 using (var client = server.OpenClient())
                 {
-                    user = client.Query<User>(u => u.Email == entity.Email).SingleOrDefault();
+                    user = client.Query<User>(u => u.Id == entity.Id).SingleOrDefault();
+
+                    if (entity.City != null)
+                    {
+                        entity.City = client.Query<City>(c => c.Id == entity.City.Id).SingleOrDefault();
+                    }
+
+                    user.BirthDate = entity.BirthDate;
+                    user.City = entity.City;
+                    user.FacebookLink = entity.FacebookLink;
+                    user.Gender = entity.Gender;
+                    user.Name = entity.Name;
+
+                    client.Store(user);
+                }
+            }
+
+            return user;
+        }
+
+        public User Get(int id)
+        {
+            User user = null;
+
+            using (var server = Server)
+            {
+                using (var client = server.OpenClient())
+                {
+                    user = client.Query<User>(u => u.Id == id).SingleOrDefault();
+                }
+            }
+
+            return user;
+        }
+
+        public User ChangePicture(User entity)
+        {
+            User user = entity;
+
+            using (var server = Server)
+            {
+                using (var client = server.OpenClient())
+                {
+                    user = client.Query<User>(u => u.Id == entity.Id).SingleOrDefault();
                     user.Picture = entity.Picture;
+
                     client.Store(user);
                 }
             }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using BrMobi.ApplicationServices.ServiceInterfaces.Map;
+using BrMobi.Core;
 using BrMobi.Core.Enums;
 using BrMobi.Core.Map;
 using BrMobi.Core.RepositoryInterfaces.Map;
@@ -49,12 +50,12 @@ namespace BrMobi.ApplicationServices.Map
             return helpMarker;
         }
 
-        public IList<MarkerViewModel> ListMarkers(LatLng southWest, LatLng northEast)
+        public IList<MarkerViewModel> ListMarkers(LatLng southWest, LatLng northEast, User loggedUser)
         {
             var markers = new List<MarkerViewModel>();
 
             var busMarkers = busMarkerRepository.List(southWest, northEast);
-            var rideOfferMarkers = rideOfferMarkerRepository.List(southWest, northEast);
+            var rideOfferMarkers = rideOfferMarkerRepository.List(southWest, northEast, loggedUser);
             var rideRequestMarkers = rideRequestMarkerRepository.List(southWest, northEast);
             var helpMarkers = helpMarkerRepository.List(southWest, northEast);
 

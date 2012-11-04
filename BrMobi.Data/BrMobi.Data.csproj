@@ -47,11 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Db4o\Base\BaseRepository.cs" />
+    <Compile Include="Db4o\CityRepository.cs" />
     <Compile Include="Db4o\Map\BusLineRepository.cs" />
     <Compile Include="Db4o\Map\BusMarkerRepository.cs" />
     <Compile Include="Db4o\Map\HelpMarkerRepository.cs" />
     <Compile Include="Db4o\Map\RideRequestMarkerRepository.cs" />
     <Compile Include="Db4o\Map\RideOfferMarkerRepository.cs" />
+    <Compile Include="Db4o\StateRepository.cs" />
     <Compile Include="Db4o\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -55,7 +55,7 @@ namespace BrMobi.Service.ApplicationServices
 
         public User ChangePicture(User user)
         {
-            return userRepository.Update(user);
+            return userRepository.ChangePicture(user);
         }
 
         /// <summary>
@@ -80,6 +80,16 @@ namespace BrMobi.Service.ApplicationServices
             }
 
             return errors.Count == 0;
+        }
+
+        public User GetUser(int id)
+        {
+            return userRepository.Get(id);
+        }
+
+        public User UpdateUser(User user)
+        {
+            return userRepository.Update(user);
         }
     }
 }

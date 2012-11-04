@@ -7,6 +7,7 @@ namespace BrMobi.Core.RepositoryInterfaces
         IList<User> List();
         User Create(User entity);
         User Update(User entity);
+        User ChangePicture(User entity);
         int CountByEmail(string email);
 
         /// <summary>
@@ -16,5 +17,7 @@ namespace BrMobi.Core.RepositoryInterfaces
         /// <param name="password">The password.</param>
         /// <returns>The user.</returns>
         User Get(string email, string password);
+
+        User Get(int id);
     }
 }

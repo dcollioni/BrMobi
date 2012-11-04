@@ -1,9 +1,10 @@
-﻿using System.Web.Mvc;
-using System.Linq;
+﻿using System.Linq;
+using System.Web.Mvc;
 using BrMobi.ApplicationServices.ServiceInterfaces.Map;
+using BrMobi.Core.Enums;
 using BrMobi.Core.Map;
 using BrMobi.Web.Attributes;
-using BrMobi.Core.Enums;
+using System;
 
 namespace BrMobi.Web.Controllers
 {
@@ -59,7 +60,7 @@ namespace BrMobi.Web.Controllers
             var southWest = new LatLng(sLat, sLng);
             var northEast = new LatLng(nLat, nLng);
 
-            var markers = mapService.ListMarkers(southWest, northEast);
+            var markers = mapService.ListMarkers(southWest, northEast, LoggedUser);
             markers.ToList().ForEach(m => m.ImagePath = GetMarkerImage(m.Type));
 
             return Json(markers);
@@ -84,9 +85,31 @@ namespace BrMobi.Web.Controllers
         public string GetRideOfferInfo(int id)
         {
             var infoTemplate = GetMarkerInfoTemplate(MarkerType.RideOffer);
-            var infoContent = rideOfferMarkerService.GetRideOfferMarkerInfoDetails(id, infoTemplate);
+            var infoContent = rideOfferMarkerService.GetRideOfferMarkerInfoDetails(id, infoTemplate, LoggedUser);
 
             return infoContent;
+        }
+
+        public JsonResult UpdateRideOffer(DateTime date, TimeSpan time, string destination, int markerId)
+        {
+            var dateTime = date.Add(time);
+            var marker = rideOfferMarkerService.Update(dateTime, destination, markerId, LoggedUser);
+
+            return Json(marker);
+        }
+
+        public JsonResult AddHitchhiker(int markerId)
+        {
+            var marker = rideOfferMarkerService.AddHitchhiker(markerId, LoggedUser.Id);
+
+            return Json(marker);
+        }
+
+        public JsonResult RemoveHitchhiker(int markerId)
+        {
+            var marker = rideOfferMarkerService.RemoveHitchhiker(markerId, LoggedUser.Id);
+
+            return Json(marker);
         }
     }
 }

@@ -83,8 +83,10 @@
     <Compile Include="CastleWindsor\ComponentRegistrar.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MapController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -94,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\ChangePicture.css" />
+    <Content Include="Content\Profile.css" />
     <Content Include="Content\Images\bottom-arrow.png" />
     <Content Include="Content\Images\BrMobi2.png" />
     <Content Include="Content\Images\BrMobi3.png" />
@@ -171,13 +174,14 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\App\ChangePicture.js" />
     <Content Include="Scripts\App\Map.js" />
-    <Content Include="Scripts\App\LoggedUser.js" />
     <Content Include="Scripts\App\Logon.js" />
+    <Content Include="Scripts\App\Profile.js" />
     <Content Include="Scripts\Default\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\Default\jquery-1.5.1.js" />
     <Content Include="Scripts\Default\jquery-1.5.1.min.js" />
     <Content Include="Scripts\Default\jquery-ui-1.8.11.js" />
     <Content Include="Scripts\Default\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\Default\jquery.maskedinput-1.3.min.js" />
     <Content Include="Scripts\Default\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\Default\jquery.validate.js" />
     <Content Include="Scripts\Default\jquery.validate.min.js" />
@@ -193,6 +197,7 @@
     <Content Include="Views\Map\MapActions.ascx" />
     <Content Include="Views\Map\MapFilters.ascx" />
     <Content Include="Views\Map\MapHeader.ascx" />
+    <Content Include="Views\Profile\Index.aspx" />
     <Content Include="Views\Shared\ChangePicture.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

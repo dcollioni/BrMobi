@@ -215,7 +215,7 @@ namespace BrMobi.Web.Controllers
                 }
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Profile");
         }
 
         #region Status Codes

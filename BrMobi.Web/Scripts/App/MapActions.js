@@ -34,18 +34,30 @@
             case 'bus':
                 url = 'MarkBus';
                 type = 1;
+                if (!BrMobi.showBus) {
+                    $('#mapFilters .bus').click();
+                }
                 break;
             case 'rideOffer':
                 url = 'MarkRideOffer';
                 type = 2;
+                if (!BrMobi.showRideOffer) {
+                    $('#mapFilters .rideOffer').click();
+                }
                 break;
             case 'rideRequest':
                 url = 'MarkRideRequest';
                 type = 3;
+                if (!BrMobi.showRideRequest) {
+                    $('#mapFilters .rideRequest').click();
+                }
                 break;
             case 'help':
                 url = 'MarkHelp';
                 type = 4;
+                if (!BrMobi.showHelp) {
+                    $('#mapFilters .help').click();
+                }
                 break;
         }
 
@@ -53,6 +65,8 @@
         BrMobi.mask($('#mapCanvas'));
 
         $.post('Map/' + url, param, function (response) {
+            BrMobi.unmask();
+            
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(BrMobi.actualLat, BrMobi.actualLng),
                 map: BrMobi.map,
@@ -68,7 +82,7 @@
                 BrMobi.onMarkerClick(e, marker);
             });
 
-            BrMobi.unmask();
+            BrMobi.onMarkerClick(null, marker);
         });
     }
 });

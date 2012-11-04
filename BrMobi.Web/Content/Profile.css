@@ -1,0 +1,242 @@
+﻿#profileContent .userPicture
+{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #ccc;
+    float: left;
+    height: 170px;
+    position: absolute;
+    width: 170px;
+}
+
+#profileContent .changePicture
+{
+    cursor: pointer;
+}
+
+#profileContent .mainInfo
+{
+    box-sizing: border-box;
+    font-size: 12pt;
+    height: 150px;
+    margin: 0;
+    padding-left: 190px;
+    width: 60%;
+}
+
+#profileContent .mainInfo p
+{
+    margin: 4px 2px;
+}
+
+#profileContent .mainInfo a
+{
+    vertical-align: bottom;
+}
+
+#profileContent .mainInfo h1
+{
+    font-size: 14pt;
+    padding-top: 10px;
+    text-shadow: 1px 1px #ccc;
+}
+
+#profileContent .relationship
+{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #ccc;
+    background-color: #e8e8e8;
+    height: 242px;
+    margin-top: 105px;
+    text-align: center;
+    width: 60%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+#profileContent .relationship h2,
+#profileContent .messagesPanel h2
+{
+    background-color: #e2e2e2;
+    box-shadow: 0px 0px 5px #ccc;
+    font-size: 12pt;
+    margin: 0px 0px 10px 0px;
+    padding: 8px;
+    text-shadow: 1px 1px #ccc;
+    text-align: center;
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+#profileContent .relationship .relationshipPicture
+{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #ccc;
+    height: 80px;
+    margin: 5px;
+    width: 80px;
+}
+
+#profileContent .messagesPanel
+{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #e8e8e8;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 5px #ccc;
+    float: right;
+    height: 500px;
+    margin: 130px 50px 10px 150px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 35%;
+}
+
+#profileContent .messagesPanel .list
+{
+    height: 395px;
+    overflow: auto;
+}
+
+#profileContent .messagesPanel .item
+{
+    background-color: #eee;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    box-shadow: 0px 0px 4px #ddd;
+    min-height: 50px;
+    margin-bottom: 2px;
+}
+
+#profileContent .messagesPanel .item img
+{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #ccc;
+    float: left;
+    height: 40px;
+    margin: 5px;
+    width: 40px;
+}
+
+#profileContent .messagesPanel .item p
+{
+    font-size: 11pt;
+    margin: 9px 0px 9px 55px;
+}
+
+#profileContent .messagesPanel .item p.date
+{
+    font-size: 9pt;
+    margin: -5px 5px 2px 0px;
+    text-align: right;
+}
+
+#profileContent .messagesPanel .post
+{
+    box-sizing: border-box;
+    margin: 5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+#profileContent .messagesPanel .post textarea
+{
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'London';
+    font-size: 11pt;
+    outline: none;
+    padding: 8px;
+    resize: none;
+    width: 100%;
+}
+
+#profileContent form input,
+#profileContent form select
+{
+    display: block;
+}
+
+#profileContent form input[type=text],
+#profileContent form select
+{
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    font-family: 'London';
+    font-size: 11pt;
+    margin: 10px;
+    padding: 5px;
+    width: 300px;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+#profileContent form select
+{
+    display: inline;
+    margin: 10px 10px 0px 10px;
+}
+
+#profileContent form select[name=stateId]
+{
+    width: 100px;
+}
+
+#profileContent form input[type=radio]
+{
+    display: inline;
+    margin: 10px 2px 10px 10px;
+}
+
+#profileContent form input[type=submit]
+{
+    background-color: #446699;
+    font-family: 'London', 'Tahoma', 'Arial', 'Maiandra GD', sans-serif;
+    font-size: 11pt;
+	font-weight: bold;
+    color: #ddd;
+    border: 1px solid #3a5a8a;
+    border-radius: 5px;
+    margin: 10px;
+    outline: none;
+    padding: 5px;
+    width: 90px;
+    letter-spacing: .08em;
+    text-shadow: 1px 1px #444;
+}
+            
+#profileContent form input[type=submit]:hover,
+#profileContent form input[type=submit]:focus
+{
+    border-color: #204070;
+    background-color: #335588;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#446699), color-stop(1, #335588));
+    background-image: -moz-linear-gradient(top, #446699 0%, #335588 100%);
+                
+    box-shadow: 0px 0px 5px #666;
+}
+            
+#profileContent form input[type=submit]:focus
+{
+    border: 1px solid #ddd;
+}
+            
+#profileContent form input[type=submit]:active
+{
+    border-color: #204070;
+    background-color: #335588;
+    background-image: -webkit-gradient(linear, 0% 60%, 0% 100%, from(#335588), color-stop(1, #446699));
+    background-image: -moz-linear-gradient(bottom, #446699 0%, #335588 40%);
+    box-shadow: 0px 0px 5px #888;
+}

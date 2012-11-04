@@ -8,7 +8,7 @@
         var picture = !string.IsNullOrEmpty(user.Picture) ? string.Format("data:image/jpg;base64,{0}", user.Picture) : "Content/Images/person.png";
 %>
     <div id="loggedUser">
-        <img class="picture" src="<%: picture %>" alt="Foto" title="Alterar imagem" />
+        <a href="/Perfil"><img class="picture" src="<%: picture %>" alt="Foto" title="Ver perfil" /></a>
         <span class="name">
             <%: user.Name %>
         </span>

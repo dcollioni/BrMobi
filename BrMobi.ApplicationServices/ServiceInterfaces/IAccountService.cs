@@ -37,5 +37,19 @@ namespace BrMobi.ApplicationServices.ServiceInterfaces
         /// <param name="user">The user.</param>
         /// <returns>The updated user.</returns>
         User ChangePicture(User user);
+
+        /// <summary>
+        /// Gets the user by its id.
+        /// </summary>
+        /// <param name="id">The user id.</param>
+        /// <returns>The user.</returns>
+        User GetUser(int id);
+
+        /// <summary>
+        /// Updates the user.
+        /// </summary>
+        /// <param name="user">The user with data to update.</param>
+        /// <returns>The updated user.</returns>
+        User UpdateUser(User user);
     }
 }

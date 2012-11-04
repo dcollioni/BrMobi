@@ -64,10 +64,20 @@
 
         BrMobi.infoWindow = new google.maps.InfoWindow({
             content: infoContent,
-            markerId: marker.id
+            position: marker.getPosition(),
+            markerId: marker.id,
+            marker: marker
         });
 
         BrMobi.infoWindow.open(BrMobi.map, marker);
+        
+        BrMobi.directionsDisplay.setMap(null);
+    };
+
+    BrMobi.refreshInfoWindow = function () {
+        if (BrMobi.infoWindow) {
+            BrMobi.onMarkerClick(null, BrMobi.infoWindow.marker);
+        }
     };
 
     function getBusInfo(id) {
