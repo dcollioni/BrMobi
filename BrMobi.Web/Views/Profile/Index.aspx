@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage" %>
 <%@ Import Namespace="BrMobi.Core" %>
 <%@ Import Namespace="BrMobi.Core.ViewModels" %>
+<%@ Import Namespace="System.Globalization" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     BrMobi
@@ -81,7 +82,7 @@
         <form action="Profile/Update" method="post">
             <input type="text" name="name" value="<%: user.Name %>" placeholder="Nome" />
 
-            <input type="text" name="birthDate" value="<%: user.BirthDate.HasValue ? user.BirthDate.Value.ToString("d") : "" %>" placeholder="Data de nascimento" />
+            <input type="text" name="birthDate" value="<%: user.BirthDate.HasValue ? user.BirthDate.Value.ToString("d", new CultureInfo("pt-BR")) : "" %>" placeholder="Data de nascimento" />
             
             <label><input type="radio" name="gender" value="1" <%: user.Gender == "Masculino" ? "checked" : "" %> /> Masculino</label>
             <label><input type="radio" name="gender" value="2" <%: user.Gender == "Feminino" ? "checked" : "" %> /> Feminino</label>
