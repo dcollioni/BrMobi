@@ -53,6 +53,7 @@
     <Compile Include="Db4o\Map\HelpMarkerRepository.cs" />
     <Compile Include="Db4o\Map\RideRequestMarkerRepository.cs" />
     <Compile Include="Db4o\Map\RideOfferMarkerRepository.cs" />
+    <Compile Include="Db4o\MessageRepository.cs" />
     <Compile Include="Db4o\StateRepository.cs" />
     <Compile Include="Db4o\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

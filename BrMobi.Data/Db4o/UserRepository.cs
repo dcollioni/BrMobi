@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using BrMobi.Core;
+using BrMobi.Core.Map;
 using BrMobi.Core.RepositoryInterfaces;
 using BrMobi.Data.Db4o.Base;
 
@@ -126,6 +127,48 @@ namespace BrMobi.Data.Db4o
             }
 
             return user;
+        }
+
+        public IList<User> GetRelationship(int id)
+        {
+            var users = new List<User>();
+
+            using (var server = Server)
+            {
+                using (var client = server.OpenClient())
+                {
+                    var messages = client.Query<Message>(m => m.From.Id == id || m.To.Id == id).OrderByDescending(m => m.CreatedOn).ToList();
+                    var rideOffers = client.Query<RideOfferMarker>(r => r.Owner.Id == id || r.Hitchhikers.Any(h => h.Id == id)).OrderByDescending(m => m.DateTime).ToList();
+
+                    foreach (var message in messages)
+                    {
+                        if (message.From.Id != id)
+                        {
+                            users.Add(message.From);
+                        }
+                        else if (message.To.Id != id)
+                        {
+                            users.Add(message.To);
+                        }
+                    }
+
+                    foreach (var rideOffer in rideOffers)
+                    {
+                        if (rideOffer.Owner.Id != id)
+                        {
+                            users.Add(rideOffer.Owner);
+                        }
+                        else
+                        {
+                            users.AddRange(rideOffer.Hitchhikers);
+                        }
+                    }
+
+                    users = users.Distinct().Take(14).ToList();
+                }
+            }
+
+            return users;
         }
     }
 }

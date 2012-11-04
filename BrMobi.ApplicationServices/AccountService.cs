@@ -91,5 +91,10 @@ namespace BrMobi.Service.ApplicationServices
         {
             return userRepository.Update(user);
         }
+
+        public IList<User> GetRelationship(int id)
+        {
+            return userRepository.GetRelationship(id);
+        }
     }
 }

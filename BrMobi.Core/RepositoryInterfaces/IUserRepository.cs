@@ -19,5 +19,6 @@ namespace BrMobi.Core.RepositoryInterfaces
         User Get(string email, string password);
 
         User Get(int id);
+        IList<User> GetRelationship(int id);
     }
 }

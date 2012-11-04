@@ -14,14 +14,17 @@ namespace BrMobi.Web.Controllers
         private readonly IAccountService accountService;
         private readonly IStateService stateService;
         private readonly ICityService cityService;
+        private readonly IMessageService messageService;
 
         public ProfileController(IAccountService accountService,
                                  IStateService stateService,
-                                 ICityService cityService)
+                                 ICityService cityService,
+                                 IMessageService messageService)
         {
             this.accountService = accountService;
             this.stateService = stateService;
             this.cityService = cityService;
+            this.messageService = messageService;
         }
 
         public ActionResult Index(int? id)
@@ -37,6 +40,9 @@ namespace BrMobi.Web.Controllers
             {
                 ViewBag.Cities = cityService.ListAll(user.City.State.Id);
             }
+
+            ViewBag.Messages = messageService.ListReceived(id.Value);
+            ViewBag.Relationship = accountService.GetRelationship(id.Value);
 
             return View();
         }

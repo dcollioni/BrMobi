@@ -100,7 +100,7 @@
 
 #profileContent .messagesPanel .list
 {
-    height: 395px;
+    height: 375px;
     overflow: auto;
 }
 
@@ -136,6 +136,47 @@
     font-size: 9pt;
     margin: -5px 5px 2px 0px;
     text-align: right;
+}
+
+#profileContent .messagesPanel .item p.date .remove
+{
+    background-color: #888 !important;
+    font-family: 'London';
+    font-size: 9pt;
+    font-weight: bold;
+    color: #eee !important;
+    border: 1px solid #777 !important;
+    border-radius: 5px;
+    margin-left: 10px;
+    outline: none;
+    padding: 2px;
+    width: 50px;
+    letter-spacing: .08em;
+    text-shadow: 1px 1px #444;
+}
+
+#profileContent .messagesPanel .item p.date .remove:hover,
+#profileContent .messagesPanel .item p.date .remove:focus
+{
+    border-color: #555 !important;
+    background-color: #666 !important;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#777), color-stop(1, #666)) !important;
+    background-image: -moz-linear-gradient(top, #777 0%, #666 100%) !important;
+    box-shadow: 0px 0px 5px #666 !important;
+}
+
+#profileContent .messagesPanel .item p.date .remove:focus
+{
+    border: 1px solid #ddd !important;
+}
+
+#profileContent .messagesPanel .item p.date .remove:active
+{
+    border-color: #555 !important;
+    background-color: #666 !important;
+    background-image: -webkit-gradient(linear, 0% 60%, 0% 100%, from(#666), color-stop(1, #777)) !important;
+    background-image: -moz-linear-gradient(bottom, #777 0%, #666 40%) !important;
+    box-shadow: 0px 0px 5px #888 !important;
 }
 
 #profileContent .messagesPanel .post

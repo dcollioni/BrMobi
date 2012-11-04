@@ -23,6 +23,8 @@
 
     %>
 
+    <input type="hidden" name="userId" value="<%: user.Id %>" />
+
     <div class="picture">
         <% if (loggedUser.Id != user.Id)
            {
@@ -133,45 +135,50 @@
             <textarea name="message" rows="2" cols="50" placeholder="Deixe sua mensagem (ctrl + Enter para enviar)"></textarea>
         </div>
         <div class="list">
-            <div class="item">
-                <a href="/Perfil/{id}"><img src="data:image/jpg;base64,<%: loggedUser.Picture %>" alt="Imagem do usuário" title="Douglas Collioni" /></a>
-                <p>Olá, obrigado pela carona! Me quebrou um galho! Abraços. Virou um grande amigo. Você é o cara, muito prestativo e simpático.</p>
-                <p class="date">02/11/2012 11:15</p>
-            </div>
-            <div class="item">
-                <a href="/Perfil/{id}"><img src="data:image/jpg;base64,<%: loggedUser.Picture %>" alt="Imagem do usuário" title="Douglas Collioni" /></a>
-                <p>mmmmmm mmmmmmmm mmmmm mmmm mmmmm mmm mmmmmmm mmmmmm mmmmm mmmmmmmmmmm mmmmm mmmmm mmm mmm mmmm mmmm mmmmm mmmmm mmm mmm mmmm</p>
-                <p class="date">02/11/2012 09:37</p>
-            </div>
-            <div class="item">
-                <a href="/Perfil/{id}"><img src="data:image/jpg;base64,<%: loggedUser.Picture %>" alt="Imagem do usuário" title="Douglas Collioni" /></a>
-                <p>Olá, obrigado pela carona! Me quebrou um galho! Abraços. Virou um grande amigo. Você é o cara, muito prestativo e simpático.</p>
-                <p class="date">31/10/2012 17:56</p>
-            </div>
-            <div class="item">
-                <a href="/Perfil/{id}"><img src="data:image/jpg;base64,<%: loggedUser.Picture %>" alt="Imagem do usuário" title="Douglas Collioni" /></a>
-            </div>
-            <div class="item">
-                <a href="/Perfil/{id}"><img src="data:image/jpg;base64,<%: loggedUser.Picture %>" alt="Imagem do usuário" title="Douglas Collioni" /></a>
-            </div>
+            <%
+            var messages = ViewBag.Messages as IList<Message>;
+
+            foreach (var message in messages)
+            {
+                %>
+                <div class="item">
+                    <input type="hidden" name="messageId" value="<%: message.Id %>" />
+                    <a href="/Perfil/<%: message.From.Id %>"><img src="data:image/jpg;base64,<%: message.From.Picture %>" alt="Imagem do usuário" title="<%: message.From.Name %>" /></a>
+                    <p><%: message.Text %></p>
+                    <p class="date">
+                        <%--<a href="javascript:;" class="remove">Excluir</a>--%>
+                        <%: message.CreatedOn.ToString("d", new CultureInfo("pt-BR")) %> <%: message.CreatedOn.ToString("t", new CultureInfo("pt-BR")) %>
+
+                        <% if (loggedUser.Id == message.From.Id || loggedUser.Id == message.To.Id)
+                           { %>
+                            <input type="button" name="remove" class="remove" value="Excluir" />
+                        <% } %>
+                    </p>
+                </div>
+                <%
+            }
+            %>
         </div>
     </div>
     
     <div class="relationship">
         <h2>Últimas conexões</h2>
         <div>
-            <a href="/Perfil/{id}"><img src="data:image/jpg;base64,<%: loggedUser.Picture %>" alt="Imagem da conexão" class="relationshipPicture" title="Douglas Collioni" /></a>
-            <a href="/Perfil/{id}"><img src="data:image/jpg;base64,<%: loggedUser.Picture %>" alt="Imagem da conexão" class="relationshipPicture" title="Douglas Collioni" /></a>
-            <a href="/Perfil/{id}"><img src="data:image/jpg;base64,<%: loggedUser.Picture %>" alt="Imagem da conexão" class="relationshipPicture" title="Douglas Collioni" /></a>
-            <a href="/Perfil/{id}"><img src="data:image/jpg;base64,<%: loggedUser.Picture %>" alt="Imagem da conexão" class="relationshipPicture" title="Douglas Collioni" /></a>
-            <a href="/Perfil/{id}"><img src="data:image/jpg;base64,<%: loggedUser.Picture %>" alt="Imagem da conexão" class="relationshipPicture" title="Douglas Collioni" /></a>
-            <a href="/Perfil/{id}"><img src="data:image/jpg;base64,<%: loggedUser.Picture %>" alt="Imagem da conexão" class="relationshipPicture" title="Douglas Collioni" /></a>
-            <a href="/Perfil/{id}"><img src="data:image/jpg;base64,<%: loggedUser.Picture %>" alt="Imagem da conexão" class="relationshipPicture" title="Douglas Collioni" /></a>
-            <a href="/Perfil/{id}"><img src="data:image/jpg;base64,<%: loggedUser.Picture %>" alt="Imagem da conexão" class="relationshipPicture" title="Douglas Collioni" /></a>
+            <% var relationship = ViewBag.Relationship as IList<User>;
+               foreach (var relation in relationship)
+               {
+                %>
+                <a href="/Perfil/<%: relation.Id %>"><img src="data:image/jpg;base64,<%: relation.Picture %>" alt="Imagem da conexão" class="relationshipPicture" title="<%: relation.Name %>" /></a>
+                <%       
+               }   
+            %>
         </div>
     </div>
 
     <%  } %>
+
+    <div id="mapMask">
+    </div>
 </div>
 
 </asp:Content>
@@ -179,5 +186,7 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptContent" runat="server">
     <script src="<%: Url.Content("~/Scripts/Default/jquery.maskedinput-1.3.min.js") %>" type="text/javascript"></script>
+    <script src="<%: Url.Content("~/Scripts/Default/dateFormat.js") %>" type="text/javascript"></script>
     <script src="<%: Url.Content("~/Scripts/App/Profile.js") %>" type="text/javascript"></script>
+    <script src="<%: Url.Content("~/Scripts/App/Message.js") %>" type="text/javascript"></script>
 </asp:Content>

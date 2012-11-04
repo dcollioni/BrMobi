@@ -51,5 +51,12 @@ namespace BrMobi.ApplicationServices.ServiceInterfaces
         /// <param name="user">The user with data to update.</param>
         /// <returns>The updated user.</returns>
         User UpdateUser(User user);
+
+        /// <summary>
+        /// Gets a list of the last users which the user connected to.
+        /// </summary>
+        /// <param name="id">The user id.</param>
+        /// <returns>The list of users.</returns>
+        IList<User> GetRelationship(int id);
     }
 }
