@@ -7,5 +7,6 @@ namespace BrMobi.Core.RepositoryInterfaces
         Message Create(Message message);
         void Remove(int id);
         IList<Message> ListReceived(int userId);
+        Message Get(int id);
     }
 }

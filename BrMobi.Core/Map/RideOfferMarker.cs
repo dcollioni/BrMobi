@@ -10,6 +10,7 @@ namespace BrMobi.Core.Map
         public override double Lng { get; set; }
         public override User Owner { get; set; }
         public override string ImagePath { get; set; }
+        public override DateTime CreatedOn { get; set; }
         public DateTime DateTime { get; set; }
         public string Destination { get; set; }
         public IList<User> Hitchhikers { get; set; }

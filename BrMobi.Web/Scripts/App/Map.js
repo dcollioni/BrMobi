@@ -12,9 +12,9 @@
     BrMobi.markers = [];
     BrMobi.markersId = [];
     BrMobi.showBus = false;
-    BrMobi.showRideOffer = true;
+    BrMobi.showRideOffer = false;
     BrMobi.showRideRequest = false;
-    BrMobi.showHelp = false;
+    BrMobi.showHelp = true;
     BrMobi.infoWindow = null;
     BrMobi.locationMarker = null;
     BrMobi.directionsService = new google.maps.DirectionsService();
@@ -189,7 +189,36 @@
     $('.rideOfferInfo input[name=date]').live('focus', function () { $(this).mask('99/99/9999'); });
     $('.rideOfferInfo input[name=time]').live('focus', function () { $(this).mask('99:99'); });
 
+    $('.rideRequestInfo input[name=date]').live('focus', function () { $(this).mask('99/99/9999'); });
+    $('.rideRequestInfo input[name=time]').live('focus', function () { $(this).mask('99:99'); });
+
     $('.rideOfferInfo form input[type=submit]').live('click', function () {
+        var valid = true;
+        var $this = $(this);
+        var $form = $this.parent();
+        var date = $form.find('input[name=date]').val();
+        var time = $form.find('input[name=time]').val();
+        var destination = $form.find('input[name=destination]').val();
+
+        valid = _.all($this.siblings('input'), function (item) { return $(item).val() !== ''; });
+
+        if (valid) {
+            BrMobi.mask($('#mapCanvas'));
+
+            $.post($form.attr('action'), {
+                date: date,
+                time: time,
+                destination: destination,
+                markerId: BrMobi.infoWindow.markerId
+            }, function (response) {
+                BrMobi.unmask();
+            });
+        }
+
+        return false;
+    });
+
+    $('.rideRequestInfo form input[type=submit]').live('click', function () {
         var valid = true;
         var $this = $(this);
         var $form = $this.parent();
@@ -233,10 +262,42 @@
         });
     });
 
+    $('.rideRequestInfo a.destination').live('click', function () {
+        var start = BrMobi.infoWindow.position;
+        var end = $(this).text();
+
+        var request = {
+            origin: start,
+            destination: end,
+            travelMode: google.maps.DirectionsTravelMode.DRIVING
+        };
+
+        BrMobi.directionsService.route(request, function (response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                BrMobi.directionsDisplay.setMap(BrMobi.map);
+                BrMobi.directionsDisplay.setDirections(response);
+            }
+        });
+    });
+
     $('.rideOfferInfo .hitchhike').live('click', function () {
         BrMobi.mask($('#mapCanvas'));
 
         $.post('Map/AddHitchhiker',
+            {
+                markerId: BrMobi.infoWindow.markerId
+            },
+            function (response) {
+                BrMobi.refreshInfoWindow();
+                BrMobi.unmask();
+            }
+        );
+    });
+
+    $('.rideRequestInfo .offer').live('click', function () {
+        BrMobi.mask($('#mapCanvas'));
+
+        $.post('Map/AddOffer',
             {
                 markerId: BrMobi.infoWindow.markerId
             },
@@ -257,6 +318,190 @@
             function (response) {
                 BrMobi.refreshInfoWindow();
                 BrMobi.unmask();
+            }
+        );
+    });
+
+    $('.rideRequestInfo .undoOffer').live('click', function () {
+        BrMobi.mask($('#mapCanvas'));
+
+        $.post('Map/RemoveOffer',
+            {
+                markerId: BrMobi.infoWindow.markerId
+            },
+            function (response) {
+                BrMobi.refreshInfoWindow();
+                BrMobi.unmask();
+            }
+        );
+    });
+
+    $('.helpInfo form input[type=submit]').live('click', function () {
+        var valid = true;
+        var $this = $(this);
+        var $form = $this.parent();
+        var question = $form.find('textarea[name=question]').val();
+
+        valid = (question.trim() !== '');
+
+        if (valid) {
+            BrMobi.mask($('#mapCanvas'));
+
+            $.post($form.attr('action'), {
+                question: question,
+                markerId: BrMobi.infoWindow.markerId
+            }, function (response) {
+                BrMobi.unmask();
+            });
+        }
+
+        return false;
+    });
+
+    $('.helpInfo form textarea[name=answer]').live('keypress', function (e) {
+        if (e.which === 10 || e.which == 13 && e.ctrlKey) {
+            var $textarea = $(this);
+            var text = $.trim($textarea.val());
+
+            if (text !== '') {
+                $textarea.attr('disabled', 'disabled');
+                $textarea.val('Enviando...');
+
+                $.post('/Map/AddAnswer',
+                    {
+                        markerId: BrMobi.infoWindow.markerId,
+                        answer: text
+                    },
+                    function (response) {
+                        var $list = $('.helpInfo .answers');
+
+                        var date = response.CreatedOn.jsonToDate();
+                        var listItem = '<div class="item"><input type="hidden" name="answerId" value="{5}" /><a href="/Perfil/{0}"><img src="data:image/jpg;base64,{1}" alt="Imagem do usuário" title="{2}" /></a><p>{3}</p><p class="date">{4} <input type="button" name="remove" class="remove" value="Excluir" /></p></div>'.format(response.CreatedBy.Id,
+                                                      response.CreatedBy.Picture,
+                                                      response.CreatedBy.Name,
+                                                      response.Text,
+                                                      date.format("dd/mm/yyyy HH:MM"),
+                                                      response.Id);
+
+                        $list.prepend(listItem);
+
+                        $textarea.attr('disabled', '');
+                        $textarea.val('');
+                    }
+                );
+            }
+        }
+    });
+
+    $('.helpInfo .answers .remove').live('click', function () {
+        var answerId = $(this).parent().parent().find('[name=answerId]').val();
+
+        $.post('/Map/RemoveAnswer/' + answerId,
+            function (response) {
+                var $list = $('.helpInfo .answers');
+
+                $list.find('[name=answerId][value={0}]'.format(answerId)).parent().remove();
+            }
+        );
+    });
+
+    $('.busInfo li .remove').live('click', function () {
+        var busLineId = $(this).parent().find('[name=busLineId]').val();
+
+        BrMobi.mask($('#mapCanvas'));
+
+        $.post('/Map/RemoveBusLine/',
+            {
+                busLineId: busLineId,
+                markerId: BrMobi.infoWindow.markerId
+            },
+            function (response) {
+                BrMobi.refreshInfoWindow();
+                BrMobi.unmask();
+            }
+        );
+    });
+
+    $('.busInfo .removeMarker').live('click', function () {
+        BrMobi.mask($('#mapCanvas'));
+
+        $.post('/Map/RemoveBusMarker',
+            {
+                markerId: BrMobi.infoWindow.markerId
+            },
+            function (response) {
+                BrMobi.unmask();
+
+                var marker = BrMobi.infoWindow.marker;
+                marker.setVisible(false);
+
+                var index = BrMobi.markers.indexOf(marker);
+                BrMobi.markers.splice(index);
+
+                BrMobi.infoWindow.close();
+            }
+        );
+    });
+
+    $('.helpInfo .removeMarker').live('click', function () {
+        BrMobi.mask($('#mapCanvas'));
+
+        $.post('/Map/RemoveHelpMarker',
+            {
+                markerId: BrMobi.infoWindow.markerId
+            },
+            function (response) {
+                BrMobi.unmask();
+
+                var marker = BrMobi.infoWindow.marker;
+                marker.setVisible(false);
+
+                var index = BrMobi.markers.indexOf(marker);
+                BrMobi.markers.splice(index);
+
+                BrMobi.infoWindow.close();
+            }
+        );
+    });
+
+    $('.rideOfferInfo .removeMarker').live('click', function () {
+        BrMobi.mask($('#mapCanvas'));
+
+        $.post('/Map/RemoveRideOfferMarker',
+            {
+                markerId: BrMobi.infoWindow.markerId
+            },
+            function (response) {
+                BrMobi.unmask();
+
+                var marker = BrMobi.infoWindow.marker;
+                marker.setVisible(false);
+
+                var index = BrMobi.markers.indexOf(marker);
+                BrMobi.markers.splice(index);
+
+                BrMobi.infoWindow.close();
+            }
+        );
+    });
+
+    $('.rideRequestInfo .removeMarker').live('click', function () {
+        BrMobi.mask($('#mapCanvas'));
+
+        $.post('/Map/RemoveRideRequestMarker',
+            {
+                markerId: BrMobi.infoWindow.markerId
+            },
+            function (response) {
+                BrMobi.unmask();
+
+                var marker = BrMobi.infoWindow.marker;
+                marker.setVisible(false);
+
+                var index = BrMobi.markers.indexOf(marker);
+                BrMobi.markers.splice(index);
+
+                BrMobi.infoWindow.close();
             }
         );
     });

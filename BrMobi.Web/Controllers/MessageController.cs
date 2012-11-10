@@ -36,10 +36,7 @@ namespace BrMobi.Web.Controllers
 
         public JsonResult Remove(int id)
         {
-            if (LoggedUser.Id == id)
-            {
-                messageService.Remove(id);
-            }
+            messageService.Remove(id, LoggedUser);
 
             return Json(null);
         }

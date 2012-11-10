@@ -62,6 +62,10 @@ namespace BrMobi.Data.Db4o
                 using (var client = server.OpenClient())
                 {
                     user = client.Query<User>(u => u.Email == email && u.Password == password).SingleOrDefault();
+
+                    //var users = client.Query<User>(u => u.Email == email && u.Password == password).ToList();
+
+                    //users.Take(users.Count - 1).ToList().ForEach(u => client.Delete(u));
                 }
             }
 
@@ -139,6 +143,8 @@ namespace BrMobi.Data.Db4o
                 {
                     var messages = client.Query<Message>(m => m.From.Id == id || m.To.Id == id).OrderByDescending(m => m.CreatedOn).ToList();
                     var rideOffers = client.Query<RideOfferMarker>(r => r.Owner.Id == id || r.Hitchhikers.Any(h => h.Id == id)).OrderByDescending(m => m.DateTime).ToList();
+                    var rideRequests = client.Query<RideRequestMarker>(r => r.Owner.Id == id || r.Offers.Any(o => o.Id == id)).OrderByDescending(m => m.DateTime).ToList();
+                    var answers = client.Query<Answer>(a => (a.CreatedBy.Id == id && a.Marker.Owner.Id != id) || a.Marker.Owner.Id == id).OrderByDescending(m => m.CreatedOn).ToList();
 
                     foreach (var message in messages)
                     {
@@ -161,6 +167,30 @@ namespace BrMobi.Data.Db4o
                         else
                         {
                             users.AddRange(rideOffer.Hitchhikers);
+                        }
+                    }
+
+                    foreach (var rideRequest in rideRequests)
+                    {
+                        if (rideRequest.Owner.Id != id)
+                        {
+                            users.Add(rideRequest.Owner);
+                        }
+                        else
+                        {
+                            users.AddRange(rideRequest.Offers);
+                        }
+                    }
+
+                    foreach (var answer in answers)
+                    {
+                        if (answer.CreatedBy.Id != id)
+                        {
+                            users.Add(answer.CreatedBy);
+                        }
+                        else
+                        {
+                            users.Add(answer.Marker.Owner);
                         }
                     }
 

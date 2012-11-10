@@ -12,5 +12,6 @@ namespace BrMobi.Core.RepositoryInterfaces.Map
         RideOfferMarker Update(DateTime dateTime, string destination, int id);
         RideOfferMarker AddHitchhiker(int rideOfferId, int hitchhikerId);
         RideOfferMarker RemoveHitchhiker(int rideOfferId, int hitchhikerId);
+        void Remove(int markerId);
     }
 }

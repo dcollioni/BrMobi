@@ -299,12 +299,18 @@
     vertical-align: middle;
 }
 
-.busInfo, .rideOfferInfo
+.busInfo,
+.rideOfferInfo,
+.rideRequestInfo,
+.helpInfo
 {
     font-size: 11pt;
 }
 
-.busInfo h3, .busInfo h4, .rideOfferInfo h3, .rideOfferInfo h4
+.busInfo h3, .busInfo h4,
+.rideOfferInfo h3, .rideOfferInfo h4,
+.rideRequestInfo h3, .rideRequestInfo h4,
+.helpInfo h3, .helpInfo h4
 {
     font-size: 11pt;
     margin: 0px;
@@ -323,14 +329,19 @@
     margin: 2px;
 }
 
-.busInfo .hr, .rideOfferInfo .hr
+.busInfo .hr,
+.rideOfferInfo .hr,
+.rideRequestInfo .hr,
+.helpInfo .hr
 {
     background-color: #AAA;
     height: 1px;
     margin: 10px 2px;
 }
 
-.busInfo form input[type=text], .rideOfferInfo form input[type=text]
+.busInfo form input[type=text],
+.rideOfferInfo form input[type=text],
+.rideRequestInfo form input[type=text]
 {
     border: 1px solid #BBB;
     border-radius: 3px;
@@ -342,7 +353,10 @@
     width: 160px;
 }
 
-.busInfo form input[type=submit], .rideOfferInfo form input[type=submit], .rideOfferInfo input[type=button]
+.busInfo form input[type=submit],
+.rideOfferInfo form input[type=submit], .rideOfferInfo input[type=button],
+.rideRequestInfo form input[type=submit], .rideRequestInfo input[type=button],
+.helpInfo form input[type=submit]
 {
     background-color: #446699;
     font-family: 'London';
@@ -357,7 +371,17 @@
     text-shadow: 1px 1px #444;
 }
 
-.busInfo form input[type=submit]:hover, .busInfo form input[type=submit]:focus, .rideOfferInfo form input[type=submit]:hover, .rideOfferInfo form input[type=submit]:focus, .rideOfferInfo input[type=button]:hover, .rideOfferInfo input[type=button]:focus
+.busInfo form input[type=submit]:hover, .busInfo form input[type=submit]:focus,
+.rideOfferInfo form input[type=submit]:hover,
+.rideOfferInfo form input[type=submit]:focus,
+.rideOfferInfo input[type=button]:hover,
+.rideOfferInfo input[type=button]:focus,
+.rideRequestInfo form input[type=submit]:hover,
+.rideRequestInfo form input[type=submit]:focus,
+.rideRequestInfo input[type=button]:hover,
+.rideRequestInfo input[type=button]:focus,
+.helpInfo form input[type=submit]:hover,
+.helpInfo form input[type=submit]:focus
 {
     border-color: #204070;
     background-color: #335588;
@@ -366,12 +390,18 @@
     box-shadow: 0px 0px 5px #666;
 }
 
-.busInfo form input[type=submit]:focus, .rideOfferInfo form input[type=submit]:focus, .rideOfferInfo input[type=button]:focus
+.busInfo form input[type=submit]:focus,
+.rideOfferInfo form input[type=submit]:focus, .rideOfferInfo input[type=button]:focus,
+.rideRequestInfo form input[type=submit]:focus, .rideRequestInfo input[type=button]:focus,
+.helpInfo form input[type=submit]:focus
 {
     border: 1px solid #ddd;
 }
 
-.busInfo form input[type=submit]:active, .rideOfferInfo form input[type=submit]:active, .rideOfferInfo input[type=button]:active
+.busInfo form input[type=submit]:active,
+.rideOfferInfo form input[type=submit]:active, .rideOfferInfo input[type=button]:active,
+.rideRequestInfo form input[type=submit]:active, .rideRequestInfo input[type=button]:active,
+.helpInfo form input[type=submit]:active
 {
     border-color: #204070;
     background-color: #335588;
@@ -380,12 +410,16 @@
     box-shadow: 0px 0px 5px #888;
 }
 
-.rideOfferInfo
+.busInfo,
+.rideOfferInfo,
+.rideRequestInfo,
+.helpInfo
 {
     text-shadow: 1px 1px #EEE;
 }
 
-.rideOfferInfo .userPicture
+.rideOfferInfo .userPicture,
+.rideRequestInfo .userPicture
 {
     border: 1px solid #ddd;
     border-radius: 3px;
@@ -396,39 +430,48 @@
     height: 40px;
 }
 
-.rideOfferInfo .content
+.rideOfferInfo .content,
+.rideRequestInfo .content,
+.helpInfo .content
 {
     margin-top: 5px;
 }
 
-.rideOfferInfo form p
+.rideOfferInfo form p,
+.rideRequestInfo form p
 {
     margin-bottom: 2px;
 }
 
-.rideOfferInfo form input[type=text]
+.rideOfferInfo form input[type=text],
+.rideRequestInfo form input[type=text]
 {
     width: 120px;
 }
 
-.rideOfferInfo form input[name=time]
+.rideOfferInfo form input[name=time],
+.rideRequestInfo form input[name=time]
 {
     width: 90px;
 }
 
-.rideOfferInfo form input[name=destination]
+.rideOfferInfo form input[name=destination],
+.rideRequestInfo form input[name=destination]
 {
     width: 300px;
 }
 
 .rideOfferInfo .hitchhike,
-.rideOfferInfo .undoHitchhike
+.rideOfferInfo .undoHitchhike,
+.rideRequestInfo .offer,
+.rideRequestInfo .undoOffer
 {
     float: right;
     width: 80px;
 }
 
-.rideOfferInfo .undoHitchhike
+.rideOfferInfo .undoHitchhike,
+.rideRequestInfo .undoOffer
 {
     background-color: #888 !important;
     font-family: 'London';
@@ -444,7 +487,8 @@
     text-shadow: 1px 1px #444;
 }
 
-.rideOfferInfo .undoHitchhike:hover, .rideOfferInfo .undoHitchhike:focus
+.rideOfferInfo .undoHitchhike:hover, .rideOfferInfo .undoHitchhike:focus,
+.rideRequestInfo .undoOffer:hover, .rideRequestInfo .undoOffer:focus
 {
     border-color: #555 !important;
     background-color: #666 !important;
@@ -453,12 +497,14 @@
     box-shadow: 0px 0px 5px #666 !important;
 }
 
-.rideOfferInfo .undoHitchhike:focus
+.rideOfferInfo .undoHitchhike:focus,
+.rideRequestInfo .undoOffer:focus
 {
     border: 1px solid #ddd !important;
 }
 
-.rideOfferInfo .undoHitchhike:active
+.rideOfferInfo .undoHitchhike:active,
+.rideRequestInfo .undoOffer:active
 {
     border-color: #555 !important;
     background-color: #666 !important;
@@ -467,7 +513,8 @@
     box-shadow: 0px 0px 5px #888 !important;
 }
 
-.rideOfferInfo .hitchhikers img
+.rideOfferInfo .hitchhikers img,
+.rideRequestInfo .offers img
 {
     border: 1px solid #ddd;
     border-radius: 3px;
@@ -481,4 +528,145 @@
 .rideOfferInfo
 {
     min-width: 235px;
+}
+
+.rideRequestInfo
+{
+    min-width: 250px;
+}
+
+/* Help info */
+.helpInfo form textarea
+{
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'London';
+    font-size: 11pt;
+    outline: none;
+    padding: 8px;
+    resize: none;
+    width: 333px;
+}
+
+.helpInfo form textarea[name=answer]
+{
+    width: 100%;
+}
+
+.helpInfo form input[type=submit]
+{
+    display: inline;
+    width: 60px;
+    vertical-align: top;
+    margin-top: 30px;
+    margin-right: 2px;
+}
+
+.helpInfo .answers
+{
+    height: 125px;
+    overflow: auto;
+}
+
+.helpInfo .answers .item
+{
+    background-color: #eee;
+    border: 1px solid #ddd;
+    
+    min-height: 50px;
+    margin-bottom: 2px;
+}
+
+.helpInfo .question
+{
+    width: 400px;
+}
+
+.helpInfo .answers .item img,
+.helpInfo .question img
+{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #ccc;
+    float: left;
+    height: 40px;
+    margin: 5px;
+    width: 40px;
+}
+
+.helpInfo .answers .item p,
+.helpInfo .question p
+{
+    font-size: 11pt;
+    margin: 9px 0px 9px 55px;
+}
+
+.helpInfo .answers .item p.date,
+.helpInfo .question p.date
+{
+    font-size: 9pt;
+    margin: -5px 5px 2px 0px;
+    text-align: right;
+}
+
+.helpInfo .answers .item p.date .remove,
+.busInfo li .remove,
+.removeMarker
+{
+    background-color: #888 !important;
+    font-family: 'London';
+    font-size: 9pt !important;
+    font-weight: bold;
+    color: #eee !important;
+    border: 1px solid #777 !important;
+    border-radius: 5px;
+    margin-left: 10px;
+    outline: none;
+    padding: 2px;
+    width: 50px;
+    letter-spacing: .08em;
+    text-shadow: 1px 1px #444;
+}
+
+.helpInfo .answers .item p.date .remove:hover,
+.helpInfo .answers .item p.date .remove:focus,
+.busInfo li .remove:hover,
+.busInfo li .remove:focus,
+.removeMarker:hover,
+.removeMarker:focus
+{
+    border-color: #555 !important;
+    background-color: #666 !important;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#777), color-stop(1, #666)) !important;
+    background-image: -moz-linear-gradient(top, #777 0%, #666 100%) !important;
+    box-shadow: 0px 0px 5px #666 !important;
+}
+
+.helpInfo .answers .item p.date .remove:focus,
+.busInfo li .remove:focus,
+.removeMarker:focus
+{
+    border: 1px solid #ddd !important;
+}
+
+.helpInfo .answers .item p.date .remove:active,
+.busInfo li .remove:active,
+.removeMarker:active
+{
+    border-color: #555 !important;
+    background-color: #666 !important;
+    background-image: -webkit-gradient(linear, 0% 60%, 0% 100%, from(#666), color-stop(1, #777)) !important;
+    background-image: -moz-linear-gradient(bottom, #777 0%, #666 40%) !important;
+    box-shadow: 0px 0px 5px #888 !important;
+}
+
+.helpInfo .hr
+{
+    margin: 2px 2px 5px 2px;
+}
+
+.busInfo li .remove
+{
+    margin-left: 10px;
 }

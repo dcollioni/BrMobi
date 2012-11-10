@@ -78,7 +78,7 @@ section#main form
 }
 
 /* Box-shadow transition */
-input, label, img, span
+input, label, img, span, textarea
 {
     -webkit-transition: box-shadow 250ms;
     -moz-transition: box-shadow 250ms;

@@ -1,4 +1,6 @@
-﻿namespace BrMobi.Core.Map
+﻿using System;
+
+namespace BrMobi.Core.Map
 {
     public abstract class Marker
     {
@@ -7,6 +9,7 @@
         public abstract double Lng { get; set; }
         public abstract User Owner { get; set; }
         public abstract string ImagePath { get; set; }
+        public abstract DateTime CreatedOn { get; set; }
 
         public Marker()
         {

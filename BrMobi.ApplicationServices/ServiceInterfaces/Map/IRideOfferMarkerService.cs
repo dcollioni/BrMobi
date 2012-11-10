@@ -40,5 +40,12 @@ namespace BrMobi.ApplicationServices.ServiceInterfaces.Map
         /// <param name="hitchhikerId">The hitchhiker (a user) id.</param>
         /// <returns>The updated ride offer marker.</returns>
         RideOfferMarker RemoveHitchhiker(int rideOfferId, int hitchhikerId);
+
+        /// <summary>
+        /// Removes the marker.
+        /// </summary>
+        /// <param name="markerId">The marker id.</param>
+        /// <param name="loggedUser">The logged user.</param>
+        void Remove(int markerId, User loggedUser);
     }
 }

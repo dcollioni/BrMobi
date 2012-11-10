@@ -50,6 +50,7 @@
     <Compile Include="Db4o\CityRepository.cs" />
     <Compile Include="Db4o\Map\BusLineRepository.cs" />
     <Compile Include="Db4o\Map\BusMarkerRepository.cs" />
+    <Compile Include="Db4o\Map\AnswerRepository.cs" />
     <Compile Include="Db4o\Map\HelpMarkerRepository.cs" />
     <Compile Include="Db4o\Map\RideRequestMarkerRepository.cs" />
     <Compile Include="Db4o\Map\RideOfferMarkerRepository.cs" />

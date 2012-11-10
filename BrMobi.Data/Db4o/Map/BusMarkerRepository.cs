@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BrMobi.Core;
 using BrMobi.Core.Map;
@@ -17,11 +18,12 @@ namespace BrMobi.Data.Db4o.Map
                 {
                     busMarker.Owner = client.Query<User>(u => u.Email == busMarker.Owner.Email).SingleOrDefault();
                     busMarker.Id = busMarker.GetHashCode();
+                    busMarker.CreatedOn = DateTime.Now;
                     client.Store(busMarker);
                 }
             }
         }
-        
+
         public IList<BusMarker> List(LatLng southWest, LatLng northEast)
         {
             var markers = new List<BusMarker>();
@@ -53,7 +55,7 @@ namespace BrMobi.Data.Db4o.Map
                     var lines = new List<BusLine>();
                     lines.AddRange(busMarker.Lines);
                     lines.Add(busLine);
-                    
+
                     busMarker.Lines = lines;
                     client.Store(busMarker);
                 }
@@ -95,6 +97,41 @@ namespace BrMobi.Data.Db4o.Map
             }
 
             return busLines;
+        }
+
+        public void RemoveBusLine(int busLineId, int markerId)
+        {
+            using (var server = Server)
+            {
+                using (var client = server.OpenClient())
+                {
+                    var marker = client.Query<BusMarker>(m => m.Id == markerId).SingleOrDefault();
+
+                    if (marker != null)
+                    {
+                        var line = client.Query<BusLine>(l => l.Id == busLineId).SingleOrDefault();
+
+                        var lines = new List<BusLine>();
+                        lines.AddRange(marker.Lines);
+                        lines.Remove(line);
+
+                        marker.Lines = lines;
+                        client.Store(marker);
+                    }
+                }
+            }
+        }
+
+        public void Remove(int markerId)
+        {
+            using (var server = Server)
+            {
+                using (var client = server.OpenClient())
+                {
+                    var marker = client.Query<BusMarker>(m => m.Id == markerId).SingleOrDefault();
+                    client.Delete(marker);
+                }
+            }
         }
     }
 }

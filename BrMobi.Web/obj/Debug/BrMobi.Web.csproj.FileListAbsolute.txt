@@ -18,6 +18,12 @@ C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.We
 C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\EntityFramework.xml
 C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Debug\BrMobi.Web.dll
 C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Debug\BrMobi.Web.pdb
+C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\App_Data\BrMobiObjects.yap
+C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Content\Fonts\BuxtonSketch.ttf
+C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Content\Fonts\LondonMM.ttf
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\App_Data\BrMobiObjects.yap
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Content\Fonts\BuxtonSketch.ttf
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Content\Fonts\LondonMM.ttf
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\BrMobi.Web.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\BrMobi.Web.pdb
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\BrMobi.ApplicationServices.dll
@@ -38,9 +44,3 @@ D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\EntityFra
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Debug\BrMobi.Web.csprojResolveAssemblyReference.cache
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Debug\BrMobi.Web.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Debug\BrMobi.Web.pdb
-C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\App_Data\BrMobiObjects.yap
-C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Content\Fonts\BuxtonSketch.ttf
-C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Content\Fonts\LondonMM.ttf
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\App_Data\BrMobiObjects.yap
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Content\Fonts\BuxtonSketch.ttf
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Content\Fonts\LondonMM.ttf

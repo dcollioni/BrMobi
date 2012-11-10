@@ -1,0 +1,34 @@
+﻿<div class="helpInfo">
+    <h3>Dúvida <input type="button" class="removeMarker" value="Excluir" style="display:{displayOwner2};" /></h3>
+    <div class="content">
+        <div class="question">
+            <div style="display:{displayOwner};">
+                <form action="/Map/UpdateHelp" method="post">
+                    <textarea name="question" rows="2" cols="50" placeholder="Descreva sua dúvida">{question}</textarea>
+                    <input type="submit" name="update" value="Salvar" />
+                </form>
+            </div>
+
+            <div style="display:{displayAll};">
+                <a href="/Perfil/{ownerId}"><img src="data:image/jpg;base64,{ownerPicture}" alt="Imagem do usuário" title="{ownerName}" /></a>
+                <p>{question}</p>
+                <p class="date">
+                    {date}
+                </p>
+            </div>
+        </div>
+
+        <div style="clear:both;"></div>
+        <div class="hr"></div>
+
+        <div>
+            <form action="/Map/AddAnswer">
+                <textarea name="answer" rows="2" cols="50" placeholder="Responda essa dúvida (ctrl + Enter para enviar)"></textarea>
+            </form>
+        </div>
+
+        <div class="answers">
+            {answers}
+        </div>
+    </div>
+</div>

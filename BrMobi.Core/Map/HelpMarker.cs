@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BrMobi.Core.Map
 {
@@ -9,6 +10,8 @@ namespace BrMobi.Core.Map
         public override double Lng { get; set; }
         public override User Owner { get; set; }
         public override string ImagePath { get; set; }
+        public override DateTime CreatedOn { get; set; }
+        public string Question { get; set; }
 
         public HelpMarker()
             : base()

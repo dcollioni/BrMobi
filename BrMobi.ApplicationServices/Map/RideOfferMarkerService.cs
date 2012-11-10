@@ -103,5 +103,15 @@ namespace BrMobi.ApplicationServices.Map
         {
             return rideOfferMarkerRepository.RemoveHitchhiker(rideOfferId, hitchhikerId);
         }
+
+        public void Remove(int markerId, User loggedUser)
+        {
+            var marker = rideOfferMarkerRepository.Get(markerId);
+
+            if (marker.Owner.Id == loggedUser.Id)
+            {
+                rideOfferMarkerRepository.Remove(markerId);
+            }
+        }
     }
 }

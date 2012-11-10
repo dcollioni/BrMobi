@@ -45,6 +45,8 @@
     <Compile Include="CityService.cs" />
     <Compile Include="Map\BusLineService.cs" />
     <Compile Include="Map\BusMarkerService.cs" />
+    <Compile Include="Map\HelpMarkerService.cs" />
+    <Compile Include="Map\RideRequestMarkerService.cs" />
     <Compile Include="Map\RideOfferMarkerService.cs" />
     <Compile Include="Map\MapService.cs" />
     <Compile Include="MessageService.cs" />
@@ -53,6 +55,8 @@
     <Compile Include="ServiceInterfaces\IAccountService.cs" />
     <Compile Include="ServiceInterfaces\IMessageService.cs" />
     <Compile Include="ServiceInterfaces\IStateService.cs" />
+    <Compile Include="ServiceInterfaces\Map\IHelpMarkerService.cs" />
+    <Compile Include="ServiceInterfaces\Map\IRideRequestMarkerService.cs" />
     <Compile Include="ServiceInterfaces\Map\IRideOfferMarkerService.cs" />
     <Compile Include="ServiceInterfaces\Map\IBusLineService.cs" />
     <Compile Include="ServiceInterfaces\Map\IBusMarkerService.cs" />

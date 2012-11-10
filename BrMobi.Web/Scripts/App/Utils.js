@@ -61,6 +61,12 @@ String.prototype.jsonToDate = function () {
             case 2:
                 infoContent = getRideOfferInfo(marker.id);
                 break;
+            case 3:
+                infoContent = getRideRequestInfo(marker.id);
+                break;
+            case 4:
+                infoContent = getHelpInfo(marker.id);
+                break;
         }
 
         if (BrMobi.infoWindow) {
@@ -104,6 +110,32 @@ String.prototype.jsonToDate = function () {
         $.ajax({
             type: 'POST',
             url: 'Map/GetRideOfferInfo/{0}'.format(id),
+            success: function (response) { content = response; },
+            async: false
+        });
+
+        return content;
+    }
+
+    function getRideRequestInfo(id) {
+        var content;
+
+        $.ajax({
+            type: 'POST',
+            url: 'Map/GetRideRequestInfo/{0}'.format(id),
+            success: function (response) { content = response; },
+            async: false
+        });
+
+        return content;
+    }
+
+    function getHelpInfo(id) {
+        var content;
+
+        $.ajax({
+            type: 'POST',
+            url: 'Map/GetHelpInfo/{0}'.format(id),
             success: function (response) { content = response; },
             async: false
         });

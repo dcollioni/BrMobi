@@ -18,6 +18,7 @@ namespace BrMobi.Data.Db4o.Map
                 {
                     rideOfferMarker.Owner = client.Query<User>(u => u.Email == rideOfferMarker.Owner.Email).SingleOrDefault();
                     rideOfferMarker.Id = rideOfferMarker.GetHashCode();
+                    rideOfferMarker.CreatedOn = DateTime.Now;
                     client.Store(rideOfferMarker);
                 }
             }
@@ -123,6 +124,19 @@ namespace BrMobi.Data.Db4o.Map
             }
 
             return marker;
+        }
+
+        public void Remove(int markerId)
+        {
+            using (var server = Server)
+            {
+                using (var client = server.OpenClient())
+                {
+                    var marker = client.Query<RideOfferMarker>(m => m.Id == markerId).SingleOrDefault();
+
+                    client.Delete(marker);
+                }
+            }
         }
     }
 }

@@ -1,0 +1,44 @@
+﻿<div class="rideRequestInfo">
+    <h3 style="display:{displayAll};">Pedido de carona</h3>
+    <div class="content" style="display: {displayAll};">
+        
+        <div>
+            Por
+            <a href="/Perfil/{userId}" title="Ver perfil" class="userName">{userName}</a>
+            <img src="{userPicture}" alt="Imagem do usuário" class="userPicture" />
+        </div>
+        <p>Dia {date} às {time}.</p>
+        <p>Destino: <a href='javascript:;' title="Ver no mapa" class="destination">{destination}</a>.</p>
+        <div class="hr"></div>
+
+        <div style="display: {added};">
+            Você ofereceu essa carona.
+            <input type="button" name="undoOffer" class="undoOffer" value="Desfazer" />
+        </div>
+
+        <div style="display: {notAdded};">
+            <input type="button" name="offer" class="offer" value="Oferecer" />
+        </div>
+    </div>
+
+    <h3 style="display:{displayOwner};">Pedido de carona feito por mim <input type="button" class="removeMarker" value="Excluir" /></h3>
+    <div class="content" style="display: {displayOwner};">
+        <div class="form">
+            <form action="Map/UpdateRideRequest">
+                <p>Para onde?</p>
+                <input type="text" name="destination" value="{destination}" placeholder="Destino" />
+                
+                <p>Quando?</p>
+                <input type="text" name="date" value="{date}" placeholder="Dia" />
+                <input type="text" name="time" value="{time}" placeholder="Horário" />
+                
+                <input type="submit" name="save" value="Atualizar" />
+            </form>
+        </div>
+        <div class="hr"></div>
+        <div class="offers">
+            <h4>Ofertas</h4>
+            {offersPictures}
+        </div>
+    </div>
+</div>

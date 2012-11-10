@@ -44,6 +44,7 @@
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\MarkerType.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Map\Answer.cs" />
     <Compile Include="Map\BusLine.cs" />
     <Compile Include="Map\BusMarker.cs" />
     <Compile Include="Map\HelpMarker.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="RepositoryInterfaces\ICityRepository.cs" />
     <Compile Include="RepositoryInterfaces\IMessageRepository.cs" />
     <Compile Include="RepositoryInterfaces\IStateRepository.cs" />
+    <Compile Include="RepositoryInterfaces\Map\IAnswerRepository.cs" />
     <Compile Include="RepositoryInterfaces\Map\IBusLineRepository.cs" />
     <Compile Include="RepositoryInterfaces\Map\IHelpMarkerRepository.cs" />
     <Compile Include="RepositoryInterfaces\Map\IRideRequestMarkerRepository.cs" />

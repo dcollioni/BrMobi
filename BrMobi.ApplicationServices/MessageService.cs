@@ -24,9 +24,14 @@ namespace BrMobi.ApplicationServices
             return messageRepository.ListReceived(userId);
         }
 
-        public void Remove(int id)
+        public void Remove(int id, User loggedUser)
         {
-            messageRepository.Remove(id);
+            var message = messageRepository.Get(id);
+
+            if (message.From.Id == loggedUser.Id || message.To.Id == loggedUser.Id)
+            {
+                messageRepository.Remove(id);
+            }
         }
     }
 }

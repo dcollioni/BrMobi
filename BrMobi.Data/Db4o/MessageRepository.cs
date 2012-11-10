@@ -53,5 +53,20 @@ namespace BrMobi.Data.Db4o
                 }
             }
         }
+
+        public Message Get(int id)
+        {
+            Message message = null;
+
+            using (var server = Server)
+            {
+                using (var client = server.OpenClient())
+                {
+                    message = client.Query<Message>(m => m.Id == id).SingleOrDefault();
+                }
+            }
+
+            return message;
+        }
     }
 }

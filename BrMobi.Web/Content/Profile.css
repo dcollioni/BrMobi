@@ -223,6 +223,21 @@
 	-moz-box-sizing: border-box;
 }
 
+#profileContent form input[type=text]:hover,
+#profileContent form select:hover,
+#profileContent .messagesPanel .post textarea:hover
+{
+    border-color: #9f9f9f;
+}
+            
+#profileContent form input[type=text]:focus,
+#profileContent form select:focus,
+#profileContent .messagesPanel .post textarea:focus
+{
+    border-color: #9f9f9f;
+    box-shadow: 0px 0px 3px #bbb;
+}
+
 #profileContent form select
 {
     display: inline;

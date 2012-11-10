@@ -198,6 +198,8 @@
     <Content Include="Scripts\Default\underscore.js" />
     <Content Include="Views\Account\Access.aspx" />
     <Content Include="Views\Map\Templates\BusInfo.htm" />
+    <Content Include="Views\Map\Templates\HelpInfo.htm" />
+    <Content Include="Views\Map\Templates\RideRequestInfo.htm" />
     <Content Include="Views\Map\Templates\RideOfferInfo.htm" />
     <Content Include="Views\Map\MapActions.ascx" />
     <Content Include="Views\Map\MapFilters.ascx" />

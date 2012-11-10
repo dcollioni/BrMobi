@@ -83,10 +83,10 @@ namespace BrMobi.Web.Controllers
                     infoHtmlPath = WebConfigurationManager.AppSettings["RideOfferInfoHtmlPath"];
                     break;
                 case MarkerType.RideRequest:
+                    infoHtmlPath = WebConfigurationManager.AppSettings["RideRequestInfoHtmlPath"];
                     break;
                 case MarkerType.Help:
-                    break;
-                default:
+                    infoHtmlPath = WebConfigurationManager.AppSettings["HelpInfoHtmlPath"];
                     break;
             }
 

@@ -15,16 +15,22 @@ namespace BrMobi.Web.Controllers
         private readonly IBusLineService busLineService;
         private readonly IBusMarkerService busMarkerService;
         private readonly IRideOfferMarkerService rideOfferMarkerService;
+        private readonly IRideRequestMarkerService rideRequestMarkerService;
+        private readonly IHelpMarkerService helpMarkerService;
 
         public MapController(IMapService mapService,
                              IBusLineService busLineService,
                              IBusMarkerService busMarkerService,
-                             IRideOfferMarkerService rideOfferMarkerService)
+                             IRideOfferMarkerService rideOfferMarkerService,
+                             IRideRequestMarkerService rideRequestMarkerService,
+                             IHelpMarkerService helpMarkerService)
         {
             this.mapService = mapService;
             this.busLineService = busLineService;
             this.busMarkerService = busMarkerService;
             this.rideOfferMarkerService = rideOfferMarkerService;
+            this.rideRequestMarkerService = rideRequestMarkerService;
+            this.helpMarkerService = helpMarkerService;
         }
 
         public JsonResult MarkBus(double lat, double lng)
@@ -69,7 +75,7 @@ namespace BrMobi.Web.Controllers
         public string GetBusInfo(int id)
         {
             var infoTemplate = GetMarkerInfoTemplate(MarkerType.Bus);
-            var infoContent = busMarkerService.GetBusMarkerInfoDetails(id, infoTemplate);
+            var infoContent = busMarkerService.GetBusMarkerInfoDetails(id, infoTemplate, LoggedUser);
 
             return infoContent;
         }
@@ -110,6 +116,107 @@ namespace BrMobi.Web.Controllers
             var marker = rideOfferMarkerService.RemoveHitchhiker(markerId, LoggedUser.Id);
 
             return Json(marker);
+        }
+
+        public string GetRideRequestInfo(int id)
+        {
+            var infoTemplate = GetMarkerInfoTemplate(MarkerType.RideRequest);
+            var infoContent = rideRequestMarkerService.GetRideRequestMarkerInfoDetails(id, infoTemplate, LoggedUser);
+
+            return infoContent;
+        }
+
+        public JsonResult UpdateRideRequest(DateTime date, TimeSpan time, string destination, int markerId)
+        {
+            var dateTime = date.Add(time);
+            var marker = rideRequestMarkerService.Update(dateTime, destination, markerId, LoggedUser);
+
+            return Json(marker);
+        }
+
+        public JsonResult AddOffer(int markerId)
+        {
+            var marker = rideRequestMarkerService.AddOffer(markerId, LoggedUser.Id);
+
+            return Json(marker);
+        }
+
+        public JsonResult RemoveOffer(int markerId)
+        {
+            var marker = rideRequestMarkerService.RemoveOffer(markerId, LoggedUser.Id);
+
+            return Json(marker);
+        }
+
+        public string GetHelpInfo(int id)
+        {
+            var infoTemplate = GetMarkerInfoTemplate(MarkerType.Help);
+            var infoContent = helpMarkerService.GetHelpMarkerInfoDetails(id, infoTemplate, LoggedUser);
+
+            return infoContent;
+        }
+
+        public JsonResult UpdateHelp(int markerId, string question)
+        {
+            var marker = helpMarkerService.UpdateQuestion(markerId, question);
+
+            return Json(marker);
+        }
+
+        public JsonResult AddAnswer(int markerId, string answer)
+        {
+            var newAnswer = new Answer()
+            {
+                CreatedBy = LoggedUser,
+                CreatedOn = DateTime.Now,
+                Text = answer
+            };
+
+            newAnswer = helpMarkerService.AddAnswer(newAnswer, markerId);
+
+            return Json(newAnswer);
+        }
+
+        public JsonResult RemoveAnswer(int id)
+        {
+            helpMarkerService.RemoveAnswer(id, LoggedUser);
+            
+            return Json(null);
+        }
+
+        public JsonResult RemoveBusLine(int busLineId, int markerId)
+        {
+            busMarkerService.RemoveBusLine(busLineId, markerId, LoggedUser);
+
+            return Json(null);
+        }
+
+        public JsonResult RemoveBusMarker(int markerId)
+        {
+            busMarkerService.Remove(markerId, LoggedUser);
+
+            return Json(null);
+        }
+
+        public JsonResult RemoveHelpMarker(int markerId)
+        {
+            helpMarkerService.Remove(markerId, LoggedUser);
+
+            return Json(null);
+        }
+
+        public JsonResult RemoveRideOfferMarker(int markerId)
+        {
+            rideOfferMarkerService.Remove(markerId, LoggedUser);
+
+            return Json(null);
+        }
+
+        public JsonResult RemoveRideRequestMarker(int markerId)
+        {
+            rideRequestMarkerService.Remove(markerId, LoggedUser);
+
+            return Json(null);
         }
     }
 }

@@ -6,7 +6,7 @@ namespace BrMobi.ApplicationServices.ServiceInterfaces
     public interface IMessageService
     {
         Message Create(Message message);
-        void Remove(int id);
+        void Remove(int id, User loggedUser);
         
         /// <summary>
         /// Lists the messages received by the user.
