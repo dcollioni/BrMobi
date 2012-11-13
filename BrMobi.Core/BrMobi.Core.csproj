@@ -41,8 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="City.cs" />
+    <Compile Include="Enums\Evaluation\QuestionCategory.cs" />
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\MarkerType.cs" />
+    <Compile Include="Evaluation\Question.cs" />
+    <Compile Include="Evaluation\UserAnswer.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Map\Answer.cs" />
     <Compile Include="Map\BusLine.cs" />
@@ -54,6 +57,8 @@
     <Compile Include="Map\Marker.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryInterfaces\Evaluation\IQuestionRepository.cs" />
+    <Compile Include="RepositoryInterfaces\Evaluation\IUserAnswerRepository.cs" />
     <Compile Include="RepositoryInterfaces\ICityRepository.cs" />
     <Compile Include="RepositoryInterfaces\IMessageRepository.cs" />
     <Compile Include="RepositoryInterfaces\IStateRepository.cs" />

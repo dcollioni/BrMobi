@@ -6,8 +6,9 @@ namespace BrMobi.Web.Controllers
 {
     public class TestController : Controller
     {
-        public void UpdateRideOffers()
+        public void CreateQuestions()
         {
+            //new UserRepository().CreateQuestions();
         }
     }
 }

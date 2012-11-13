@@ -22,6 +22,18 @@ namespace BrMobi.Web.Controllers
             }
         }
 
+        protected bool CanEvaluate
+        {
+            get
+            {
+                return Session["CanEvaluate"] != null ? (bool)Session["CanEvaluate"] : false;
+            }
+            set
+            {
+                Session["CanEvaluate"] = value;
+            }
+        }
+
         protected string GetBusMarkerImage()
         {
             return GetMarkerImage(MarkerType.Bus);

@@ -47,7 +47,7 @@ namespace BrMobi.ApplicationServices.Map
                 {
                     answers.Append("<div class='item'>");
                     answers.AppendFormat("<input type='hidden' name='answerId' value='{0}' />", answer.Id);
-                    answers.AppendFormat("<a href='/Perfil/{0}'><img src='data:image/jpg;base64,{1}' alt='Imagem do usuário' title='{1}' /></a>",
+                    answers.AppendFormat("<a href='/Perfil/{0}'><img src='data:image/jpg;base64,{1}' alt='Imagem do usuário' title='{2}' /></a>",
                                             answer.CreatedBy.Id, answer.CreatedBy.Picture, answer.CreatedBy.Name);
                     answers.AppendFormat("<p>{0}</p>", answer.Text);
                     answers.AppendFormat("<p class='date'>{0} {1}", answer.CreatedOn.ToString("d", new CultureInfo("pt-BR")), answer.CreatedOn.ToString("t", new CultureInfo("pt-BR")));

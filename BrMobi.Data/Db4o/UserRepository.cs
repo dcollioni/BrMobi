@@ -5,6 +5,8 @@ using BrMobi.Core;
 using BrMobi.Core.Map;
 using BrMobi.Core.RepositoryInterfaces;
 using BrMobi.Data.Db4o.Base;
+using BrMobi.Core.Evaluation;
+using BrMobi.Core.Enums.Evaluation;
 
 namespace BrMobi.Data.Db4o
 {

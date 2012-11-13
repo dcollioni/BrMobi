@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Db4o\Base\BaseRepository.cs" />
     <Compile Include="Db4o\CityRepository.cs" />
+    <Compile Include="Db4o\Evaluation\QuestionRepository.cs" />
+    <Compile Include="Db4o\Evaluation\UserAnswerRepository.cs" />
     <Compile Include="Db4o\Map\BusLineRepository.cs" />
     <Compile Include="Db4o\Map\BusMarkerRepository.cs" />
     <Compile Include="Db4o\Map\AnswerRepository.cs" />

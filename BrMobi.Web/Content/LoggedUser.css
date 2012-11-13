@@ -34,7 +34,8 @@
     vertical-align: middle;
 }
 
-#loggedUser .logoff a
+#loggedUser .logoff a,
+#loggedUser .evaluate
 {
     color: #ddd;
     font-weight: bold;
@@ -42,4 +43,12 @@
     text-shadow: 1px 1px #333;
     margin-left: 10px;
     vertical-align: middle;
+}
+
+#loggedUser .evaluate
+{
+    color: #bec;
+    font-size: 14pt;
+    font-weight: bold;
+    margin-right: 40px;
 }

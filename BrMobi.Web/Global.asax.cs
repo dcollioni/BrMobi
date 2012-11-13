@@ -30,6 +30,7 @@ namespace BrMobi.Web
             routes.MapRoute("Logoff", "Sair", new { controller = "Account", action = "LogOff" });
             routes.MapRoute("Register", "Cadastro", new { controller = "Account", action = "Register" });
             routes.MapRoute("Profile", "Perfil/{id}", new { controller = "Profile", action = "Index", id = UrlParameter.Optional });
+            routes.MapRoute("Evaluation", "Avaliacao", new { controller = "Evaluation", action = "Index" });
 
             routes.MapRoute(
                 "Default", // Route name

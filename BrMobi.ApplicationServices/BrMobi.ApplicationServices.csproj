@@ -43,6 +43,8 @@
     <Compile Include="AccountService.cs" />
     <Compile Include="BaseService.cs" />
     <Compile Include="CityService.cs" />
+    <Compile Include="Evaluation\EvaluationService.cs" />
+    <Compile Include="Evaluation\QuestionService.cs" />
     <Compile Include="Map\BusLineService.cs" />
     <Compile Include="Map\BusMarkerService.cs" />
     <Compile Include="Map\HelpMarkerService.cs" />
@@ -51,6 +53,8 @@
     <Compile Include="Map\MapService.cs" />
     <Compile Include="MessageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceInterfaces\Evaluation\IEvaluationService.cs" />
+    <Compile Include="ServiceInterfaces\Evaluation\IQuestionService.cs" />
     <Compile Include="ServiceInterfaces\ICityService.cs" />
     <Compile Include="ServiceInterfaces\IAccountService.cs" />
     <Compile Include="ServiceInterfaces\IMessageService.cs" />
@@ -69,6 +73,7 @@
       <Name>BrMobi.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

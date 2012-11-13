@@ -1,19 +1,31 @@
 ﻿$(function () {
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(currentPosition);
+    }
+
+    function currentPosition(position) {
+        var current = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        BrMobi.map.setCenter(current);
+    }
+
     BrMobi.map = new google.maps.Map(document.getElementById("mapCanvas"), {
-        //center: new google.maps.LatLng(-30.050, -51.150),
-        center: new google.maps.LatLng(-29.99924415034457, -51.07705464363096),
+        center: new google.maps.LatLng(-30.012178323422578, -51.17836434236143),
         zoom: 16,
-        zoomControl: false,
-        panControl: false,
-        streetViewControl: false,
+        panControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_TOP
+        },
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_BOTTOM
+        },
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
     BrMobi.markers = [];
     BrMobi.markersId = [];
-    BrMobi.showBus = false;
-    BrMobi.showRideOffer = false;
-    BrMobi.showRideRequest = false;
+    BrMobi.showBus = true;
+    BrMobi.showRideOffer = true;
+    BrMobi.showRideRequest = true;
     BrMobi.showHelp = true;
     BrMobi.infoWindow = null;
     BrMobi.locationMarker = null;

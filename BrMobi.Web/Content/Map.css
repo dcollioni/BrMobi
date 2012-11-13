@@ -566,6 +566,7 @@
 .helpInfo .answers
 {
     height: 125px;
+    width: 400px;
     overflow: auto;
 }
 

@@ -10,16 +10,20 @@ using System.IO;
 using System.Drawing.Imaging;
 using System.Security.Cryptography;
 using System.Drawing;
+using BrMobi.ApplicationServices.ServiceInterfaces.Evaluation;
 
 namespace BrMobi.Web.Controllers
 {
     public class AccountController : BaseController
     {
         private IAccountService accountService;
+        private IEvaluationService evaluationService;
 
-        public AccountController(IAccountService accountService)
+        public AccountController(IAccountService accountService,
+                                 IEvaluationService evaluationService)
         {
             this.accountService = accountService;
+            this.evaluationService = evaluationService;
         }
 
         public ActionResult Access()
@@ -58,6 +62,7 @@ namespace BrMobi.Web.Controllers
                 if (user != null)
                 {
                     LoggedUser = user;
+                    CanEvaluate = evaluationService.CanEvaluate(LoggedUser);
 
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
