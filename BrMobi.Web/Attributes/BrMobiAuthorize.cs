@@ -7,7 +7,9 @@ namespace BrMobi.Web.Attributes
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var session = filterContext.HttpContext.Session;
+            //var session = filterContext.HttpContext.Session;
+
+            var session = filterContext.Controller.ControllerContext.HttpContext.Session;
 
             if (session != null && session["User"] != null) return;
 

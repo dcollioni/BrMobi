@@ -9,7 +9,6 @@ using BrMobi.Web.Attributes;
 
 namespace BrMobi.Web.Controllers
 {
-    [AlwaysAuthorize]
     public class BaseController : Controller
     {
         protected User LoggedUser
