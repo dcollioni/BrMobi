@@ -10,6 +10,7 @@ using Microsoft.Practices.ServiceLocation;
 using SharpArch.Web.Castle;
 using Db4objects.Db4o.CS;
 using Db4objects.Db4o;
+using System.Web.Configuration;
 
 namespace BrMobi.Web
 {
@@ -18,6 +19,7 @@ namespace BrMobi.Web
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        private static int SERVER_PORT = int.Parse(WebConfigurationManager.AppSettings["ServerPort"]);
         private static IObjectServer db4oServer;
 
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -83,7 +85,7 @@ namespace BrMobi.Web
             var folder = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
             var yapFile = string.Format("{0}/{1}", folder, "BrMobiObjects.yap");
 
-            db4oServer = Db4oClientServer.OpenServer(yapFile, 60001);
+            db4oServer = Db4oClientServer.OpenServer(yapFile, SERVER_PORT);
             db4oServer.GrantAccess("db4o", "passwordOfUser");
         }
 
