@@ -53,6 +53,7 @@ namespace BrMobi.Web.Controllers
         // POST: /Account/LogOn
 
         [HttpPost]
+        [AlwaysAuthorize]
         public ActionResult LogOn(LogOnModel model, string returnUrl)
         {
             if (ModelState.IsValid)
@@ -86,7 +87,7 @@ namespace BrMobi.Web.Controllers
 
         //
         // GET: /Account/LogOff
-
+        [AlwaysAuthorize]
         public ActionResult LogOff()
         {
             LoggedUser = null;
