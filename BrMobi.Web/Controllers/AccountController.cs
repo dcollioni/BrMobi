@@ -13,7 +13,6 @@ using BrMobi.Web.Models;
 
 namespace BrMobi.Web.Controllers
 {
-    [AlwaysAuthorize]
     public class AccountController : BaseController
     {
         private IAccountService accountService;
