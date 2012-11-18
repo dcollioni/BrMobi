@@ -6,13 +6,10 @@ using BrMobi.Web.Controllers;
 using BrMobi.Web.CustomModelBinders;
 using Castle.Windsor;
 using CommonServiceLocator.WindsorAdapter;
+using Db4objects.Db4o;
+using Db4objects.Db4o.CS;
 using Microsoft.Practices.ServiceLocation;
 using SharpArch.Web.Castle;
-using Db4objects.Db4o.CS;
-using Db4objects.Db4o;
-using System.Web.Configuration;
-using System.Web.Services.Description;
-using System.Net.Sockets;
 
 namespace BrMobi.Web
 {
@@ -52,10 +49,6 @@ namespace BrMobi.Web
         {
             AreaRegistration.RegisterAllAreas();
 
-            InitializeDb4oServer();
-
-            this.InitializeServiceLocator();
-
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
 
@@ -63,6 +56,9 @@ namespace BrMobi.Web
             ModelBinders.Binders.Add(typeof(DateTime), new DateModelBinder());
             ModelBinders.Binders.Add(typeof(DateTime?), new DateModelBinder());
             ModelBinders.Binders.Add(typeof(TimeSpan), new TimeModelBinder());
+
+            InitializeDb4oServer();
+            this.InitializeServiceLocator();
         }
 
         protected void Application_End()
@@ -70,41 +66,15 @@ namespace BrMobi.Web
             if (Db4oServer != null)
             {
                 Db4oServer.Close();
-                Db4oServer.Dispose();
             }
         }
 
-        //protected void Application_Disposed()
-        //{
-        //    if (db4oServer != null)
-        //    {
-        //        db4oServer.Close();
-        //        db4oServer.Dispose();
-        //    }
-        //}
-
-        //protected void Session_End()
-        //{
-        //    if (db4oServer != null)
-        //    {
-        //        db4oServer.Close();
-        //        db4oServer.Dispose();
-        //    }
-        //}
-
-        private static void InitializeDb4oServer()
+        protected virtual void InitializeDb4oServer()
         {
             var folder = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
             var yapFile = string.Format("{0}/{1}", folder, "BrMobiObjects.yap");
 
-            Db4oClientServer.NewServerConfiguration();
             Db4oServer = Db4oClientServer.OpenServer(Db4oClientServer.NewServerConfiguration(), yapFile, 0);
-                //db4oServer.GrantAccess("db4o", "db4o");
-        }
-
-        public static IObjectContainer OpenClient()
-        {
-            return Db4oServer.OpenClient();
         }
 
         /// <summary>
