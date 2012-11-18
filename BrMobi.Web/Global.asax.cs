@@ -9,6 +9,7 @@ using CommonServiceLocator.WindsorAdapter;
 using Microsoft.Practices.ServiceLocation;
 using SharpArch.Web.Castle;
 using Db4objects.Db4o.CS;
+using Db4objects.Db4o;
 
 namespace BrMobi.Web
 {
@@ -17,6 +18,8 @@ namespace BrMobi.Web
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        private static IObjectServer db4oServer;
+
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
@@ -55,6 +58,33 @@ namespace BrMobi.Web
             ModelBinders.Binders.Add(typeof(DateTime), new DateModelBinder());
             ModelBinders.Binders.Add(typeof(DateTime?), new DateModelBinder());
             ModelBinders.Binders.Add(typeof(TimeSpan), new TimeModelBinder());
+
+            InitializeDb4oServer();
+        }
+
+        protected void Application_End()
+        {
+            if (db4oServer != null)
+            {
+                db4oServer.Close();
+            }
+        }
+
+        protected void Application_Disposed()
+        {
+            if (db4oServer != null)
+            {
+                db4oServer.Close();
+            }
+        }
+
+        private static void InitializeDb4oServer()
+        {
+            var folder = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
+            var yapFile = string.Format("{0}/{1}", folder, "BrMobiObjects.yap");
+
+            db4oServer = Db4oClientServer.OpenServer(yapFile, 60001);
+            db4oServer.GrantAccess("db4o", "passwordOfUser");
         }
 
         /// <summary>
@@ -71,12 +101,6 @@ namespace BrMobi.Web
             ComponentRegistrar.AddComponentsTo(container);
 
             ServiceLocator.SetLocatorProvider(() => new WindsorServiceLocator(container));
-
-         
-            var folder = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
-            var yapFile = string.Format("{0}/{1}", folder, "BrMobiObjects.yap");
-
-            Db4oClientServer.OpenServer(yapFile, 60001).GrantAccess("db4o", "passwordOfUser");
         }
     }
 }
