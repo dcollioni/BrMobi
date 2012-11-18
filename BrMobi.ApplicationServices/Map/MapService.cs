@@ -54,15 +54,15 @@ namespace BrMobi.ApplicationServices.Map
         {
             var markers = new List<MarkerViewModel>();
 
-            var busMarkers = busMarkerRepository.List(southWest, northEast);
-            var rideOfferMarkers = rideOfferMarkerRepository.List(southWest, northEast, loggedUser);
-            var rideRequestMarkers = rideRequestMarkerRepository.List(southWest, northEast, loggedUser);
-            var helpMarkers = helpMarkerRepository.List(southWest, northEast, loggedUser);
+            //var busMarkers = busMarkerRepository.List(southWest, northEast);
+            //var rideOfferMarkers = rideOfferMarkerRepository.List(southWest, northEast, loggedUser);
+            //var rideRequestMarkers = rideRequestMarkerRepository.List(southWest, northEast, loggedUser);
+            //var helpMarkers = helpMarkerRepository.List(southWest, northEast, loggedUser);
 
-            markers.AddRange(Convert(busMarkers));
-            markers.AddRange(Convert(rideOfferMarkers));
-            markers.AddRange(Convert(rideRequestMarkers));
-            markers.AddRange(Convert(helpMarkers));
+            //markers.AddRange(Convert(busMarkers));
+            //markers.AddRange(Convert(rideOfferMarkers));
+            //markers.AddRange(Convert(rideRequestMarkers));
+            //markers.AddRange(Convert(helpMarkers));
 
             return markers;
         }
