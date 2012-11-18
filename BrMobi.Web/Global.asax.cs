@@ -98,8 +98,11 @@ namespace BrMobi.Web
             var folder = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
             var yapFile = string.Format("{0}/{1}", folder, "BrMobiObjects.yap");
 
-            db4oServer = Db4oClientServer.OpenServer(yapFile, 8080);
-            db4oServer.GrantAccess("db4o", "db4o");
+            if (db4oServer == null)
+            {
+                db4oServer = Db4oClientServer.OpenServer(yapFile, 4000);
+                db4oServer.GrantAccess("db4o", "db4o");
+            }
         }
 
         /// <summary>

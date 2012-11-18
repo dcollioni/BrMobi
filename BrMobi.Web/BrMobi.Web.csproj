@@ -224,7 +224,9 @@
     <Content Include="Views\Map\MapHeader.ascx" />
     <Content Include="Views\Profile\Index.aspx" />
     <Content Include="Views\Shared\ChangePicture.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
