@@ -21,6 +21,7 @@ C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.We
 C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Release\ResolveAssemblyReference.cache
 C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Release\BrMobi.Web.dll
 C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Release\BrMobi.Web.pdb
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\App_Data\BrMobiObjects.yap
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Content\Fonts\BuxtonSketch.ttf
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Content\Fonts\LondonMM.ttf
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\BrMobi.Web.dll

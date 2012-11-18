@@ -209,7 +209,11 @@
     <Content Include="Scripts\App\Site.js" />
     <Content Include="Scripts\App\Utils.js" />
     <Content Include="Scripts\Default\underscore.js" />
+    <Content Include="UserImages\12805968.jpg" />
     <Content Include="UserImages\15946659.jpg" />
+    <Content Include="UserImages\35934220.jpg" />
+    <Content Include="UserImages\52001425.jpg" />
+    <Content Include="UserImages\66680586.jpg" />
     <Content Include="UserImages\user.png" />
     <Content Include="Views\Account\Access.aspx" />
     <Content Include="Views\Account\ResetPassword.aspx" />
@@ -270,7 +274,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\BrMobiObjects.yap" />
+    <Content Include="App_Data\BrMobiObjects.yap">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="BrMobi_empty\Apresentação1.pptx" />
     <None Include="BrMobi_empty\fonts\LondonBetween.ttf" />
     <Content Include="Content\Fonts\BuxtonSketch.ttf">
