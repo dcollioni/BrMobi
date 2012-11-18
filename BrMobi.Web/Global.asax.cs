@@ -11,6 +11,8 @@ using SharpArch.Web.Castle;
 using Db4objects.Db4o.CS;
 using Db4objects.Db4o;
 using System.Web.Configuration;
+using System.Web.Services.Description;
+using System.Net.Sockets;
 
 namespace BrMobi.Web
 {
@@ -96,8 +98,8 @@ namespace BrMobi.Web
             var folder = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
             var yapFile = string.Format("{0}/{1}", folder, "BrMobiObjects.yap");
 
-            db4oServer = Db4oClientServer.OpenServer(yapFile, SERVER_PORT);
-            db4oServer.GrantAccess("db4o", "passwordOfUser");
+            db4oServer = Db4oClientServer.OpenServer(yapFile, 443);
+            db4oServer.GrantAccess("db4o", "db4o");
         }
 
         /// <summary>

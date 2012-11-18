@@ -177,7 +177,7 @@ namespace BrMobi.Web.Controllers
                 smtp.Host = "smtp.mailgun.org";
                 smtp.Port = 587;
                 smtp.Credentials = new NetworkCredential("postmaster@app10596.mailgun.org", "5ap3kf1ub186");
-
+                
                 var newPassword = Guid.NewGuid().ToString().Split('-')[0];
 
                 var body = string.Format("<p>Você solicitou uma nova senha ao BrMobi.</p> <p>Acesse sua conta utilizando seu e-mail e a sua nova senha: <b>{0}</b>.</p>", newPassword);
@@ -267,7 +267,7 @@ namespace BrMobi.Web.Controllers
                 LoggedUser.Picture = string.Concat("/UserImages/", LoggedUser.Id, ".", imageFormat);
                 LoggedUser = accountService.ChangePicture(LoggedUser);
             }
-
+            
             return RedirectToAction("Index", "Profile");
         }
 
