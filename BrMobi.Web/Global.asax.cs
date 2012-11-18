@@ -10,12 +10,14 @@ using Db4objects.Db4o;
 using Db4objects.Db4o.CS;
 using Microsoft.Practices.ServiceLocation;
 using SharpArch.Web.Castle;
+using BrMobi.Web.Attributes;
 
 namespace BrMobi.Web
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
 
+    [BrMobiAuthorize]
     public class MvcApplication : System.Web.HttpApplication
     {
         public static IObjectServer Db4oServer;
