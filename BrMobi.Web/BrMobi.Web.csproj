@@ -54,6 +54,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Enyim.Caching">
+      <HintPath>..\lib\Enyim.Caching.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>

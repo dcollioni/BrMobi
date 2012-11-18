@@ -44,3 +44,4 @@ D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\EntityFra
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Release\BrMobi.Web.csprojResolveAssemblyReference.cache
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Release\BrMobi.Web.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Release\BrMobi.Web.pdb
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Enyim.Caching.dll
