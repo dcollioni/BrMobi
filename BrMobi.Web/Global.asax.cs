@@ -11,6 +11,8 @@ using Db4objects.Db4o.CS;
 using Microsoft.Practices.ServiceLocation;
 using SharpArch.Web.Castle;
 using BrMobi.Web.Attributes;
+using System.Web;
+using System.Web.Security;
 
 namespace BrMobi.Web
 {
@@ -93,6 +95,20 @@ namespace BrMobi.Web
             ComponentRegistrar.AddComponentsTo(container);
 
             ServiceLocator.SetLocatorProvider(() => new WindsorServiceLocator(container));
+        }
+
+        protected void Application_EndRequest()
+        {
+            var context = new HttpContextWrapper(this.Context);
+
+            // If we're an ajax request and forms authentication caused a 302, 
+            // then we actually need to do a 401
+            if (FormsAuthentication.IsEnabled && context.Response.StatusCode == 302
+                && context.Request.IsAjaxRequest())
+            {
+                context.Response.Clear();
+                context.Response.StatusCode = 401;
+            }
         }
     }
 }
