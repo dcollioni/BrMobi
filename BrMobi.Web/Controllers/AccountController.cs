@@ -52,7 +52,6 @@ namespace BrMobi.Web.Controllers
         // POST: /Account/LogOn
 
         [HttpPost]
-        [AlwaysAuthorize]
         public ActionResult LogOn(LogOnModel model, string returnUrl)
         {
             if (ModelState.IsValid)
@@ -62,7 +61,7 @@ namespace BrMobi.Web.Controllers
                 if (user != null)
                 {
                     LoggedUser = user;
-                    CanEvaluate = evaluationService.CanEvaluate(LoggedUser);
+                    CanEvaluate = true; // evaluationService.CanEvaluate(LoggedUser);
 
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
