@@ -9,11 +9,18 @@ namespace BrMobi.Data.Db4o.Evaluation
 {
     public class UserAnswerRepository : BaseRepository, IUserAnswerRepository
     {
+        private readonly Db4objects.Db4o.IObjectServer server;
+
+        public UserAnswerRepository(Db4objects.Db4o.IObjectServer server)
+        {
+            this.server = server;
+        }
+
         public UserAnswer Create(UserAnswer userAnswer)
         {
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     userAnswer.AnsweredBy = client.Query<User>(u => u.Id == userAnswer.AnsweredBy.Id).SingleOrDefault();
                     userAnswer.Question = client.Query<Question>(q => q.Id == userAnswer.Question.Id).SingleOrDefault();
@@ -30,7 +37,7 @@ namespace BrMobi.Data.Db4o.Evaluation
         {
             var count = 0;
 
-            using (var client = Client)
+            using (var client = server.OpenClient())
             {
                 count = client.Query<UserAnswer>(u => u.AnsweredBy.Id == user.Id).Count;
             }
@@ -42,7 +49,7 @@ namespace BrMobi.Data.Db4o.Evaluation
         {
             var userAnswers = new List<UserAnswer>();
 
-            using (var client = Client)
+            using (var client = server.OpenClient())
             {
                 userAnswers = client.Query<UserAnswer>().ToList();
             }

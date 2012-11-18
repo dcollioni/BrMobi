@@ -10,11 +10,18 @@ namespace BrMobi.Data.Db4o.Map
 {
     public class BusMarkerRepository : BaseRepository, IBusMarkerRepository
     {
+        private readonly Db4objects.Db4o.IObjectServer server;
+
+        public BusMarkerRepository(Db4objects.Db4o.IObjectServer server)
+        {
+            this.server = server;
+        }
+
         public void Create(BusMarker busMarker)
         {
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     busMarker.Owner = client.Query<User>(u => u.Email == busMarker.Owner.Email).SingleOrDefault();
                     busMarker.Id = busMarker.GetHashCode();
@@ -30,7 +37,7 @@ namespace BrMobi.Data.Db4o.Map
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     markers = client.Query<BusMarker>(m => southWest.Lat() <= m.Lat && m.Lat <= northEast.Lat()
                                                         && southWest.Lng() <= m.Lng && m.Lng <= northEast.Lng()).ToList();
@@ -46,7 +53,7 @@ namespace BrMobi.Data.Db4o.Map
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     busMarker = client.Query<BusMarker>(b => b.Id == busMarkerId).SingleOrDefault();
 
@@ -70,7 +77,7 @@ namespace BrMobi.Data.Db4o.Map
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     busMarker = client.Query<BusMarker>(b => b.Id == id).SingleOrDefault();
                 }
@@ -85,7 +92,7 @@ namespace BrMobi.Data.Db4o.Map
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     var busMarker = client.Query<BusMarker>(b => b.Id == busMarkerId).SingleOrDefault();
 
@@ -103,7 +110,7 @@ namespace BrMobi.Data.Db4o.Map
         {
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     var marker = client.Query<BusMarker>(m => m.Id == markerId).SingleOrDefault();
 
@@ -126,7 +133,7 @@ namespace BrMobi.Data.Db4o.Map
         {
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     var marker = client.Query<BusMarker>(m => m.Id == markerId).SingleOrDefault();
                     client.Delete(marker);

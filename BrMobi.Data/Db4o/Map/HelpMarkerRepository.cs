@@ -10,11 +10,18 @@ namespace BrMobi.Data.Db4o.Map
 {
     public class HelpMarkerRepository : BaseRepository, IHelpMarkerRepository
     {
+        private readonly Db4objects.Db4o.IObjectServer server;
+
+        public HelpMarkerRepository(Db4objects.Db4o.IObjectServer server)
+        {
+            this.server = server;
+        }
+
         public void Create(HelpMarker helpMarker)
         {
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     helpMarker.Owner = client.Query<User>(u => u.Email == helpMarker.Owner.Email).SingleOrDefault();
                     helpMarker.Id = helpMarker.GetHashCode();
@@ -30,7 +37,7 @@ namespace BrMobi.Data.Db4o.Map
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     markers = client.Query<HelpMarker>(m => southWest.Lat() <= m.Lat && m.Lat <= northEast.Lat() &&
                                                             southWest.Lng() <= m.Lng && m.Lng <= northEast.Lng() &&
@@ -50,7 +57,7 @@ namespace BrMobi.Data.Db4o.Map
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     marker = client.Query<HelpMarker>(m => m.Id == markerId).SingleOrDefault();
 
@@ -71,7 +78,7 @@ namespace BrMobi.Data.Db4o.Map
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     marker = client.Query<HelpMarker>(m => m.Id == id).SingleOrDefault();
                 }
@@ -84,7 +91,7 @@ namespace BrMobi.Data.Db4o.Map
         {
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     answer.Id = answer.GetHashCode();
                     answer.CreatedBy = client.Query<User>(u => u.Id == answer.CreatedBy.Id).SingleOrDefault();
@@ -100,7 +107,7 @@ namespace BrMobi.Data.Db4o.Map
         {
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     var answer = client.Query<Answer>(a => a.Id == answerId).SingleOrDefault();
 
@@ -116,7 +123,7 @@ namespace BrMobi.Data.Db4o.Map
         {
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     var marker = client.Query<HelpMarker>(m => m.Id == markerId).SingleOrDefault();
                     client.Delete(marker);

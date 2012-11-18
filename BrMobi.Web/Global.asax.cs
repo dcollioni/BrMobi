@@ -21,8 +21,7 @@ namespace BrMobi.Web
 
     public class MvcApplication : System.Web.HttpApplication
     {
-        private static int SERVER_PORT = int.Parse(WebConfigurationManager.AppSettings["ServerPort"]);
-        private static IObjectServer db4oServer;
+        public static IObjectServer Db4oServer;
 
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
@@ -53,6 +52,8 @@ namespace BrMobi.Web
         {
             AreaRegistration.RegisterAllAreas();
 
+            InitializeDb4oServer();
+
             this.InitializeServiceLocator();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
@@ -62,16 +63,14 @@ namespace BrMobi.Web
             ModelBinders.Binders.Add(typeof(DateTime), new DateModelBinder());
             ModelBinders.Binders.Add(typeof(DateTime?), new DateModelBinder());
             ModelBinders.Binders.Add(typeof(TimeSpan), new TimeModelBinder());
-
-            InitializeDb4oServer();
         }
 
         protected void Application_End()
         {
-            if (db4oServer != null)
+            if (Db4oServer != null)
             {
-                db4oServer.Close();
-                db4oServer.Dispose();
+                Db4oServer.Close();
+                Db4oServer.Dispose();
             }
         }
 
@@ -98,11 +97,14 @@ namespace BrMobi.Web
             var folder = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
             var yapFile = string.Format("{0}/{1}", folder, "BrMobiObjects.yap");
 
-            if (db4oServer == null)
-            {
-                db4oServer = Db4oClientServer.OpenServer(yapFile, 4000);
-                db4oServer.GrantAccess("db4o", "db4o");
-            }
+            Db4oClientServer.NewServerConfiguration();
+            Db4oServer = Db4oClientServer.OpenServer(Db4oClientServer.NewServerConfiguration(), yapFile, 0);
+                //db4oServer.GrantAccess("db4o", "db4o");
+        }
+
+        public static IObjectContainer OpenClient()
+        {
+            return Db4oServer.OpenClient();
         }
 
         /// <summary>

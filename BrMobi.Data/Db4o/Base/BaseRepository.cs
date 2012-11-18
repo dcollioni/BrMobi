@@ -26,24 +26,24 @@ namespace BrMobi.Data.Db4o.Base
             }
         }
 
-        IObjectServer server;
-        protected IObjectServer Server
-        {
-            get
-            {
-                server = Db4oClientServer.OpenServer(YapFileName, 60001);
-                server.GrantAccess("db4o", "passwordOfUser");
+        //IObjectServer server;
+        //protected IObjectServer Server
+        //{
+        //    get
+        //    {
+        //        server = Db4oClientServer.OpenServer(YapFileName, 60001);
+        //        server.GrantAccess("db4o", "passwordOfUser");
 
-                //Db4oEmbedded.OpenFile(Db4oEmbedded.NewConfiguration(), YapFileName);
+        //        //Db4oEmbedded.OpenFile(Db4oEmbedded.NewConfiguration(), YapFileName);
 
-                //if (server == null)
-                //{
-                //    server = Db4oClientServer.OpenServer(YapFileName, 60001);
-                //}
+        //        //if (server == null)
+        //        //{
+        //        //    server = Db4oClientServer.OpenServer(YapFileName, 60001);
+        //        //}
 
-                return server;
-            }
-        }
+        //        return server;
+        //    }
+        //}
 
         protected IObjectContainer Client
         {

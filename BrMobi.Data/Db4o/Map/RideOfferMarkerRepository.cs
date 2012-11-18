@@ -10,11 +10,18 @@ namespace BrMobi.Data.Db4o.Map
 {
     public class RideOfferMarkerRepository : BaseRepository, IRideOfferMarkerRepository
     {
+        private readonly Db4objects.Db4o.IObjectServer server;
+
+        public RideOfferMarkerRepository(Db4objects.Db4o.IObjectServer server)
+        {
+            this.server = server;
+        }
+
         public void Create(RideOfferMarker rideOfferMarker)
         {
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     rideOfferMarker.Owner = client.Query<User>(u => u.Email == rideOfferMarker.Owner.Email).SingleOrDefault();
                     rideOfferMarker.Id = rideOfferMarker.GetHashCode();
@@ -30,7 +37,7 @@ namespace BrMobi.Data.Db4o.Map
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     markers = client.Query<RideOfferMarker>(m => southWest.Lat() <= m.Lat && m.Lat <= northEast.Lat() &&
                                                                  southWest.Lng() <= m.Lng && m.Lng <= northEast.Lng() &&
@@ -51,7 +58,7 @@ namespace BrMobi.Data.Db4o.Map
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     marker = client.Query<RideOfferMarker>(r => r.Id == id).FirstOrDefault();
                 }
@@ -66,7 +73,7 @@ namespace BrMobi.Data.Db4o.Map
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     marker = client.Query<RideOfferMarker>(r => r.Id == id).FirstOrDefault();
                     marker.DateTime = dateTime;
@@ -84,7 +91,7 @@ namespace BrMobi.Data.Db4o.Map
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     marker = client.Query<RideOfferMarker>(m => m.Id == rideOfferId).SingleOrDefault();
 
@@ -108,7 +115,7 @@ namespace BrMobi.Data.Db4o.Map
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     marker = client.Query<RideOfferMarker>(m => m.Id == rideOfferId).SingleOrDefault();
 
@@ -130,7 +137,7 @@ namespace BrMobi.Data.Db4o.Map
         {
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     var marker = client.Query<RideOfferMarker>(m => m.Id == markerId).SingleOrDefault();
 

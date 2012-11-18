@@ -9,6 +9,7 @@ namespace BrMobi.Web.CastleWindsor
     using SharpArch.Core.PersistenceSupport.NHibernate;
     using SharpArch.Data.NHibernate;
     using SharpArch.Web.Castle;
+    using Db4objects.Db4o;
 
     public class ComponentRegistrar
     {
@@ -74,6 +75,12 @@ namespace BrMobi.Web.CastleWindsor
                 Component.For(typeof(ISessionFactoryKeyProvider))
                     .ImplementedBy(typeof(DefaultSessionFactoryKeyProvider))
                     .Named("sessionFactoryKeyProvider")
+            );
+
+            container.Register(
+                Component.For(typeof(IObjectServer))
+                    .Instance(MvcApplication.Db4oServer)
+                    .Named("db4oServer")
             );
 
             container.Register(

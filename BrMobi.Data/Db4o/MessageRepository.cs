@@ -8,11 +8,18 @@ namespace BrMobi.Data.Db4o
 {
     public class MessageRepository : BaseRepository, IMessageRepository
     {
+        private readonly Db4objects.Db4o.IObjectServer server;
+
+        public MessageRepository(Db4objects.Db4o.IObjectServer server)
+        {
+            this.server = server;
+        }
+
         public Message Create(Message message)
         {
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     message.Id = message.GetHashCode();
 
@@ -32,7 +39,7 @@ namespace BrMobi.Data.Db4o
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     messages = client.Query<Message>(m => m.To.Id == userId)
                                      .OrderByDescending(m => m.CreatedOn).ToList();
@@ -46,7 +53,7 @@ namespace BrMobi.Data.Db4o
         {
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     var message = client.Query<Message>(m => m.Id == id).SingleOrDefault();
                     client.Delete(message);
@@ -60,7 +67,7 @@ namespace BrMobi.Data.Db4o
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     message = client.Query<Message>(m => m.Id == id).SingleOrDefault();
                 }

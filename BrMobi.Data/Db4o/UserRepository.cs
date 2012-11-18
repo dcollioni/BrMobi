@@ -12,13 +12,20 @@ namespace BrMobi.Data.Db4o
 {
     public class UserRepository : BaseRepository, IUserRepository
     {
+        private readonly Db4objects.Db4o.IObjectServer server;
+
+        public UserRepository(Db4objects.Db4o.IObjectServer server)
+        {
+            this.server = server;
+        }
+
         public IList<User> List()
         {
             var users = new List<User>();
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     users = client.Query<User>().ToList();
                 }
@@ -31,7 +38,7 @@ namespace BrMobi.Data.Db4o
         {
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     entity.Id = entity.GetHashCode();
                     client.Store(entity);
@@ -47,7 +54,7 @@ namespace BrMobi.Data.Db4o
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     count = client.Query<User>(u => email.Equals(u.Email, StringComparison.InvariantCultureIgnoreCase)).Count;
                 }
@@ -62,7 +69,7 @@ namespace BrMobi.Data.Db4o
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     user = client.Query<User>(u => u.Email == email && u.Password == password).SingleOrDefault();
                 }
@@ -89,7 +96,7 @@ namespace BrMobi.Data.Db4o
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     user = client.Query<User>(u => u.Id == entity.Id).SingleOrDefault();
 
@@ -117,7 +124,7 @@ namespace BrMobi.Data.Db4o
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     user = client.Query<User>(u => u.Id == id).SingleOrDefault();
                 }
@@ -144,7 +151,7 @@ namespace BrMobi.Data.Db4o
 
             //using (var server = Server)
             //{
-                using (var client = Client)
+                using (var client = server.OpenClient())
                 {
                     user = client.Query<User>(u => u.Id == entity.Id).SingleOrDefault();
                     user.Picture = entity.Picture;
@@ -160,7 +167,7 @@ namespace BrMobi.Data.Db4o
         {
             var users = new List<User>();
 
-            using (var client = Client)
+            using (var client = server.OpenClient())
             {
                 var messages = client.Query<Message>(m => m.From.Id == id || m.To.Id == id).OrderByDescending(m => m.CreatedOn).ToList();
                 var rideOffers = client.Query<RideOfferMarker>(r => r.Owner.Id == id || r.Hitchhikers.Any(h => h.Id == id)).OrderByDescending(m => m.DateTime).ToList();
@@ -223,7 +230,7 @@ namespace BrMobi.Data.Db4o
 
         public void UpdatePassword(string email, string password)
         {
-            using (var client = Client)
+            using (var client = server.OpenClient())
             {
                 var user = client.Query<User>(u => u.Email == email).SingleOrDefault();
 
