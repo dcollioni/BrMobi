@@ -32,11 +32,11 @@ D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\BrMobi.Da
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Castle.Core.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Castle.Windsor.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\CommonServiceLocator.WindsorAdapter.dll
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Db4objects.Db4o.CS.dll
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Db4objects.Db4o.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\EntityFramework.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Microsoft.Practices.ServiceLocation.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\SharpArch.dll
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Db4objects.Db4o.CS.dll
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Db4objects.Db4o.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\BrMobi.ApplicationServices.pdb
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\BrMobi.Core.pdb
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\BrMobi.Data.pdb

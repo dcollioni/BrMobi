@@ -12,12 +12,9 @@ namespace BrMobi.Data.Db4o
         {
             var cities = new List<City>();
 
-            using (var server = Server)
+            using (var client = Client)
             {
-                using (var client = server.OpenClient())
-                {
-                    cities = client.Query<City>(c => c.State.Id == stateId).OrderBy(s => s.Name).ToList();
-                }
+                cities = client.Query<City>(c => c.State.Id == stateId).OrderBy(s => s.Name).ToList();
             }
 
             return cities;
@@ -27,13 +24,13 @@ namespace BrMobi.Data.Db4o
         {
             City city = null;
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     city = client.Query<City>(c => c.Id == id).SingleOrDefault();
                 }
-            }
+            //}
 
             return city;
         }

@@ -29,12 +29,12 @@
         <% if (loggedUser.Id != user.Id)
            {
         %>
-            <img src="data:image/jpg;base64,<%: user.Picture %>" alt="Imagem do usuário" class="userPicture" />
+            <img src="<%: user.Picture %>" alt="Imagem do usuário" class="userPicture" />
         <% }
            else
            {
         %>
-            <img src="data:image/jpg;base64,<%: user.Picture %>" alt="Imagem do usuário" class="userPicture changePicture" title="Alterar imagem" />
+            <img src="<%: user.Picture %>" alt="Imagem do usuário" class="userPicture changePicture" title="Alterar imagem" />
         <%
            }
         %>
@@ -143,7 +143,7 @@
                 %>
                 <div class="item">
                     <input type="hidden" name="messageId" value="<%: message.Id %>" />
-                    <a href="/Perfil/<%: message.From.Id %>"><img src="data:image/jpg;base64,<%: message.From.Picture %>" alt="Imagem do usuário" title="<%: message.From.Name %>" /></a>
+                    <a href="/Perfil/<%: message.From.Id %>"><img src="<%: message.From.Picture %>" alt="Imagem do usuário" title="<%: message.From.Name %>" /></a>
                     <p><%: message.Text %></p>
                     <p class="date">
                         <%--<a href="javascript:;" class="remove">Excluir</a>--%>
@@ -168,7 +168,7 @@
                foreach (var relation in relationship)
                {
                 %>
-                <a href="/Perfil/<%: relation.Id %>"><img src="data:image/jpg;base64,<%: relation.Picture %>" alt="Imagem da conexão" class="relationshipPicture" title="<%: relation.Name %>" /></a>
+                <a href="/Perfil/<%: relation.Id %>"><img src="<%: relation.Picture %>" alt="Imagem da conexão" class="relationshipPicture" title="<%: relation.Name %>" /></a>
                 <%       
                }   
             %>

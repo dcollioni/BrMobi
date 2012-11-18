@@ -12,13 +12,13 @@ namespace BrMobi.Data.Db4o.Map
         {
             Answer answer = null;
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     answer = client.Query<Answer>(a => a.Id == id).SingleOrDefault();
                 }
-            }
+            //}
 
             return answer;
         }
@@ -27,13 +27,13 @@ namespace BrMobi.Data.Db4o.Map
         {
             IList<Answer> answers = new List<Answer>();
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     answers = client.Query<Answer>(a => a.Marker.Id == markerId).ToList();
                 }
-            }
+            //}
 
             return answers;
         }

@@ -12,12 +12,9 @@ namespace BrMobi.Data.Db4o
         {
             var states = new List<State>();
 
-            using (var server = Server)
+            using (var client = Client)
             {
-                using (var client = server.OpenClient())
-                {
-                    states = client.Query<State>().OrderBy(s => s.Code).ToList();
-                }
+                states = client.Query<State>().OrderBy(s => s.Code).ToList();
             }
 
             return states;

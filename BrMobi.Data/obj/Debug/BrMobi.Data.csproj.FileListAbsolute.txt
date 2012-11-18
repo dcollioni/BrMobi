@@ -16,12 +16,12 @@ C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Da
 C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\obj\Debug\BrMobi.Data.dll
 C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\obj\Debug\BrMobi.Data.pdb
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\obj\Debug\BrMobi.Data.csprojResolveAssemblyReference.cache
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\bin\Debug\BrMobi.Data.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\bin\Debug\BrMobi.Data.pdb
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\bin\Debug\BrMobi.Core.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\bin\Debug\Db4objects.Db4o.CS.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\bin\Debug\Db4objects.Db4o.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\bin\Debug\BrMobi.Core.pdb
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\obj\Debug\BrMobi.Data.csprojResolveAssemblyReference.cache
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\obj\Debug\BrMobi.Data.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Data\obj\Debug\BrMobi.Data.pdb

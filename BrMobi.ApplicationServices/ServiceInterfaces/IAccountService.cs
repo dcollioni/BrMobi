@@ -58,5 +58,7 @@ namespace BrMobi.ApplicationServices.ServiceInterfaces
         /// <param name="id">The user id.</param>
         /// <returns>The list of users.</returns>
         IList<User> GetRelationship(int id);
+
+        void UpdateUserPassword(string email, string password);
     }
 }

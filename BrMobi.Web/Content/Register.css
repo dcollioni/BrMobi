@@ -28,7 +28,8 @@
     cursor: default;
 }
 
-#registerForm .header h1
+#registerForm .header h1,
+#resetPassword h1
 {
     font-size: 14pt;
     font-weight: bold;
@@ -59,7 +60,8 @@
 }
             
 #registerForm .content input[type=text],
-#registerForm .content input[type=password]
+#registerForm .content input[type=password],
+#resetPassword input[type=text]
 {
     border: 1px solid #bbb;
     border-radius: 5px;
@@ -75,13 +77,15 @@
 }
             
 #registerForm .content input[type=text]:hover,
-#registerForm .content input[type=password]:hover
+#registerForm .content input[type=password]:hover,
+#resetPassword input[type=text]:hover
 {
     border-color: #9f9f9f;
 }
             
 #registerForm .content input[type=text]:focus,
-#registerForm .content input[type=password]:focus
+#registerForm .content input[type=password]:focus,
+#resetPassword input[type=text]:focus
 {
     border-color: #9f9f9f;
     box-shadow: 0px 0px 5px #bbb;
@@ -101,7 +105,8 @@
 }
             
 /* Submit button */
-#registerForm .content input[type=submit]
+#registerForm .content input[type=submit],
+#resetPassword input[type=submit]
 {
     background-color: #446699;
     font-family: 'London', 'Tahoma', 'Arial', 'Maiandra GD', sans-serif;
@@ -118,7 +123,9 @@
 }
             
 #registerForm .content input[type=submit]:hover,
-#registerForm .content input[type=submit]:focus
+#registerForm .content input[type=submit]:focus,
+#resetPassword input[type=submit]:hover,
+#resetPassword input[type=submit]:focus
 {
     border-color: #204070;
     background-color: #335588;
@@ -128,12 +135,14 @@
     box-shadow: 0px 0px 5px #666;
 }
             
-#registerForm .content input[type=submit]:focus
+#registerForm .content input[type=submit]:focus,
+#resetPassword input[type=submit]:focus
 {
     border: 1px solid #ddd;
 }
             
-#registerForm .content input[type=submit]:active
+#registerForm .content input[type=submit]:active,
+#resetPassword input[type=submit]:active
 {
     border-color: #204070;
     background-color: #335588;
@@ -201,4 +210,15 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
+}
+
+#resetPassword input[type=text]
+{
+    width: 300px;
+}
+
+#resetPassword input[type=submit]
+{
+    padding: 6px;
+    width: 80px;
 }

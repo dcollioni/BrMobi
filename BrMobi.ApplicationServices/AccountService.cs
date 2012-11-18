@@ -96,5 +96,11 @@ namespace BrMobi.Service.ApplicationServices
         {
             return userRepository.GetRelationship(id);
         }
+
+        public void UpdateUserPassword(string email, string password)
+        {
+            password = EncryptPassword(password);
+            userRepository.UpdatePassword(email, password);
+        }
     }
 }

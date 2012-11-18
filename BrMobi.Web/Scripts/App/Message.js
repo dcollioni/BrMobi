@@ -19,7 +19,7 @@
                         var $list = $('#profileContent .messagesPanel .list');
 
                         var date = response.CreatedOn.jsonToDate();
-                        var listItem = '<div class="item"><input type="hidden" name="messageId" value="{5}" /><a href="/Perfil/{0}"><img src="data:image/jpg;base64,{1}" alt="Imagem do usuário" title="{2}" /></a><p>{3}</p><p class="date">{4} <input type="button" name="remove" class="remove" value="Excluir" /></p></div>'.format(response.From.Id,
+                        var listItem = '<div class="item"><input type="hidden" name="messageId" value="{5}" /><a href="/Perfil/{0}"><img src="{1}" alt="Imagem do usuário" title="{2}" /></a><p>{3}</p><p class="date">{4} <input type="button" name="remove" class="remove" value="Excluir" /></p></div>'.format(response.From.Id,
                                                       response.From.Picture,
                                                       response.From.Name,
                                                       response.Text,

@@ -39,5 +39,10 @@ namespace BrMobi.ApplicationServices.Evaluation
         {
             return userAnswerRepository.CountUserAnswers(loggedUser) == 0;
         }
+
+        public IList<UserAnswer> ListAllUserAnswers()
+        {
+            return userAnswerRepository.ListAll();
+        }
     }
 }

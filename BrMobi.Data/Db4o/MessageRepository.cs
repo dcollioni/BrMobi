@@ -10,9 +10,9 @@ namespace BrMobi.Data.Db4o
     {
         public Message Create(Message message)
         {
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     message.Id = message.GetHashCode();
 
@@ -21,7 +21,7 @@ namespace BrMobi.Data.Db4o
 
                     client.Store(message);
                 }
-            }
+            //}
 
             return message;
         }
@@ -30,41 +30,41 @@ namespace BrMobi.Data.Db4o
         {
             var messages = new List<Message>();
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     messages = client.Query<Message>(m => m.To.Id == userId)
                                      .OrderByDescending(m => m.CreatedOn).ToList();
                 }
-            }
+            //}
 
             return messages;
         }
 
         public void Remove(int id)
         {
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     var message = client.Query<Message>(m => m.Id == id).SingleOrDefault();
                     client.Delete(message);
                 }
-            }
+            //}
         }
 
         public Message Get(int id)
         {
             Message message = null;
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     message = client.Query<Message>(m => m.Id == id).SingleOrDefault();
                 }
-            }
+            //}
 
             return message;
         }

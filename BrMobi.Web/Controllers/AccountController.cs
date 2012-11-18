@@ -11,6 +11,8 @@ using System.Drawing.Imaging;
 using System.Security.Cryptography;
 using System.Drawing;
 using BrMobi.ApplicationServices.ServiceInterfaces.Evaluation;
+using System.Net.Mail;
+using System.Net;
 
 namespace BrMobi.Web.Controllers
 {
@@ -115,7 +117,8 @@ namespace BrMobi.Web.Controllers
                     CreatedOn = DateTime.Now,
                     Email = model.Email.Trim(),
                     Name = model.Name.Trim(),
-                    Password = model.Password.Trim()
+                    Password = model.Password.Trim(),
+                    Picture = "/UserImages/user.png"
                 };
 
                 OperationStatus operationStatus;
@@ -124,6 +127,7 @@ namespace BrMobi.Web.Controllers
                 if (operationStatus.Success)
                 {
                     LoggedUser = user;
+                    CanEvaluate = true;
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -150,6 +154,50 @@ namespace BrMobi.Web.Controllers
             }
 
             return View(model);
+        }
+
+        public ActionResult ResetPassword(bool? success)
+        {
+            if (success.HasValue)
+            {
+                ViewBag.Success = success.Value;
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ResetPassword(string email)
+        {
+            var success = true;
+
+            try
+            {
+                var smtp = new SmtpClient();
+                smtp.Host = "smtp.mailgun.org";
+                smtp.Port = 587;
+                smtp.Credentials = new NetworkCredential("postmaster@app10596.mailgun.org", "5ap3kf1ub186");
+
+                var newPassword = Guid.NewGuid().ToString().Split('-')[0];
+
+                var body = string.Format("<p>Você solicitou uma nova senha ao BrMobi.</p> <p>Acesse sua conta utilizando seu e-mail e a sua nova senha: <b>{0}</b>.</p>", newPassword);
+
+                MailMessage message = new MailMessage("BrMobi@brmobi.apphb.com",
+                                                      email,
+                                                      "Redefinição de senha",
+                                                      body);
+
+                message.IsBodyHtml = true;
+                
+                smtp.Send(message);
+                accountService.UpdateUserPassword(email, newPassword);
+            }
+            catch
+            {
+                success = false;
+            }
+
+            return Redirect("/RedefinirSenha/" + success);
         }
 
         //
@@ -210,14 +258,14 @@ namespace BrMobi.Web.Controllers
         {
             if (LoggedUser != null)
             {
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    Request.Files[0].InputStream.CopyTo(ms);
-                    byte[] array = ms.ToArray();
+                var file = Request.Files[0];
 
-                    LoggedUser.Picture = Convert.ToBase64String(array);
-                    LoggedUser = accountService.ChangePicture(LoggedUser);
-                }
+                var imageFormat = file.FileName.Split('.').Last();
+                var imagePath = Server.MapPath("~/UserImages/");
+                file.SaveAs(string.Concat(imagePath, LoggedUser.Id, ".", imageFormat));
+
+                LoggedUser.Picture = string.Concat("/UserImages/", LoggedUser.Id, ".", imageFormat);
+                LoggedUser = accountService.ChangePicture(LoggedUser);
             }
 
             return RedirectToAction("Index", "Profile");

@@ -32,9 +32,7 @@ namespace BrMobi.ApplicationServices.Map
                 var displayAll = (marker.Owner.Email != loggedUser.Email) ? "block" : "none";
                 var displayOwner = (marker.Owner.Email != loggedUser.Email) ? "none" : "block";
 
-                var userPicture = !string.IsNullOrEmpty(marker.Owner.Picture) ?
-                                   string.Format("data:image/jpg;base64,{0}", marker.Owner.Picture) :
-                                   "Content/Images/person.png";
+                var userPicture = marker.Owner.Picture;
 
                 var date = string.Empty;
                 var time = string.Empty;
@@ -52,7 +50,7 @@ namespace BrMobi.ApplicationServices.Map
 
                 foreach (var offer in marker.Offers)
                 {
-                    offersPictures.AppendFormat("<a href='/Perfil/{2}'><img src='data:image/jpg;base64,{0}' alt='Imagem do usuário' title='{1}' /></a>",
+                    offersPictures.AppendFormat("<a href='/Perfil/{2}'><img src='{0}' alt='Imagem do usuário' title='{1}' /></a>",
                                                     offer.Picture, offer.Name, offer.Id);
                 }
 

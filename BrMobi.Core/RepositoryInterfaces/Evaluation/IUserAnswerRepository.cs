@@ -1,4 +1,5 @@
-﻿using BrMobi.Core.Evaluation;
+﻿using System.Collections.Generic;
+using BrMobi.Core.Evaluation;
 
 namespace BrMobi.Core.RepositoryInterfaces.Evaluation
 {
@@ -6,5 +7,6 @@ namespace BrMobi.Core.RepositoryInterfaces.Evaluation
     {
         UserAnswer Create(UserAnswer userAnswer);
         int CountUserAnswers(User user);
+        IList<UserAnswer> ListAll();
     }
 }

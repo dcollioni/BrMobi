@@ -10,14 +10,14 @@ namespace BrMobi.Data.Db4o.Map
     {
         public BusLine Create(BusLine busLine)
         {
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     busLine.Id = busLine.GetHashCode();
                     client.Store(busLine);
                 }
-            }
+            //}
 
             return busLine;
         }
@@ -26,14 +26,14 @@ namespace BrMobi.Data.Db4o.Map
         {
             BusLine busLine = null;
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     busLine = client.Query<BusLine>(b => b.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase))
                                     .SingleOrDefault();
                 }
-            }
+            //}
 
             return busLine;
         }

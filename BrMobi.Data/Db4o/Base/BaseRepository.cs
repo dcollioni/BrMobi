@@ -7,7 +7,7 @@ namespace BrMobi.Data.Db4o.Base
 {
     public class BaseRepository
     {
-        static string YapFileName
+        protected static string YapFileName
         {
             get
             {
@@ -26,11 +26,31 @@ namespace BrMobi.Data.Db4o.Base
             }
         }
 
+        IObjectServer server;
         protected IObjectServer Server
         {
             get
             {
-                return Db4oClientServer.OpenServer(ServerConfig, YapFileName, 0);
+                server = Db4oClientServer.OpenServer(YapFileName, 60001);
+                server.GrantAccess("db4o", "passwordOfUser");
+
+                //Db4oEmbedded.OpenFile(Db4oEmbedded.NewConfiguration(), YapFileName);
+
+                //if (server == null)
+                //{
+                //    server = Db4oClientServer.OpenServer(YapFileName, 60001);
+                //}
+
+                return server;
+            }
+        }
+
+        protected IObjectContainer Client
+        {
+            get
+            {
+                //var server = Server;
+                return Db4oClientServer.OpenClient("localhost", 60001, "db4o", "passwordOfUser");
             }
         }
     }

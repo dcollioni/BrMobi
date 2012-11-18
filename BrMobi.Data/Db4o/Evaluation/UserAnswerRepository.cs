@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using BrMobi.Core;
 using BrMobi.Core.Evaluation;
 using BrMobi.Core.RepositoryInterfaces.Evaluation;
@@ -10,9 +11,9 @@ namespace BrMobi.Data.Db4o.Evaluation
     {
         public UserAnswer Create(UserAnswer userAnswer)
         {
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     userAnswer.AnsweredBy = client.Query<User>(u => u.Id == userAnswer.AnsweredBy.Id).SingleOrDefault();
                     userAnswer.Question = client.Query<Question>(q => q.Id == userAnswer.Question.Id).SingleOrDefault();
@@ -20,7 +21,7 @@ namespace BrMobi.Data.Db4o.Evaluation
 
                     client.Store(userAnswer);
                 }
-            }
+            //}
 
             return userAnswer;
         }
@@ -29,15 +30,24 @@ namespace BrMobi.Data.Db4o.Evaluation
         {
             var count = 0;
 
-            using (var server = Server)
+            using (var client = Client)
             {
-                using (var client = server.OpenClient())
-                {
-                    count = client.Query<UserAnswer>(u => u.AnsweredBy.Id == user.Id).Count;
-                }
+                count = client.Query<UserAnswer>(u => u.AnsweredBy.Id == user.Id).Count;
             }
 
             return count;
+        }
+
+        public IList<UserAnswer> ListAll()
+        {
+            var userAnswers = new List<UserAnswer>();
+
+            using (var client = Client)
+            {
+                userAnswers = client.Query<UserAnswer>().ToList();
+            }
+
+            return userAnswers;
         }
     }
 }

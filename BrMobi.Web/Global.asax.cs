@@ -8,6 +8,7 @@ using Castle.Windsor;
 using CommonServiceLocator.WindsorAdapter;
 using Microsoft.Practices.ServiceLocation;
 using SharpArch.Web.Castle;
+using Db4objects.Db4o.CS;
 
 namespace BrMobi.Web
 {
@@ -31,6 +32,8 @@ namespace BrMobi.Web
             routes.MapRoute("Register", "Cadastro", new { controller = "Account", action = "Register" });
             routes.MapRoute("Profile", "Perfil/{id}", new { controller = "Profile", action = "Index", id = UrlParameter.Optional });
             routes.MapRoute("Evaluation", "Avaliacao", new { controller = "Evaluation", action = "Index" });
+            routes.MapRoute("EvaluationResult", "ResultadoAvaliacao", new { controller = "Evaluation", action = "Result" });
+            routes.MapRoute("ResetPassword", "RedefinirSenha/{success}", new { controller = "Account", action = "ResetPassword", success = UrlParameter.Optional });
 
             routes.MapRoute(
                 "Default", // Route name
@@ -68,6 +71,12 @@ namespace BrMobi.Web
             ComponentRegistrar.AddComponentsTo(container);
 
             ServiceLocator.SetLocatorProvider(() => new WindsorServiceLocator(container));
+
+         
+            var folder = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
+            var yapFile = string.Format("{0}/{1}", folder, "BrMobiObjects.yap");
+
+            Db4oClientServer.OpenServer(yapFile, 60001).GrantAccess("db4o", "passwordOfUser");
         }
     }
 }

@@ -65,6 +65,8 @@
     </div>
     <div>
         <br />
+        Esqueceu a senha? <a href="/RedefinirSenha">Redefinir senha</a>
+        <br />
         Talvez você queira <a href="/Acesso">criar uma conta</a>.
     </div>
     </center>

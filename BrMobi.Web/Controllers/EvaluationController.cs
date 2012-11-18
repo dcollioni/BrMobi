@@ -20,7 +20,7 @@ namespace BrMobi.Web.Controllers
 
         public ActionResult Index()
         {
-            if (evaluationService.CanEvaluate(LoggedUser))
+            if (CanEvaluate)
             {
                 ViewBag.Questions = questionService.ListAll();
             }
@@ -53,9 +53,16 @@ namespace BrMobi.Web.Controllers
             if (valid)
             {
                 evaluationService.SaveUserAnswers(answers, LoggedUser);
+                CanEvaluate = false;
             }
             
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Result()
+        {
+            ViewBag.UserAnswers = evaluationService.ListAllUserAnswers();
+            return View();
         }
     }
 }

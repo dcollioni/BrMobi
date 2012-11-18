@@ -16,26 +16,27 @@ namespace BrMobi.Data.Db4o
         {
             var users = new List<User>();
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     users = client.Query<User>().ToList();
                 }
-            }
+            //}
 
             return users;
         }
 
         public User Create(User entity)
         {
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
+                    entity.Id = entity.GetHashCode();
                     client.Store(entity);
                 }
-            }
+            //}
 
             return entity;
         }
@@ -44,13 +45,13 @@ namespace BrMobi.Data.Db4o
         {
             var count = 0;
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     count = client.Query<User>(u => email.Equals(u.Email, StringComparison.InvariantCultureIgnoreCase)).Count;
                 }
-            }
+            //}
 
             return count;
         }
@@ -59,17 +60,25 @@ namespace BrMobi.Data.Db4o
         {
             User user = null;
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     user = client.Query<User>(u => u.Email == email && u.Password == password).SingleOrDefault();
-
-                    //var users = client.Query<User>(u => u.Email == email && u.Password == password).ToList();
-
-                    //users.Take(users.Count - 1).ToList().ForEach(u => client.Delete(u));
                 }
-            }
+            //}
+
+            //using (var server = Server)
+            //{
+            //using (var client = Db4oEmbedded.OpenFile(Db4oEmbedded.NewConfiguration(), YapFileName))
+            //{
+            //    user = client.Query<User>(u => u.Email == email && u.Password == password).SingleOrDefault();
+
+            //    //var users = client.Query<User>(u => u.Email == email && u.Password == password).ToList();
+
+            //    //users.Take(users.Count - 1).ToList().ForEach(u => client.Delete(u));
+            //}
+            //}
 
             return user;
         }
@@ -78,9 +87,9 @@ namespace BrMobi.Data.Db4o
         {
             User user = entity;
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     user = client.Query<User>(u => u.Id == entity.Id).SingleOrDefault();
 
@@ -97,7 +106,7 @@ namespace BrMobi.Data.Db4o
 
                     client.Store(user);
                 }
-            }
+            //}
 
             return user;
         }
@@ -106,13 +115,25 @@ namespace BrMobi.Data.Db4o
         {
             User user = null;
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     user = client.Query<User>(u => u.Id == id).SingleOrDefault();
                 }
-            }
+            //}
+
+            
+
+            //using (var server = Server.Ext().ObjectContainer())
+            //{
+            //using (var client = Db4oEmbedded.OpenFile(Db4oEmbedded.NewConfiguration(), YapFileName))
+            //{
+            //    //client.Ext().OpenSession();
+
+            //    user = client.Query<User>(u => u.Id == id).SingleOrDefault();
+            //}
+            //}
 
             return user;
         }
@@ -121,16 +142,16 @@ namespace BrMobi.Data.Db4o
         {
             User user = entity;
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     user = client.Query<User>(u => u.Id == entity.Id).SingleOrDefault();
                     user.Picture = entity.Picture;
 
                     client.Store(user);
                 }
-            }
+            //}
 
             return user;
         }
@@ -139,68 +160,79 @@ namespace BrMobi.Data.Db4o
         {
             var users = new List<User>();
 
-            using (var server = Server)
+            using (var client = Client)
             {
-                using (var client = server.OpenClient())
+                var messages = client.Query<Message>(m => m.From.Id == id || m.To.Id == id).OrderByDescending(m => m.CreatedOn).ToList();
+                var rideOffers = client.Query<RideOfferMarker>(r => r.Owner.Id == id || r.Hitchhikers.Any(h => h.Id == id)).OrderByDescending(m => m.DateTime).ToList();
+                var rideRequests = client.Query<RideRequestMarker>(r => r.Owner.Id == id || r.Offers.Any(o => o.Id == id)).OrderByDescending(m => m.DateTime).ToList();
+                var answers = client.Query<Answer>(a => (a.CreatedBy.Id == id && a.Marker.Owner.Id != id) || a.Marker.Owner.Id == id && a.CreatedBy.Id != id).OrderByDescending(m => m.CreatedOn).ToList();
+
+                foreach (var message in messages)
                 {
-                    var messages = client.Query<Message>(m => m.From.Id == id || m.To.Id == id).OrderByDescending(m => m.CreatedOn).ToList();
-                    var rideOffers = client.Query<RideOfferMarker>(r => r.Owner.Id == id || r.Hitchhikers.Any(h => h.Id == id)).OrderByDescending(m => m.DateTime).ToList();
-                    var rideRequests = client.Query<RideRequestMarker>(r => r.Owner.Id == id || r.Offers.Any(o => o.Id == id)).OrderByDescending(m => m.DateTime).ToList();
-                    var answers = client.Query<Answer>(a => (a.CreatedBy.Id == id && a.Marker.Owner.Id != id) || a.Marker.Owner.Id == id).OrderByDescending(m => m.CreatedOn).ToList();
-
-                    foreach (var message in messages)
+                    if (message.From.Id != id)
                     {
-                        if (message.From.Id != id)
-                        {
-                            users.Add(message.From);
-                        }
-                        else if (message.To.Id != id)
-                        {
-                            users.Add(message.To);
-                        }
+                        users.Add(message.From);
                     }
-
-                    foreach (var rideOffer in rideOffers)
+                    else if (message.To.Id != id)
                     {
-                        if (rideOffer.Owner.Id != id)
-                        {
-                            users.Add(rideOffer.Owner);
-                        }
-                        else
-                        {
-                            users.AddRange(rideOffer.Hitchhikers);
-                        }
+                        users.Add(message.To);
                     }
-
-                    foreach (var rideRequest in rideRequests)
-                    {
-                        if (rideRequest.Owner.Id != id)
-                        {
-                            users.Add(rideRequest.Owner);
-                        }
-                        else
-                        {
-                            users.AddRange(rideRequest.Offers);
-                        }
-                    }
-
-                    foreach (var answer in answers)
-                    {
-                        if (answer.CreatedBy.Id != id)
-                        {
-                            users.Add(answer.CreatedBy);
-                        }
-                        else
-                        {
-                            users.Add(answer.Marker.Owner);
-                        }
-                    }
-
-                    users = users.Distinct().Take(14).ToList();
                 }
+
+                foreach (var rideOffer in rideOffers)
+                {
+                    if (rideOffer.Owner.Id != id)
+                    {
+                        users.Add(rideOffer.Owner);
+                    }
+                    else
+                    {
+                        users.AddRange(rideOffer.Hitchhikers);
+                    }
+                }
+
+                foreach (var rideRequest in rideRequests)
+                {
+                    if (rideRequest.Owner.Id != id)
+                    {
+                        users.Add(rideRequest.Owner);
+                    }
+                    else
+                    {
+                        users.AddRange(rideRequest.Offers);
+                    }
+                }
+
+                foreach (var answer in answers)
+                {
+                    if (answer.CreatedBy.Id != id)
+                    {
+                        users.Add(answer.CreatedBy);
+                    }
+                    else
+                    {
+                        users.Add(answer.Marker.Owner);
+                    }
+                }
+
+                users = users.Distinct().Take(14).ToList();
             }
 
             return users;
+        }
+
+        public void UpdatePassword(string email, string password)
+        {
+            using (var client = Client)
+            {
+                var user = client.Query<User>(u => u.Email == email).SingleOrDefault();
+
+                if (user != null)
+                {
+                    user.Password = password;
+                    client.Store(user);
+                }
+            }
         }
     }
 }

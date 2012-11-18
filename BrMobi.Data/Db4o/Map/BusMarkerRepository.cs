@@ -12,30 +12,30 @@ namespace BrMobi.Data.Db4o.Map
     {
         public void Create(BusMarker busMarker)
         {
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     busMarker.Owner = client.Query<User>(u => u.Email == busMarker.Owner.Email).SingleOrDefault();
                     busMarker.Id = busMarker.GetHashCode();
                     busMarker.CreatedOn = DateTime.Now;
                     client.Store(busMarker);
                 }
-            }
+            //}
         }
 
         public IList<BusMarker> List(LatLng southWest, LatLng northEast)
         {
             var markers = new List<BusMarker>();
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     markers = client.Query<BusMarker>(m => southWest.Lat() <= m.Lat && m.Lat <= northEast.Lat()
                                                         && southWest.Lng() <= m.Lng && m.Lng <= northEast.Lng()).ToList();
                 }
-            }
+            //}
 
             return markers;
         }
@@ -44,9 +44,9 @@ namespace BrMobi.Data.Db4o.Map
         {
             BusMarker busMarker = null;
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     busMarker = client.Query<BusMarker>(b => b.Id == busMarkerId).SingleOrDefault();
 
@@ -59,7 +59,7 @@ namespace BrMobi.Data.Db4o.Map
                     busMarker.Lines = lines;
                     client.Store(busMarker);
                 }
-            }
+            //}
 
             return busMarker;
         }
@@ -68,13 +68,13 @@ namespace BrMobi.Data.Db4o.Map
         {
             BusMarker busMarker = null;
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     busMarker = client.Query<BusMarker>(b => b.Id == id).SingleOrDefault();
                 }
-            }
+            //}
 
             return busMarker;
         }
@@ -83,9 +83,9 @@ namespace BrMobi.Data.Db4o.Map
         {
             var busLines = new List<BusLine>();
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     var busMarker = client.Query<BusMarker>(b => b.Id == busMarkerId).SingleOrDefault();
 
@@ -94,16 +94,16 @@ namespace BrMobi.Data.Db4o.Map
                         busLines = busMarker.Lines.OrderBy(l => l.Name).ToList();
                     }
                 }
-            }
+            //}
 
             return busLines;
         }
 
         public void RemoveBusLine(int busLineId, int markerId)
         {
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     var marker = client.Query<BusMarker>(m => m.Id == markerId).SingleOrDefault();
 
@@ -119,19 +119,19 @@ namespace BrMobi.Data.Db4o.Map
                         client.Store(marker);
                     }
                 }
-            }
+            //}
         }
 
         public void Remove(int markerId)
         {
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     var marker = client.Query<BusMarker>(m => m.Id == markerId).SingleOrDefault();
                     client.Delete(marker);
                 }
-            }
+            //}
         }
     }
 }

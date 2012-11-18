@@ -12,13 +12,13 @@ namespace BrMobi.Data.Db4o.Evaluation
         {
             var questions = new List<Question>();
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     questions = client.Query<Question>().OrderBy(s => s.Id).ToList();
                 }
-            }
+            //}
 
             return questions;
         }
@@ -27,13 +27,13 @@ namespace BrMobi.Data.Db4o.Evaluation
         {
             Question question = null;
 
-            using (var server = Server)
-            {
-                using (var client = server.OpenClient())
+            //using (var server = Server)
+            //{
+                using (var client = Client)
                 {
                     question = client.Query<Question>(q => q.Id == id).SingleOrDefault();
                 }
-            }
+            //}
 
             return question;
         }
