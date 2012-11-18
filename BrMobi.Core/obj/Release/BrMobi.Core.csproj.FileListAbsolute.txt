@@ -7,3 +7,4 @@ D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Core\bin\Release\
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Core\bin\Release\BrMobi.Core.pdb
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Core\obj\Release\BrMobi.Core.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Core\obj\Release\BrMobi.Core.pdb
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Core\obj\Release\BrMobi.Core.csprojResolveAssemblyReference.cache
