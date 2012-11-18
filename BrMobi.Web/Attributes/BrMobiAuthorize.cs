@@ -9,12 +9,12 @@ namespace BrMobi.Web.Attributes
         {
             //var session = filterContext.HttpContext.Session;
 
-            var session = filterContext.Controller.ControllerContext.HttpContext.Session;
+            //var session = filterContext.Controller.ControllerContext.HttpContext.Session;
 
-            if (session != null && session["User"] != null) return;
+            //if (session != null && session["User"] != null) return;
 
-            var route = new RouteValueDictionary(new { controller = "Acesso" });
-            filterContext.Result = new RedirectToRouteResult(route);
+            //var route = new RouteValueDictionary(new { controller = "Acesso" });
+            //filterContext.Result = new RedirectToRouteResult(route);
         }
     }
 }

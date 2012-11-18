@@ -278,6 +278,7 @@
     <Content Include="App_Data\BrMobiObjects.yap">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="App_Browsers\generic.browser" />
     <None Include="BrMobi_empty\Apresentação1.pptx" />
     <None Include="BrMobi_empty\fonts\LondonBetween.ttf" />
     <Content Include="Content\Fonts\BuxtonSketch.ttf">
