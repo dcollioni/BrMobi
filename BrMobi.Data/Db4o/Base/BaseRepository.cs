@@ -50,7 +50,8 @@ namespace BrMobi.Data.Db4o.Base
             get
             {
                 //var server = Server;
-                return Db4oClientServer.OpenClient("brmobi.apphb.com", 60001, "db4o", "passwordOfUser");
+                //return Db4oClientServer.OpenClient("localhost", 60002, "db4o", "passwordOfUser");
+                return Db4oClientServer.OpenClient("apphb.com", 60020, "db4o", "passwordOfUser");
             }
         }
     }

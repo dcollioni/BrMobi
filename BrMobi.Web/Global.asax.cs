@@ -69,16 +69,27 @@ namespace BrMobi.Web
             if (db4oServer != null)
             {
                 db4oServer.Close();
+                db4oServer.Dispose();
             }
         }
 
-        protected void Application_Disposed()
-        {
-            if (db4oServer != null)
-            {
-                db4oServer.Close();
-            }
-        }
+        //protected void Application_Disposed()
+        //{
+        //    if (db4oServer != null)
+        //    {
+        //        db4oServer.Close();
+        //        db4oServer.Dispose();
+        //    }
+        //}
+
+        //protected void Session_End()
+        //{
+        //    if (db4oServer != null)
+        //    {
+        //        db4oServer.Close();
+        //        db4oServer.Dispose();
+        //    }
+        //}
 
         private static void InitializeDb4oServer()
         {
