@@ -1,13 +1,15 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using System.Web.Configuration;
 using System.Web.Mvc;
 using BrMobi.Core;
 using BrMobi.Core.Enums;
-using System.IO;
+using BrMobi.Web.Attributes;
 
 namespace BrMobi.Web.Controllers
 {
+    [AlwaysAuthorize]
     public class BaseController : Controller
     {
         protected User LoggedUser

@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web.Mvc;
 using System.Web.Security;
 using BrMobi.ApplicationServices.ServiceInterfaces;
+using BrMobi.ApplicationServices.ServiceInterfaces.Evaluation;
 using BrMobi.Core;
 using BrMobi.Core.Service;
+using BrMobi.Web.Attributes;
 using BrMobi.Web.Models;
-using System.IO;
-using System.Drawing.Imaging;
-using System.Security.Cryptography;
-using System.Drawing;
-using BrMobi.ApplicationServices.ServiceInterfaces.Evaluation;
-using System.Net.Mail;
-using System.Net;
 
 namespace BrMobi.Web.Controllers
 {
+    [AlwaysAuthorize]
     public class AccountController : BaseController
     {
         private IAccountService accountService;
