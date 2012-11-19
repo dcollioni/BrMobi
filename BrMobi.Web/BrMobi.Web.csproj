@@ -216,12 +216,24 @@
     <Content Include="Scripts\App\Site.js" />
     <Content Include="Scripts\App\Utils.js" />
     <Content Include="Scripts\Default\underscore.js" />
-    <Content Include="UserImages\12805968.jpg" />
-    <Content Include="UserImages\15946659.jpg" />
-    <Content Include="UserImages\35934220.jpg" />
-    <Content Include="UserImages\52001425.jpg" />
-    <Content Include="UserImages\66680586.jpg" />
-    <Content Include="UserImages\user.png" />
+    <Content Include="UserImages\12805968.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UserImages\15946659.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UserImages\35934220.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UserImages\52001425.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UserImages\66680586.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UserImages\user.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Views\Account\Access.aspx" />
     <Content Include="Views\Account\ResetPassword.aspx" />
     <Content Include="Views\Evaluation\Index.aspx" />
