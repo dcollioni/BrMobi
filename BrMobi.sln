@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrMobi.Data", "BrMobi.Data\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrMobi.ApplicationServices", "BrMobi.ApplicationServices\BrMobi.ApplicationServices.csproj", "{2C7A7091-0F60-4656-B0C5-BC739D5D2D9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemcachedProviders", "..\..\..\..\Desktop\Memcached-Providers-master\Memcached-Providers-master\src\MemcachedProviders\MemcachedProviders.csproj", "{B062D12C-EFB7-4CB5-B560-FB2387468E82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{2C7A7091-0F60-4656-B0C5-BC739D5D2D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C7A7091-0F60-4656-B0C5-BC739D5D2D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C7A7091-0F60-4656-B0C5-BC739D5D2D9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B062D12C-EFB7-4CB5-B560-FB2387468E82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B062D12C-EFB7-4CB5-B560-FB2387468E82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B062D12C-EFB7-4CB5-B560-FB2387468E82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B062D12C-EFB7-4CB5-B560-FB2387468E82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
