@@ -36,7 +36,7 @@
             </div>
         </header>
 
-        <% Html.RenderPartial("LogOnUserControl"); %>
+        <%--<% Html.RenderPartial("LogOnUserControl"); %>--%>
         <% Html.RenderPartial("ChangePicture"); %>
 
         <section id="main">
