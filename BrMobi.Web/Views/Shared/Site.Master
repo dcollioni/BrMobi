@@ -37,7 +37,7 @@
         </header>
 
         <%--<% Html.RenderPartial("LogOnUserControl"); %>--%>
-        <% Html.RenderPartial("ChangePicture"); %>
+        <%--<% Html.RenderPartial("ChangePicture"); %>--%>
 
         <section id="main">
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
