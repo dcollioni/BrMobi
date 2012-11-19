@@ -46,5 +46,9 @@ D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Release\B
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\obj\Release\BrMobi.Web.pdb
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\Enyim.Caching.dll
 D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\log4net.dll
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\MemcachedProviders.dll
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\MemcachedProviders.pdb
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\UserImages\12805968.jpg
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\UserImages\15946659.jpg
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\UserImages\35934220.jpg
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\UserImages\52001425.jpg
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\UserImages\66680586.jpg
+D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Web\bin\UserImages\user.png

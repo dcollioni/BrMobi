@@ -88,6 +88,7 @@ namespace BrMobi.Web.Controllers
             return Json(busLine);
         }
 
+        [AlwaysAuthorize]
         public string GetRideOfferInfo(int id)
         {
             var infoTemplate = GetMarkerInfoTemplate(MarkerType.RideOffer);
