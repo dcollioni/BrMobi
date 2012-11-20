@@ -9,7 +9,7 @@ using BrMobi.Web.Attributes;
 
 namespace BrMobi.Web.Controllers
 {
-    public class BaseController : AsyncController
+    public class BaseController : Controller
     {
         protected User LoggedUser
         {
