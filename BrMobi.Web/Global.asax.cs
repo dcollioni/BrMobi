@@ -103,7 +103,7 @@ namespace BrMobi.Web
             // If we're an ajax request and forms authentication caused a 302, 
             // then we actually need to do a 401
             if (FormsAuthentication.IsEnabled && context.Response.StatusCode == 302
-                && context.Request.IsAjaxRequest())
+                && context.Request.IsAjaxRequest() && Session["User"] == null)
             {
                 context.Response.Clear();
                 context.Response.StatusCode = 401;
