@@ -71,6 +71,8 @@ namespace BrMobi.Data.Db4o
             //{
                 using (var client = server.OpenClient())
                 {
+                    client.Ext().SetSemaphore(client.GetHashCode().ToString(), 1000);
+
                     user = client.Query<User>(u => u.Email == email && u.Password == password).SingleOrDefault();
                 }
             //}
