@@ -10,6 +10,7 @@ namespace BrMobi.Web.CastleWindsor
     using SharpArch.Data.NHibernate;
     using SharpArch.Web.Castle;
     using Db4objects.Db4o;
+    using Db4objects.Db4o.CS.Internal;
 
     public class ComponentRegistrar
     {

@@ -75,7 +75,7 @@ namespace BrMobi.Web
         protected virtual void InitializeDb4oServer()
         {
             var folder = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
-            var yapFile = string.Format("{0}/{1}", folder, "BrMobiObjects.yap");
+            var yapFile = string.Format("{0}\\{1}", folder, "BrMobiObjects.yap");
 
             Db4oServer = Db4oClientServer.OpenServer(yapFile, 0);
         }
