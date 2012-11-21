@@ -9,26 +9,21 @@ namespace BrMobi.Data.Db4o.Evaluation
 {
     public class UserAnswerRepository : BaseRepository, IUserAnswerRepository
     {
-        private readonly Db4objects.Db4o.IObjectServer server;
-
         public UserAnswerRepository(Db4objects.Db4o.IObjectServer server)
+            : base(server)
         {
-            this.server = server;
         }
 
         public UserAnswer Create(UserAnswer userAnswer)
         {
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    userAnswer.AnsweredBy = client.Query<User>(u => u.Id == userAnswer.AnsweredBy.Id).SingleOrDefault();
-                    userAnswer.Question = client.Query<Question>(q => q.Id == userAnswer.Question.Id).SingleOrDefault();
-                    userAnswer.Id = userAnswer.GetHashCode();
+            using (var client = Server.OpenClient())
+            {
+                userAnswer.AnsweredBy = client.Query<User>(u => u.Id == userAnswer.AnsweredBy.Id).SingleOrDefault();
+                userAnswer.Question = client.Query<Question>(q => q.Id == userAnswer.Question.Id).SingleOrDefault();
+                userAnswer.Id = userAnswer.GetHashCode();
 
-                    client.Store(userAnswer);
-                }
-            //}
+                client.Store(userAnswer);
+            }
 
             return userAnswer;
         }
@@ -37,7 +32,7 @@ namespace BrMobi.Data.Db4o.Evaluation
         {
             var count = 0;
 
-            using (var client = server.OpenClient())
+            using (var client = Server.OpenClient())
             {
                 count = client.Query<UserAnswer>(u => u.AnsweredBy.Id == user.Id).Count;
             }
@@ -49,7 +44,7 @@ namespace BrMobi.Data.Db4o.Evaluation
         {
             var userAnswers = new List<UserAnswer>();
 
-            using (var client = server.OpenClient())
+            using (var client = Server.OpenClient())
             {
                 userAnswers = client.Query<UserAnswer>().ToList();
             }

@@ -8,24 +8,19 @@ namespace BrMobi.Data.Db4o.Evaluation
 {
     public class QuestionRepository : BaseRepository, IQuestionRepository
     {
-        private readonly Db4objects.Db4o.IObjectServer server;
-
         public QuestionRepository(Db4objects.Db4o.IObjectServer server)
+            : base(server)
         {
-            this.server = server;
         }
 
         public IList<Question> ListAll()
         {
             var questions = new List<Question>();
 
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    questions = client.Query<Question>().OrderBy(s => s.Id).ToList();
-                }
-            //}
+            using (var client = Server.OpenClient())
+            {
+                questions = client.Query<Question>().OrderBy(s => s.Id).ToList();
+            }
 
             return questions;
         }
@@ -34,13 +29,10 @@ namespace BrMobi.Data.Db4o.Evaluation
         {
             Question question = null;
 
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    question = client.Query<Question>(q => q.Id == id).SingleOrDefault();
-                }
-            //}
+            using (var client = Server.OpenClient())
+            {
+                question = client.Query<Question>(q => q.Id == id).SingleOrDefault();
+            }
 
             return question;
         }

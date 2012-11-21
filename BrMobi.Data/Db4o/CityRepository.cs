@@ -8,18 +8,16 @@ namespace BrMobi.Data.Db4o
 {
     public class CityRepository : BaseRepository, ICityRepository
     {
-        private readonly Db4objects.Db4o.IObjectServer server;
-
         public CityRepository(Db4objects.Db4o.IObjectServer server)
+            : base(server)
         {
-            this.server = server;
         }
 
         public IList<City> ListAll(int stateId)
         {
             var cities = new List<City>();
 
-            using (var client = server.OpenClient())
+            using (var client = Server.OpenClient())
             {
                 cities = client.Query<City>(c => c.State.Id == stateId).OrderBy(s => s.Name).ToList();
             }
@@ -31,13 +29,10 @@ namespace BrMobi.Data.Db4o
         {
             City city = null;
 
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    city = client.Query<City>(c => c.Id == id).SingleOrDefault();
-                }
-            //}
+            using (var client = Server.OpenClient())
+            {
+                city = client.Query<City>(c => c.Id == id).SingleOrDefault();
+            }
 
             return city;
         }

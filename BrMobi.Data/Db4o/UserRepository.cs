@@ -5,45 +5,35 @@ using BrMobi.Core;
 using BrMobi.Core.Map;
 using BrMobi.Core.RepositoryInterfaces;
 using BrMobi.Data.Db4o.Base;
-using BrMobi.Core.Evaluation;
-using BrMobi.Core.Enums.Evaluation;
 
 namespace BrMobi.Data.Db4o
 {
     public class UserRepository : BaseRepository, IUserRepository
     {
-        private readonly Db4objects.Db4o.IObjectServer server;
-
         public UserRepository(Db4objects.Db4o.IObjectServer server)
+            : base(server)
         {
-            this.server = server;
         }
 
         public IList<User> List()
         {
             var users = new List<User>();
 
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    users = client.Query<User>().ToList();
-                }
-            //}
+            using (var client = Server.OpenClient())
+            {
+                users = client.Query<User>().ToList();
+            }
 
             return users;
         }
 
         public User Create(User entity)
         {
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    entity.Id = entity.GetHashCode();
-                    client.Store(entity);
-                }
-            //}
+            using (var client = Server.OpenClient())
+            {
+                entity.Id = entity.GetHashCode();
+                client.Store(entity);
+            }
 
             return entity;
         }
@@ -52,13 +42,10 @@ namespace BrMobi.Data.Db4o
         {
             var count = 0;
 
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    count = client.Query<User>(u => email.Equals(u.Email, StringComparison.InvariantCultureIgnoreCase)).Count;
-                }
-            //}
+            using (var client = Server.OpenClient())
+            {
+                count = client.Query<User>(u => email.Equals(u.Email, StringComparison.InvariantCultureIgnoreCase)).Count;
+            }
 
             return count;
         }
@@ -67,27 +54,10 @@ namespace BrMobi.Data.Db4o
         {
             User user = null;
 
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    client.Ext().SetSemaphore(client.GetHashCode().ToString(), 1000);
-
-                    user = client.Query<User>(u => u.Email == email && u.Password == password).SingleOrDefault();
-                }
-            //}
-
-            //using (var server = Server)
-            //{
-            //using (var client = Db4oEmbedded.OpenFile(Db4oEmbedded.NewConfiguration(), YapFileName))
-            //{
-            //    user = client.Query<User>(u => u.Email == email && u.Password == password).SingleOrDefault();
-
-            //    //var users = client.Query<User>(u => u.Email == email && u.Password == password).ToList();
-
-            //    //users.Take(users.Count - 1).ToList().ForEach(u => client.Delete(u));
-            //}
-            //}
+            using (var client = Server.OpenClient())
+            {
+                user = client.Query<User>(u => u.Email == email && u.Password == password).SingleOrDefault();
+            }
 
             return user;
         }
@@ -96,26 +66,23 @@ namespace BrMobi.Data.Db4o
         {
             User user = entity;
 
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
+            using (var client = Server.OpenClient())
+            {
+                user = client.Query<User>(u => u.Id == entity.Id).SingleOrDefault();
+
+                if (entity.City != null)
                 {
-                    user = client.Query<User>(u => u.Id == entity.Id).SingleOrDefault();
-
-                    if (entity.City != null)
-                    {
-                        entity.City = client.Query<City>(c => c.Id == entity.City.Id).SingleOrDefault();
-                    }
-
-                    user.BirthDate = entity.BirthDate;
-                    user.City = entity.City;
-                    user.FacebookLink = entity.FacebookLink;
-                    user.Gender = entity.Gender;
-                    user.Name = entity.Name;
-
-                    client.Store(user);
+                    entity.City = client.Query<City>(c => c.Id == entity.City.Id).SingleOrDefault();
                 }
-            //}
+
+                user.BirthDate = entity.BirthDate;
+                user.City = entity.City;
+                user.FacebookLink = entity.FacebookLink;
+                user.Gender = entity.Gender;
+                user.Name = entity.Name;
+
+                client.Store(user);
+            }
 
             return user;
         }
@@ -124,25 +91,10 @@ namespace BrMobi.Data.Db4o
         {
             User user = null;
 
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    user = client.Query<User>(u => u.Id == id).SingleOrDefault();
-                }
-            //}
-
-            
-
-            //using (var server = Server.Ext().ObjectContainer())
-            //{
-            //using (var client = Db4oEmbedded.OpenFile(Db4oEmbedded.NewConfiguration(), YapFileName))
-            //{
-            //    //client.Ext().OpenSession();
-
-            //    user = client.Query<User>(u => u.Id == id).SingleOrDefault();
-            //}
-            //}
+            using (var client = Server.OpenClient())
+            {
+                user = client.Query<User>(u => u.Id == id).SingleOrDefault();
+            }
 
             return user;
         }
@@ -151,16 +103,13 @@ namespace BrMobi.Data.Db4o
         {
             User user = entity;
 
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    user = client.Query<User>(u => u.Id == entity.Id).SingleOrDefault();
-                    user.Picture = entity.Picture;
+            using (var client = Server.OpenClient())
+            {
+                user = client.Query<User>(u => u.Id == entity.Id).SingleOrDefault();
+                user.Picture = entity.Picture;
 
-                    client.Store(user);
-                }
-            //}
+                client.Store(user);
+            }
 
             return user;
         }
@@ -169,7 +118,7 @@ namespace BrMobi.Data.Db4o
         {
             var users = new List<User>();
 
-            using (var client = server.OpenClient())
+            using (var client = Server.OpenClient())
             {
                 var messages = client.Query<Message>(m => m.From.Id == id || m.To.Id == id).OrderByDescending(m => m.CreatedOn).ToList();
                 var rideOffers = client.Query<RideOfferMarker>(r => r.Owner.Id == id || r.Hitchhikers.Any(h => h.Id == id)).OrderByDescending(m => m.DateTime).ToList();
@@ -232,7 +181,7 @@ namespace BrMobi.Data.Db4o
 
         public void UpdatePassword(string email, string password)
         {
-            using (var client = server.OpenClient())
+            using (var client = Server.OpenClient())
             {
                 var user = client.Query<User>(u => u.Email == email).SingleOrDefault();
 

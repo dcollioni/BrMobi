@@ -8,23 +8,18 @@ namespace BrMobi.Data.Db4o.Map
 {
     public class BusLineRepository : BaseRepository, IBusLineRepository
     {
-        private readonly Db4objects.Db4o.IObjectServer server;
-
         public BusLineRepository(Db4objects.Db4o.IObjectServer server)
+            : base(server)
         {
-            this.server = server;
         }
 
         public BusLine Create(BusLine busLine)
         {
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    busLine.Id = busLine.GetHashCode();
-                    client.Store(busLine);
-                }
-            //}
+            using (var client = Server.OpenClient())
+            {
+                busLine.Id = busLine.GetHashCode();
+                client.Store(busLine);
+            }
 
             return busLine;
         }
@@ -33,14 +28,11 @@ namespace BrMobi.Data.Db4o.Map
         {
             BusLine busLine = null;
 
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    busLine = client.Query<BusLine>(b => b.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase))
-                                    .SingleOrDefault();
-                }
-            //}
+            using (var client = Server.OpenClient())
+            {
+                busLine = client.Query<BusLine>(b => b.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase))
+                                .SingleOrDefault();
+            }
 
             return busLine;
         }

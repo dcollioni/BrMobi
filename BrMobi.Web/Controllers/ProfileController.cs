@@ -88,13 +88,13 @@ namespace BrMobi.Web.Controllers
             };
 
             if (user.BirthDate.HasValue)
-	        {
+            {
                 DateTime today = DateTime.Today;
                 int age = today.Year - user.BirthDate.Value.Year;
                 if (user.BirthDate.Value > today.AddYears(-age)) age--;
 
                 viewModel.Age = age;
-	        }
+            }
 
             return viewModel;
         }

@@ -8,18 +8,16 @@ namespace BrMobi.Data.Db4o
 {
     public class StateRepository : BaseRepository, IStateRepository
     {
-        private readonly Db4objects.Db4o.IObjectServer server;
-
         public StateRepository(Db4objects.Db4o.IObjectServer server)
+            : base(server)
         {
-            this.server = server;
         }
 
         public IList<State> ListAll()
         {
             var states = new List<State>();
 
-            using (var client = server.OpenClient())
+            using (var client = Server.OpenClient())
             {
                 states = client.Query<State>().OrderBy(s => s.Code).ToList();
             }

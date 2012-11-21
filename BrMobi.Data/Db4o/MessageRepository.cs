@@ -8,27 +8,22 @@ namespace BrMobi.Data.Db4o
 {
     public class MessageRepository : BaseRepository, IMessageRepository
     {
-        private readonly Db4objects.Db4o.IObjectServer server;
-
         public MessageRepository(Db4objects.Db4o.IObjectServer server)
+            : base(server)
         {
-            this.server = server;
         }
 
         public Message Create(Message message)
         {
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    message.Id = message.GetHashCode();
+            using (var client = Server.OpenClient())
+            {
+                message.Id = message.GetHashCode();
 
-                    message.From = client.Query<User>(u => u.Id == message.From.Id).SingleOrDefault();
-                    message.To = client.Query<User>(u => u.Id == message.To.Id).SingleOrDefault();
+                message.From = client.Query<User>(u => u.Id == message.From.Id).SingleOrDefault();
+                message.To = client.Query<User>(u => u.Id == message.To.Id).SingleOrDefault();
 
-                    client.Store(message);
-                }
-            //}
+                client.Store(message);
+            }
 
             return message;
         }
@@ -37,41 +32,32 @@ namespace BrMobi.Data.Db4o
         {
             var messages = new List<Message>();
 
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    messages = client.Query<Message>(m => m.To.Id == userId)
-                                     .OrderByDescending(m => m.CreatedOn).ToList();
-                }
-            //}
+            using (var client = Server.OpenClient())
+            {
+                messages = client.Query<Message>(m => m.To.Id == userId)
+                                 .OrderByDescending(m => m.CreatedOn).ToList();
+            }
 
             return messages;
         }
 
         public void Remove(int id)
         {
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    var message = client.Query<Message>(m => m.Id == id).SingleOrDefault();
-                    client.Delete(message);
-                }
-            //}
+            using (var client = Server.OpenClient())
+            {
+                var message = client.Query<Message>(m => m.Id == id).SingleOrDefault();
+                client.Delete(message);
+            }
         }
 
         public Message Get(int id)
         {
             Message message = null;
 
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    message = client.Query<Message>(m => m.Id == id).SingleOrDefault();
-                }
-            //}
+            using (var client = Server.OpenClient())
+            {
+                message = client.Query<Message>(m => m.Id == id).SingleOrDefault();
+            }
 
             return message;
         }

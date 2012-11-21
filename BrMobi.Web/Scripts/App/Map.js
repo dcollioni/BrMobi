@@ -55,7 +55,7 @@
 
     google.maps.event.addListener(BrMobi.map, 'bounds_changed', function () {
         delay(function () {
-            //BrMobi.map.refreshMarkers();
+            BrMobi.map.refreshMarkers();
         }, 400);
     });
 

@@ -268,7 +268,6 @@
     <Content Include="Scripts\Default\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\Default\MicrosoftMvcValidation.debug.js" />
     <Content Include="Views\Account\LogOn.aspx" />
-    <Content Include="Views\Home\About.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Shared\Error.aspx" />
     <Content Include="Views\Shared\LogOnUserControl.ascx" />
@@ -293,9 +292,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\BrMobiObjects.yap">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="App_Data\BrMobiObjects.yap" />
     <Content Include="App_Browsers\generic.browser" />
     <None Include="BrMobi_empty\Apresentação1.pptx" />
     <None Include="BrMobi_empty\fonts\LondonBetween.ttf" />

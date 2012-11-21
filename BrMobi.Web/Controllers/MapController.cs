@@ -1,10 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using BrMobi.ApplicationServices.ServiceInterfaces.Map;
 using BrMobi.Core.Enums;
 using BrMobi.Core.Map;
 using BrMobi.Web.Attributes;
-using System;
 
 namespace BrMobi.Web.Controllers
 {
@@ -88,7 +88,6 @@ namespace BrMobi.Web.Controllers
             return Json(busLine);
         }
 
-        [AlwaysAuthorize]
         public string GetRideOfferInfo(int id)
         {
             var infoTemplate = GetMarkerInfoTemplate(MarkerType.RideOffer);
@@ -181,7 +180,7 @@ namespace BrMobi.Web.Controllers
         public JsonResult RemoveAnswer(int id)
         {
             helpMarkerService.RemoveAnswer(id, LoggedUser);
-            
+
             return Json(null);
         }
 

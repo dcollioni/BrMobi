@@ -1,12 +1,16 @@
-﻿using System;
-using Db4objects.Db4o;
-using Db4objects.Db4o.CS;
-using Db4objects.Db4o.CS.Config;
+﻿using Db4objects.Db4o;
 
 namespace BrMobi.Data.Db4o.Base
 {
     public class BaseRepository
     {
+        public readonly IObjectServer Server;
+
+        public BaseRepository(IObjectServer server)
+        {
+            this.Server = server;
+        }
+
         //protected static string YapFileName
         //{
         //    get

@@ -5,7 +5,6 @@ using System.Web.Configuration;
 using System.Web.Mvc;
 using BrMobi.Core;
 using BrMobi.Core.Enums;
-using BrMobi.Web.Attributes;
 
 namespace BrMobi.Web.Controllers
 {

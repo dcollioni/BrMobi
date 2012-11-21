@@ -10,44 +10,36 @@ namespace BrMobi.Data.Db4o.Map
 {
     public class RideRequestMarkerRepository : BaseRepository, IRideRequestMarkerRepository
     {
-        private readonly Db4objects.Db4o.IObjectServer server;
-
         public RideRequestMarkerRepository(Db4objects.Db4o.IObjectServer server)
+            : base(server)
         {
-            this.server = server;
         }
 
         public void Create(RideRequestMarker rideRequestMarker)
         {
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    rideRequestMarker.Owner = client.Query<User>(u => u.Email == rideRequestMarker.Owner.Email).SingleOrDefault();
-                    rideRequestMarker.Id = rideRequestMarker.GetHashCode();
-                    rideRequestMarker.CreatedOn = DateTime.Now;
-                    client.Store(rideRequestMarker);
-                }
-            //}
+            using (var client = Server.OpenClient())
+            {
+                rideRequestMarker.Owner = client.Query<User>(u => u.Email == rideRequestMarker.Owner.Email).SingleOrDefault();
+                rideRequestMarker.Id = rideRequestMarker.GetHashCode();
+                rideRequestMarker.CreatedOn = DateTime.Now;
+                client.Store(rideRequestMarker);
+            }
         }
 
         public IList<RideRequestMarker> List(LatLng southWest, LatLng northEast, User loggedUser)
         {
             var markers = new List<RideRequestMarker>();
 
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    markers = client.Query<RideRequestMarker>(m => southWest.Lat() <= m.Lat && m.Lat <= northEast.Lat() &&
-                                                                 southWest.Lng() <= m.Lng && m.Lng <= northEast.Lng() &&
-                                                                 (
-                                                                    (m.Owner.Email == loggedUser.Email) ||
-                                                                    (m.Destination != null && m.DateTime >= DateTime.Now)
-                                                                 ))
-                                                                 .ToList();
-                }
-            //}
+            using (var client = Server.OpenClient())
+            {
+                markers = client.Query<RideRequestMarker>(m => southWest.Lat() <= m.Lat && m.Lat <= northEast.Lat() &&
+                                                             southWest.Lng() <= m.Lng && m.Lng <= northEast.Lng() &&
+                                                             (
+                                                                (m.Owner.Email == loggedUser.Email) ||
+                                                                (m.Destination != null && m.DateTime >= DateTime.Now)
+                                                             ))
+                                                             .ToList();
+            }
 
             return markers;
         }
@@ -56,13 +48,10 @@ namespace BrMobi.Data.Db4o.Map
         {
             RideRequestMarker marker;
 
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    marker = client.Query<RideRequestMarker>(r => r.Id == id).FirstOrDefault();
-                }
-            //}
+            using (var client = Server.OpenClient())
+            {
+                marker = client.Query<RideRequestMarker>(r => r.Id == id).FirstOrDefault();
+            }
 
             return marker;
         }
@@ -71,16 +60,13 @@ namespace BrMobi.Data.Db4o.Map
         {
             RideRequestMarker marker;
 
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    marker = client.Query<RideRequestMarker>(r => r.Id == id).FirstOrDefault();
-                    marker.DateTime = dateTime;
-                    marker.Destination = destination;
-                    client.Store(marker);
-                }
-            //}
+            using (var client = Server.OpenClient())
+            {
+                marker = client.Query<RideRequestMarker>(r => r.Id == id).FirstOrDefault();
+                marker.DateTime = dateTime;
+                marker.Destination = destination;
+                client.Store(marker);
+            }
 
             return marker;
         }
@@ -89,22 +75,19 @@ namespace BrMobi.Data.Db4o.Map
         {
             RideRequestMarker marker = null;
 
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    marker = client.Query<RideRequestMarker>(m => m.Id == rideRequestId).SingleOrDefault();
+            using (var client = Server.OpenClient())
+            {
+                marker = client.Query<RideRequestMarker>(m => m.Id == rideRequestId).SingleOrDefault();
 
-                    var offer = client.Query<User>(o => o.Id == offerId).SingleOrDefault();
+                var offer = client.Query<User>(o => o.Id == offerId).SingleOrDefault();
 
-                    var offers = new List<User>();
-                    offers.AddRange(marker.Offers);
-                    offers.Add(offer);
+                var offers = new List<User>();
+                offers.AddRange(marker.Offers);
+                offers.Add(offer);
 
-                    marker.Offers = offers;
-                    client.Store(marker);
-                }
-            //}
+                marker.Offers = offers;
+                client.Store(marker);
+            }
 
             return marker;
         }
@@ -113,37 +96,31 @@ namespace BrMobi.Data.Db4o.Map
         {
             RideRequestMarker marker = null;
 
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    marker = client.Query<RideRequestMarker>(m => m.Id == rideRequestId).SingleOrDefault();
+            using (var client = Server.OpenClient())
+            {
+                marker = client.Query<RideRequestMarker>(m => m.Id == rideRequestId).SingleOrDefault();
 
-                    var offer = client.Query<User>(o => o.Id == offerId).SingleOrDefault();
+                var offer = client.Query<User>(o => o.Id == offerId).SingleOrDefault();
 
-                    var offers = new List<User>();
-                    offers.AddRange(marker.Offers);
-                    offers.Remove(offer);
+                var offers = new List<User>();
+                offers.AddRange(marker.Offers);
+                offers.Remove(offer);
 
-                    marker.Offers = offers;
-                    client.Store(marker);
-                }
-            //}
+                marker.Offers = offers;
+                client.Store(marker);
+            }
 
             return marker;
         }
 
         public void Remove(int markerId)
         {
-            //using (var server = Server)
-            //{
-                using (var client = server.OpenClient())
-                {
-                    var marker = client.Query<RideRequestMarker>(m => m.Id == markerId).SingleOrDefault();
+            using (var client = Server.OpenClient())
+            {
+                var marker = client.Query<RideRequestMarker>(m => m.Id == markerId).SingleOrDefault();
 
-                    client.Delete(marker);
-                }
-            //}
+                client.Delete(marker);
+            }
         }
     }
 }
