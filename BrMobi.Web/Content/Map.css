@@ -1,4 +1,4 @@
-﻿#mapCanvas
+#mapCanvas
 {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -541,6 +541,7 @@
     border: 1px solid #bbb;
     border-radius: 5px;
     box-sizing: border-box;
+    -moz-box-sizing: border-box;
     font-family: 'London';
     font-size: 11pt;
     outline: none;
