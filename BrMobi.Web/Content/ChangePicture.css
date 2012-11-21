@@ -2,8 +2,7 @@
 {
     -webkit-user-select: none;
     -moz-user-select: none;
-    user-select: none;
-    
+    user-select: none;    
     display: none;
     background-color: #eaeaea;
     border: 1px solid #aaa;
