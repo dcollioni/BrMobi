@@ -1,3 +1,3 @@
 BrMobi
-Changed information.
+Branch: trid 1.0
 ======
