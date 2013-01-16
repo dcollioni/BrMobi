@@ -1,4 +1,4 @@
 BrMobi
 
-trid branch
+trid branch 1.0
 ======
