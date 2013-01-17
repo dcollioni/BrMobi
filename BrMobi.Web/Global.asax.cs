@@ -10,18 +10,14 @@ using Db4objects.Db4o;
 using Db4objects.Db4o.CS;
 using Microsoft.Practices.ServiceLocation;
 using SharpArch.Web.Castle;
-using BrMobi.Web.Attributes;
 using System.Web;
 using System.Web.Security;
 
 namespace BrMobi.Web
 {
-    // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
-    // visit http://go.microsoft.com/?LinkId=9394801
-
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
-        public static IObjectServer Db4oServer;
+        public static IObjectServer Db4OServer;
 
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
@@ -51,7 +47,6 @@ namespace BrMobi.Web
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
 
@@ -60,50 +55,38 @@ namespace BrMobi.Web
             ModelBinders.Binders.Add(typeof(DateTime?), new DateModelBinder());
             ModelBinders.Binders.Add(typeof(TimeSpan), new TimeModelBinder());
 
-            InitializeDb4oServer();
+            InitializeDb4OServer();
             this.InitializeServiceLocator();
         }
 
         protected void Application_End()
         {
-            if (Db4oServer != null)
+            if (Db4OServer != null)
             {
-                Db4oServer.Close();
+                Db4OServer.Close();
             }
         }
 
-        protected virtual void InitializeDb4oServer()
+        protected virtual void InitializeDb4OServer()
         {
             var folder = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
             var yapFile = string.Format("{0}\\{1}", folder, "BrMobiObjects.yap");
-
-            Db4oServer = Db4oClientServer.OpenServer(yapFile, 0);
+            Db4OServer = Db4oClientServer.OpenServer(yapFile, 0);
         }
 
-        /// <summary>
-        /// Instantiate the container and add all Controllers that derive from
-        /// WindsorController to the container.  Also associate the Controller
-        /// with the WindsorContainer ControllerFactory.
-        /// </summary>
         protected virtual void InitializeServiceLocator()
         {
             IWindsorContainer container = new WindsorContainer();
             ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(container));
-
             container.RegisterControllers(typeof(HomeController).Assembly);
             ComponentRegistrar.AddComponentsTo(container);
-
             ServiceLocator.SetLocatorProvider(() => new WindsorServiceLocator(container));
         }
 
         protected void Application_EndRequest()
         {
-            var context = new HttpContextWrapper(this.Context);
-
-            // If we're an ajax request and forms authentication caused a 302, 
-            // then we actually need to do a 401
-            if (FormsAuthentication.IsEnabled && context.Response.StatusCode == 302
-                && context.Request.IsAjaxRequest())
+            var context = new HttpContextWrapper(Context);
+            if (FormsAuthentication.IsEnabled && context.Response.StatusCode == 302 && context.Request.IsAjaxRequest())
             {
                 context.Response.Clear();
                 context.Response.StatusCode = 401;

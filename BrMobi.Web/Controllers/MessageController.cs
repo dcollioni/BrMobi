@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using BrMobi.ApplicationServices.ServiceInterfaces;
 using BrMobi.Core;
+using BrMobi.Core.Entities;
 using BrMobi.Web.Attributes;
 
 namespace BrMobi.Web.Controllers

@@ -10,7 +10,6 @@ namespace BrMobi.Web.CastleWindsor
     using SharpArch.Data.NHibernate;
     using SharpArch.Web.Castle;
     using Db4objects.Db4o;
-    using Db4objects.Db4o.CS.Internal;
 
     public class ComponentRegistrar
     {
@@ -80,7 +79,7 @@ namespace BrMobi.Web.CastleWindsor
 
             container.Register(
                 Component.For(typeof(IObjectServer))
-                    .Instance(MvcApplication.Db4oServer)
+                    .Instance(MvcApplication.Db4OServer)
                     .Named("db4oServer")
             );
 

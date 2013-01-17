@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using BrMobi.ApplicationServices.ServiceInterfaces.Map;
 using BrMobi.Core;
+using BrMobi.Core.Entities;
+using BrMobi.Core.Entities.Map;
 using BrMobi.Core.Extensions;
-using BrMobi.Core.Map;
 using BrMobi.Core.RepositoryInterfaces.Map;
 
 namespace BrMobi.ApplicationServices.Map

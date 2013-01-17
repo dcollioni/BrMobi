@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using BrMobi.Core.Entities;
 
 namespace BrMobi.Core.RepositoryInterfaces
 {

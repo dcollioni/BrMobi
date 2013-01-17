@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using BrMobi.Core;
-using BrMobi.Core.Map;
+using BrMobi.Core.Entities;
+using BrMobi.Core.Entities.Map;
 using BrMobi.Core.ViewModels.Map;
 
 namespace BrMobi.ApplicationServices.ServiceInterfaces.Map

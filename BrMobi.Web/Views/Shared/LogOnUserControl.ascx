@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl" %>
 <%@ Import Namespace="BrMobi.Core" %>
+<%@ Import Namespace="BrMobi.Core.Entities" %>
 
 <%
     if (Session["User"] != null)

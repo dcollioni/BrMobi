@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using BrMobi.ApplicationServices.ServiceInterfaces;
 using BrMobi.Core;
+using BrMobi.Core.Entities;
 using BrMobi.Core.RepositoryInterfaces;
 
 namespace BrMobi.ApplicationServices

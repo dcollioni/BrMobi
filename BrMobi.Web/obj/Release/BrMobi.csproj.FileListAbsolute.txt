@@ -1,6 +1,0 @@
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi\bin\BrMobi.dll
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi\bin\BrMobi.pdb
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi\bin\EntityFramework.dll
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi\bin\EntityFramework.xml
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi\obj\Release\BrMobi.dll
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi\obj\Release\BrMobi.pdb

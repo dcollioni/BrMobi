@@ -3,6 +3,7 @@ using System.Security.Cryptography;
 using System.Text;
 using BrMobi.ApplicationServices.ServiceInterfaces;
 using BrMobi.Core;
+using BrMobi.Core.Entities;
 using BrMobi.Core.RepositoryInterfaces;
 using BrMobi.Core.Service;
 

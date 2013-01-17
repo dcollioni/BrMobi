@@ -1,9 +1,0 @@
-C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Core\bin\Release\BrMobi.Core.dll
-C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Core\bin\Release\BrMobi.Core.pdb
-C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Core\obj\Release\ResolveAssemblyReference.cache
-C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Core\obj\Release\BrMobi.Core.dll
-C:\Users\douglas.collioni\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Core\obj\Release\BrMobi.Core.pdb
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Core\bin\Release\BrMobi.Core.dll
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Core\bin\Release\BrMobi.Core.pdb
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Core\obj\Release\BrMobi.Core.dll
-D:\Douglas\Documents\Visual Studio 2010\Projects\BrMobi\BrMobi.Core\obj\Release\BrMobi.Core.pdb

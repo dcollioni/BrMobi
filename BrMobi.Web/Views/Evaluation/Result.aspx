@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage" %>
 
 <%@ Import Namespace="BrMobi.Core" %>
+<%@ Import Namespace="BrMobi.Core.Entities.Evaluation" %>
 <%@ Import Namespace="BrMobi.Core.Evaluation" %>
 <%@ Import Namespace="BrMobi.Core.ViewModels" %>
 <%@ Import Namespace="BrMobi.Core.Enums.Evaluation" %>

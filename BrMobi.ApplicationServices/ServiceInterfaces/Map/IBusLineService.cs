@@ -1,5 +1,5 @@
 ﻿using BrMobi.Core;
-using BrMobi.Core.Map;
+using BrMobi.Core.Entities.Map;
 
 namespace BrMobi.ApplicationServices.ServiceInterfaces.Map
 {

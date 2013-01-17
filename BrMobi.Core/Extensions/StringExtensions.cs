@@ -1,4 +1,6 @@
-﻿namespace BrMobi.Core.Extensions
+﻿using System;
+
+namespace BrMobi.Core.Extensions
 {
     public static class StringExtensions
     {
@@ -7,6 +9,11 @@
             paramName = string.Concat("{", paramName, "}");
 
             return current.Replace(paramName, paramValue);
+        }
+
+        public static bool InvariantEquals(this string @this, string other)
+        {
+            return @this.Equals(other, StringComparison.InvariantCultureIgnoreCase);
         }
     }
 }

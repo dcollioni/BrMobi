@@ -37,6 +37,9 @@
     <Reference Include="Db4objects.Db4o.CS">
       <HintPath>..\lib\Db4objects.Db4o.CS.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,19 +49,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Db4o\Base\BaseRepository.cs" />
-    <Compile Include="Db4o\CityRepository.cs" />
-    <Compile Include="Db4o\Evaluation\QuestionRepository.cs" />
-    <Compile Include="Db4o\Evaluation\UserAnswerRepository.cs" />
-    <Compile Include="Db4o\Map\BusLineRepository.cs" />
-    <Compile Include="Db4o\Map\BusMarkerRepository.cs" />
-    <Compile Include="Db4o\Map\AnswerRepository.cs" />
-    <Compile Include="Db4o\Map\HelpMarkerRepository.cs" />
-    <Compile Include="Db4o\Map\RideRequestMarkerRepository.cs" />
-    <Compile Include="Db4o\Map\RideOfferMarkerRepository.cs" />
-    <Compile Include="Db4o\MessageRepository.cs" />
-    <Compile Include="Db4o\StateRepository.cs" />
-    <Compile Include="Db4o\UserRepository.cs" />
+    <Compile Include="Server.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\CityRepository.cs" />
+    <Compile Include="Repositories\Evaluation\QuestionRepository.cs" />
+    <Compile Include="Repositories\Evaluation\UserAnswerRepository.cs" />
+    <Compile Include="Repositories\Map\AnswerRepository.cs" />
+    <Compile Include="Repositories\Map\BusLineRepository.cs" />
+    <Compile Include="Repositories\Map\BusMarkerRepository.cs" />
+    <Compile Include="Repositories\Map\HelpMarkerRepository.cs" />
+    <Compile Include="Repositories\Map\RideOfferMarkerRepository.cs" />
+    <Compile Include="Repositories\Map\RideRequestMarkerRepository.cs" />
+    <Compile Include="Repositories\MessageRepository.cs" />
+    <Compile Include="Repositories\StateRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

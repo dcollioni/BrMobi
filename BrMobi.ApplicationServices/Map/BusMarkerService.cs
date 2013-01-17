@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using BrMobi.ApplicationServices.ServiceInterfaces.Map;
 using BrMobi.Core;
+using BrMobi.Core.Entities;
 using BrMobi.Core.Extensions;
 using BrMobi.Core.RepositoryInterfaces.Map;
 

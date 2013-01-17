@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using BrMobi.ApplicationServices.ServiceInterfaces.Evaluation;
-using BrMobi.Core.Evaluation;
+using BrMobi.Core.Entities.Evaluation;
 using BrMobi.Core.RepositoryInterfaces.Evaluation;
 
 namespace BrMobi.ApplicationServices.Evaluation

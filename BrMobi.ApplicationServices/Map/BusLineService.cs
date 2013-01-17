@@ -1,6 +1,6 @@
 ﻿using BrMobi.ApplicationServices.ServiceInterfaces.Map;
 using BrMobi.Core;
-using BrMobi.Core.Map;
+using BrMobi.Core.Entities.Map;
 using BrMobi.Core.RepositoryInterfaces.Map;
 
 namespace BrMobi.ApplicationServices.Map

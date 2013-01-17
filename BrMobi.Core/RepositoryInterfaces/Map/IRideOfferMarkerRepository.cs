@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using BrMobi.Core.Map;
+using BrMobi.Core.Entities;
+using BrMobi.Core.Entities.Map;
 
 namespace BrMobi.Core.RepositoryInterfaces.Map
 {

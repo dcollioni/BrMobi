@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Web.Mvc;
 using BrMobi.ApplicationServices.ServiceInterfaces.Map;
+using BrMobi.Core.Entities.Map;
 using BrMobi.Core.Enums;
-using BrMobi.Core.Map;
 using BrMobi.Web.Attributes;
 
 namespace BrMobi.Web.Controllers

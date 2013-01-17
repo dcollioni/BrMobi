@@ -31,4 +31,5 @@
     <script src="<%: Url.Content("~/Scripts/App/Map.js") %>" type="text/javascript"></script>
     <script src="<%: Url.Content("~/Scripts/App/MapFilters.js") %>" type="text/javascript"></script>
     <script src="<%: Url.Content("~/Scripts/App/MapActions.js") %>" type="text/javascript"></script>
+    <script src="<%: Url.Content("~/Scripts/App/FullScreen.js") %>" type="text/javascript"></script>
 </asp:Content>

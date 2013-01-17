@@ -3,13 +3,34 @@ using System.IO;
 using System.Text;
 using System.Web.Configuration;
 using System.Web.Mvc;
-using BrMobi.Core;
+using BrMobi.Core.Entities;
 using BrMobi.Core.Enums;
+using BrMobi.Data;
 
 namespace BrMobi.Web.Controllers
 {
     public class BaseController : Controller
     {
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            if (filterContext.IsChildAction) return;
+            Data.Server.Session = MvcApplication.Db4OServer.OpenClient();
+            base.OnActionExecuting(filterContext);
+        }
+
+        protected override void OnActionExecuted(ActionExecutedContext filterContext)
+        {
+            if (filterContext.IsChildAction) return;
+
+            if (Data.Server.Session != null)
+            {
+                Data.Server.Session.Dispose();
+            }
+
+            base.OnActionExecuted(filterContext);
+        }
+
+
         protected User LoggedUser
         {
             get

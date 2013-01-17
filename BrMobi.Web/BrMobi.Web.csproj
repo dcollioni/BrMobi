@@ -98,12 +98,19 @@
     <Compile Include="CastleWindsor\ComponentRegistrar.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\EvaluationController.cs" />
-    <Compile Include="Controllers\MessageController.cs" />
-    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\EvaluationController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MapController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\MapController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\MessageController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\ProfileController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="CustomModelBinders\TimeModelBinder.cs" />
     <Compile Include="CustomModelBinders\DateModelBinder.cs" />
     <Compile Include="Global.asax.cs">
@@ -117,6 +124,7 @@
     <Content Include="Content\ChangePicture.css" />
     <Content Include="Content\Evaluation.css" />
     <Content Include="Content\Images\user.png" />
+    <Content Include="Scripts\App\FullScreen.js" />
     <Content Include="Scripts\App\Evaluation.js" />
     <Content Include="Scripts\App\Message.js" />
     <Content Include="Content\Profile.css" />

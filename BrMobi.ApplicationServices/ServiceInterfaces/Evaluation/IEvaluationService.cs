@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using BrMobi.Core;
-using BrMobi.Core.Evaluation;
+using BrMobi.Core.Entities;
+using BrMobi.Core.Entities.Evaluation;
 
 namespace BrMobi.ApplicationServices.ServiceInterfaces.Evaluation
 {

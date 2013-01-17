@@ -1,4 +1,4 @@
-﻿using BrMobi.Core.Map;
+﻿using BrMobi.Core.Entities.Map;
 using System.Collections.Generic;
 
 namespace BrMobi.Core.RepositoryInterfaces.Map

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using BrMobi.ApplicationServices.ServiceInterfaces;
 using BrMobi.ApplicationServices.ServiceInterfaces.Evaluation;
 using BrMobi.Core;
+using BrMobi.Core.Entities;
 using BrMobi.Core.Service;
 using BrMobi.Web.Models;
 
@@ -16,8 +17,7 @@ namespace BrMobi.Web.Controllers
         private IAccountService accountService;
         private IEvaluationService evaluationService;
 
-        public AccountController(IAccountService accountService,
-                                 IEvaluationService evaluationService)
+        public AccountController(IAccountService accountService, IEvaluationService evaluationService)
         {
             this.accountService = accountService;
             this.evaluationService = evaluationService;

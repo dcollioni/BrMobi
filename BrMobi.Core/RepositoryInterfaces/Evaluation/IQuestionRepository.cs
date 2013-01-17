@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using BrMobi.Core.Evaluation;
+using BrMobi.Core.Entities.Evaluation;
 
 namespace BrMobi.Core.RepositoryInterfaces.Evaluation
 {
