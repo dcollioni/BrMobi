@@ -238,6 +238,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Account\Access.aspx" />
+    <Content Include="Views\Account\Welcome.htm" />
     <Content Include="Views\Account\ResetPassword.aspx" />
     <Content Include="Views\Evaluation\Index.aspx" />
     <Content Include="Views\Evaluation\Result.aspx" />
@@ -276,6 +277,13 @@
     <Content Include="Views\Shared\LogOnUserControl.ascx" />
     <Content Include="Views\Shared\Site.Master" />
     <Content Include="Views\Web.config" />
+    <None Include="_bin_deployableAssemblies\Microsoft.Web.Infrastructure.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.Razor.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.Deployment.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.Razor.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.Helpers.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.Mvc.dll" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BrMobi.ApplicationServices\BrMobi.ApplicationServices.csproj">
