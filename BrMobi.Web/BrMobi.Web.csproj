@@ -246,7 +246,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Account\Access.aspx" />
-    <Content Include="Views\Account\Welcome.htm" />
+    <Content Include="Views\Account\Welcome.aspx" />
     <Content Include="Views\Account\ResetPassword.aspx" />
     <Content Include="Views\Evaluation\Index.aspx" />
     <Content Include="Views\Evaluation\Result.aspx" />
