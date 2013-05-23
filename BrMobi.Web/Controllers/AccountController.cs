@@ -8,6 +8,7 @@ using BrMobi.ApplicationServices.ServiceInterfaces.Evaluation;
 using BrMobi.Core;
 using BrMobi.Core.Service;
 using BrMobi.Web.Models;
+using Facebook;
 
 namespace BrMobi.Web.Controllers
 {
@@ -29,6 +30,15 @@ namespace BrMobi.Web.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+
+
+            //var client = new Facebook.FacebookClient();
+            //dynamic me = client.Get("daniel.wermann");
+
+            var accessToken = "597380940272164|u_09KEz6dqgXM0bSG224ROh-10c";
+            var client = new FacebookClient(accessToken);
+            dynamic me = client.Get("daniel.wermann");
+            string aboutMe = me.about;
 
             return View();
         }

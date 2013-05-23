@@ -57,6 +57,9 @@
     <Reference Include="Enyim.Caching">
       <HintPath>..\lib\Enyim.Caching.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook">
+      <HintPath>..\packages\Facebook.6.4.0\lib\net40-client\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\lib\log4net.dll</HintPath>
     </Reference>
