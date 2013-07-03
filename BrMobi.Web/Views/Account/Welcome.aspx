@@ -15,6 +15,7 @@
         #header
         {
             background: url('../../Content/Images/header-transparent-bg.png');
+            box-shadow: 0 0 10px #000 inset;
             height: 200px;
             margin-top: 50px;
             text-align: center;
@@ -23,7 +24,7 @@
 
         #header h1
         {
-            color: #EEE;
+            color: #CCC;
             font-family: "Segoe UI Semibold";
             font-size: 40pt;
             padding-top: 10px;
@@ -33,7 +34,7 @@
         
         #header span
         {
-            color: #DDD;
+            color: #AAA;
             font-family: "Segoe UI Semibold";
             font-size: 20pt;
             text-shadow: 1px 1px #000;
@@ -43,15 +44,11 @@
         {
             background: url('../../Content/Images/connect-bg5.png');
             box-shadow: 0px 0px 3px #444;
-            color: #FFF;
+            box-sizing: border-box;
             display: inline-block;
-            font-family: "Segoe UI";
-            font-size: 18pt;
-            height: 70px;
-            margin: 20px 0 0 10px;
-            padding: 25px 23px 23px 23px;
-            width: 375px;
-            text-align: center;
+            margin: 0;
+            height: 100%;
+            width: 420px;
         }
         
         #connect .facebookButton
@@ -59,6 +56,8 @@
             background: url('../../Content/Images/FacebookButton.png') no-repeat;
             display: block;
             height: 70px;
+            margin: auto;
+            margin-top: 42px;
             width: 375px;
         }
         #connect .facebookButton:hover
@@ -68,39 +67,47 @@
         
         #arrow
         {
-            background: url('../../Content/Images/arrow-right.png') no-repeat -15px 32px;
+            background: url('../../Content/Images/arrow-right.png') no-repeat -21px 45px;
+            box-sizing: border-box;
             display: inline-block;
-            height: 70px;
-            width: 50px;
-            margin: 20px 0 0 0;
-            padding: 25px 23px 23px 23px;
+            height: 100%;
+            width: 90px;
+            margin: 0;
         }
         
         #connectInfo
         {
             background: url('../../Content/Images/connect-bg4.png');
             box-shadow: 0px 0px 3px #444;
+            box-sizing: border-box;
             color: #FFF;
             display: inline-block;
             font-family: "Segoe UI Light";
             font-size: 18pt;
-            height: 70px;
-            margin: 20px 0 0 0;
-            padding: 25px 23px 23px 23px;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            width: 467px;
         }
         
-        #connectInfo p
+        #connectInfo .text
         {
-            margin-top: -15px;
+            display: block;
+            height: 100px;
+            margin: auto;
+            margin-top: 25px;
+            margin-left: 22px;
             padding: 0;
-            /*(padding: 00px 20px;*/
-            /*text-shadow: 1px 1px #666;*/
+            position: absolute;
+            width: 425px;
         }
         
         #connectPanel
         {
-            margin: 0 auto;
-            width: 1013px;
+            box-sizing: border-box;
+            height: 150px;
+            margin: 20px auto;
+            width: 985px;
         }
     </style>
 </head>
@@ -116,9 +123,11 @@
         </div>
 
         <div id="arrow"></div>
-
+        
         <div id="connectInfo">
-            <p>É seguro, <br />não precisa de cadastro, <br />e você pode compartilhar com os amigos.</p>
+            <div class="text">
+                É seguro, <br />não precisa de cadastro, <br />e você pode compartilhar com os amigos.
+            </div>
         </div>
     </div>
 </body>
