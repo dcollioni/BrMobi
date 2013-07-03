@@ -12,10 +12,20 @@
             margin: 0;
         }
         
+        .unselectable
+        {
+            -webkit-user-select: none !important;
+            -khtml-user-select: none !important;
+            -moz-user-select: none !important;
+            -o-user-select: none !important;
+            user-select: none !important;
+        }
+        
         #header
         {
             background: url('../../Content/Images/header-transparent-bg.png');
             box-shadow: 0 0 10px #000 inset;
+            cursor: default;
             height: 200px;
             margin-top: 50px;
             text-align: center;
@@ -92,6 +102,7 @@
         
         #connectInfo .text
         {
+            cursor: default;
             display: block;
             height: 100px;
             margin: auto;
@@ -112,12 +123,12 @@
     </style>
 </head>
 <body>
-    <div id="header">
+    <div id="header" class="unselectable">
         <h1>BrMobi</h1>
         <span>Já pensou em oferecer e pedir caronas entre amigos?<br />Então entre e sinta-se à vontade.</span>
     </div>
 
-    <div id="connectPanel">
+    <div id="connectPanel" class="unselectable">
         <div id="connect">
             <a href="#" class="facebookButton"></a>
         </div>
