@@ -4,7 +4,11 @@
 
 <html>
 <head runat="server">
-    <title>Welcome</title>
+    <title>BrMobi</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="../../Content/Images/favicon.ico" />
+	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../../Content/Images/favicon.ico" />
+
     <style type="text/css">
         @font-face
         {
@@ -141,8 +145,8 @@
         
         #page
         {
-            height: 556px;
-            margin-top: -278px;
+            height: 582px;
+            margin-top: -291px;
             position: absolute;
             top: 50%;
             width: 100%;
@@ -150,7 +154,7 @@
         
         #mapPanel
         {
-            height: 120px;
+            height: 150px;
         }
         
         #mapPanel .map
@@ -159,7 +163,7 @@
             box-shadow: 0px 0px 3px #222;
             height: 100%;
             margin: 0 auto;
-            opacity: .6;
+            opacity: .8;
             width: 100%;
             
             transition: opacity .4s;
@@ -173,6 +177,7 @@
         #footer
         {
             color: #DDD;
+            cursor: default;
             font-family: SegoeUI;
             font-size: 12pt;
             margin-top: 20px;
@@ -211,7 +216,7 @@
             <div class="map"></div>
         </div>
 
-        <div id="footer">
+        <div id="footer" class="unselectable">
             A sua rede de mobilidade urbana. Conheça-nos em <a href="http://facebook.com/BrMobi">facebook.com/BrMobi</a>.
         </div>
     </div>

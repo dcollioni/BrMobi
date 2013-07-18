@@ -10,6 +10,7 @@ using BrMobi.Core.Entities;
 using BrMobi.Core.Service;
 using BrMobi.Web.Models;
 using Facebook;
+using BrMobi.Web.Attributes;
 
 namespace BrMobi.Web.Controllers
 {
@@ -24,6 +25,7 @@ namespace BrMobi.Web.Controllers
             this.evaluationService = evaluationService;
         }
 
+        [BrMobiAuthorize]
         public ActionResult Access()
         {
             if (LoggedUser != null)
@@ -35,10 +37,10 @@ namespace BrMobi.Web.Controllers
             //var client = new Facebook.FacebookClient();
             //dynamic me = client.Get("daniel.wermann");
 
-            var accessToken = "597380940272164|u_09KEz6dqgXM0bSG224ROh-10c";
-            var client = new FacebookClient(accessToken);
-            dynamic me = client.Get("daniel.wermann");
-            string aboutMe = me.about;
+            //var accessToken = "597380940272164|u_09KEz6dqgXM0bSG224ROh-10c";
+            //var client = new FacebookClient(accessToken);
+            //dynamic me = client.Get("daniel.wermann");
+            //string aboutMe = me.about;
 
             return View();
         }
@@ -50,7 +52,7 @@ namespace BrMobi.Web.Controllers
 
         //
         // GET: /Account/LogOn
-
+        [BrMobiAuthorize]
         public ActionResult LogOn()
         {
             if (LoggedUser != null)
@@ -98,6 +100,7 @@ namespace BrMobi.Web.Controllers
 
         //
         // GET: /Account/LogOff
+        [BrMobiAuthorize]
         public ActionResult LogOff()
         {
             LoggedUser = null;
@@ -107,7 +110,7 @@ namespace BrMobi.Web.Controllers
 
         //
         // GET: /Account/Register
-
+        [BrMobiAuthorize]
         public ActionResult Register()
         {
             return View();
@@ -165,6 +168,7 @@ namespace BrMobi.Web.Controllers
             return View(model);
         }
 
+        [BrMobiAuthorize]
         public ActionResult ResetPassword(bool? success)
         {
             if (success.HasValue)
@@ -209,6 +213,7 @@ namespace BrMobi.Web.Controllers
             return Redirect("/RedefinirSenha/" + success);
         }
 
+        [BrMobiAuthorize]
         public ActionResult ChangePicture(object picture)
         {
             if (LoggedUser != null)

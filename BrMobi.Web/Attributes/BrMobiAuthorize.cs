@@ -13,7 +13,7 @@ namespace BrMobi.Web.Attributes
 
             if (session != null && session["User"] != null) return;
 
-            var route = new RouteValueDictionary(new { controller = "Acesso" });
+            var route = new RouteValueDictionary(new { controller = "BemVindo" });
             filterContext.Result = new RedirectToRouteResult(route);
         }
     }

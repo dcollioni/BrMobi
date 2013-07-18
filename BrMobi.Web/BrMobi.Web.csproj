@@ -311,9 +311,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\BrMobiObjects.yap">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="App_Data\BrMobiObjects.yap" />
     <Content Include="App_Browsers\generic.browser" />
     <None Include="BrMobi_empty\Apresentação1.pptx" />
     <None Include="BrMobi_empty\fonts\LondonBetween.ttf" />

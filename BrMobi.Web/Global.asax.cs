@@ -28,6 +28,7 @@ namespace BrMobi.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("Welcome", "BemVindo", new { controller = "Account", action = "Welcome" });
             routes.MapRoute("Access", "Acesso", new { controller = "Account", action = "Access" });
             routes.MapRoute("Logon", "Entrar", new { controller = "Account", action = "LogOn" });
             routes.MapRoute("Logoff", "Sair", new { controller = "Account", action = "LogOff" });

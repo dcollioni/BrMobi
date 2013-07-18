@@ -35,7 +35,6 @@ C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\bin\UserImages\3593
 C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\bin\UserImages\52001425.jpg
 C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\bin\UserImages\66680586.jpg
 C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\bin\UserImages\user.png
-C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\bin\App_Data\BrMobiObjects.yap
 C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\bin\Content\Fonts\BuxtonSketch.ttf
 C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\bin\Content\Fonts\LondonMM.ttf
 C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\bin\BrMobi.Web.dll
