@@ -319,14 +319,30 @@
     <Content Include="Views\Shared\LogOnUserControl.ascx" />
     <Content Include="Views\Shared\Site.Master" />
     <Content Include="Views\Web.config" />
-    <Content Include="Content\Fonts\segoeui.ttf" />
-    <Content Include="Content\Fonts\segoeuib.ttf" />
-    <Content Include="Content\Fonts\segoeuii.ttf" />
-    <Content Include="Content\Fonts\segoeuil.eot" />
-    <Content Include="Content\Fonts\segoeuil.ttf" />
-    <Content Include="Content\Fonts\segoeuiz.ttf" />
-    <Content Include="Content\Fonts\seguisb.eot" />
-    <Content Include="Content\Fonts\seguisb.ttf" />
+    <Content Include="Content\Fonts\segoeui.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fonts\segoeuib.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fonts\segoeuii.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fonts\segoeuil.eot">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fonts\segoeuil.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fonts\segoeuiz.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fonts\seguisb.eot">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fonts\seguisb.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Content\Images\facebook.pdn" />
     <None Include="Content\Images\facebook2.pdn" />
     <None Include="_bin_deployableAssemblies\Microsoft.Web.Infrastructure.dll" />

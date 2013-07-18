@@ -61,3 +61,11 @@ C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\bin\Facebook.xml
 C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\obj\Debug\BrMobi.Web.dll
 C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\obj\Debug\BrMobi.Web.pdb
+C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\bin\Content\Fonts\segoeui.ttf
+C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\bin\Content\Fonts\segoeuib.ttf
+C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\bin\Content\Fonts\segoeuii.ttf
+C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\bin\Content\Fonts\segoeuil.eot
+C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\bin\Content\Fonts\segoeuil.ttf
+C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\bin\Content\Fonts\segoeuiz.ttf
+C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\bin\Content\Fonts\seguisb.eot
+C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Web\bin\Content\Fonts\seguisb.ttf
