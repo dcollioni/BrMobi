@@ -138,7 +138,6 @@
     <Content Include="Content\Images\busIcon.png" />
     <Content Include="Content\Images\busIcon_20x20.png" />
     <Content Include="Content\Images\busIcon_30x30.png" />
-    <Content Include="Content\Images\DSC03606_new.jpg" />
     <Content Include="Content\Images\helpIcon.png" />
     <Content Include="Content\Images\helpIcon_30x30.png" />
     <Content Include="Content\Images\loading.gif" />
