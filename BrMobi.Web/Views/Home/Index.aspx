@@ -32,4 +32,8 @@
     <script src="<%: Url.Content("~/Scripts/App/MapFilters.js") %>" type="text/javascript"></script>
     <script src="<%: Url.Content("~/Scripts/App/MapActions.js") %>" type="text/javascript"></script>
     <script src="<%: Url.Content("~/Scripts/App/FullScreen.js") %>" type="text/javascript"></script>
+    <script type="text/javascript">
+        BrMobi.user = { name: '<%= ViewBag.UserName %>', accessToken: '<%= ViewBag.AccessToken %>' };
+    </script>
+    <script src="<%: Url.Content("~/Scripts/App/Home.js") %>" type="text/javascript"></script>
 </asp:Content>

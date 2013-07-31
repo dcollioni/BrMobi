@@ -8,5 +8,5 @@
         <span>Clique com o botão direito no mapa para marcar um ponto.</span>
         <img src="/Content/Images/bottom-arrow.png" alt="Seta" title="" />
     </div>
-    <button name="fullScreen">Full Screen</button>
+    <button name="fullScreen" style="display: none;">Full Screen</button>
 </div>

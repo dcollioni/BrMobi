@@ -39,7 +39,7 @@ header
     border: 1px solid #446699;
     border-radius: 30px;
     box-shadow: 1px 1px 1px #888;
-    height: 50px;
+    height: 60px;
     margin: 30px 10px;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -55,14 +55,14 @@ header
 #logoImage
 {
     float: left;
-    margin-top: -25px;
+    margin-top: -20px;
 }
 
 #logoText
 {
     float: left;
     padding-left: 16px;
-    margin-top: 4px;
+    margin-top: 10px;
 }
 
 /* Content */
@@ -110,3 +110,31 @@ div
     position: absolute;
     bottom: 100;
 }*/
+
+a#profile_picture_link {
+    display: none;
+    float: right;
+    margin-right: 28px;
+    position: relative;
+    top: 5px;
+}
+
+img#profile_picture {
+    border-radius: 4px;
+    box-shadow: 0 0 6px 4px rgba(0,0,0,0.5);
+}
+
+img#profile_picture:hover {
+    box-shadow: 0 0 12px 6px rgba(0,0,0,0.5);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+a#logout {
+    color: white;
+    display: none;
+    float: right;
+    margin-right: 40px;
+    position: relative;
+    top: 18px;
+}

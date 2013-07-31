@@ -59,6 +59,7 @@
     <Compile Include="ServiceInterfaces\IAccountService.cs" />
     <Compile Include="ServiceInterfaces\IMessageService.cs" />
     <Compile Include="ServiceInterfaces\IStateService.cs" />
+    <Compile Include="ServiceInterfaces\IUserService.cs" />
     <Compile Include="ServiceInterfaces\Map\IHelpMarkerService.cs" />
     <Compile Include="ServiceInterfaces\Map\IRideRequestMarkerService.cs" />
     <Compile Include="ServiceInterfaces\Map\IRideOfferMarkerService.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="ServiceInterfaces\Map\IBusMarkerService.cs" />
     <Compile Include="ServiceInterfaces\Map\IMapService.cs" />
     <Compile Include="StateService.cs" />
+    <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BrMobi.Core\BrMobi.Core.csproj">

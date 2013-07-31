@@ -230,5 +230,21 @@ namespace BrMobi.Web.Controllers
             
             return RedirectToAction("Index", "Profile");
         }
+
+        public ActionResult LogIn(string accessToken)
+        {
+            if (string.IsNullOrWhiteSpace(accessToken))
+            {
+                return RedirectToAction("Welcome", "Account");
+            }
+            Session["accessToken"] = accessToken;
+            return RedirectToAction("Index", "Home");
+        }
+        public ActionResult LogOut()
+        {
+            var client = new FacebookClient(Session["accessToken"].ToString());
+            client.Delete("me/permissions");
+            return RedirectToAction("Welcome", "Account");
+        }
     }
 }

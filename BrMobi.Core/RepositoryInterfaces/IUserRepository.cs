@@ -22,5 +22,6 @@ namespace BrMobi.Core.RepositoryInterfaces
         User Get(int id);
         IList<User> GetRelationship(int id);
         void UpdatePassword(string email, string password);
+        User GetByFacebookId(string facebookId);
     }
 }

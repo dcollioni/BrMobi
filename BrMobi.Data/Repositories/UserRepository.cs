@@ -142,5 +142,10 @@ namespace BrMobi.Data.Repositories
                 Session.Store(user);
             }
         }
+
+        public User GetByFacebookId(string facebookId)
+        {
+            return Session.Query<User>(u => u.FacebookId == facebookId).SingleOrDefault();
+        }
     }
 }

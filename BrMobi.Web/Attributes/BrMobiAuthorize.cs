@@ -8,13 +8,13 @@ namespace BrMobi.Web.Attributes
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var session = filterContext.HttpContext.Session;
+            if (session == null || string.IsNullOrWhiteSpace((session["accessToken"] ?? string.Empty).ToString()))
+            {
+                var routeValueDictionary = new RouteValueDictionary(new { controller = "Account", action = "Welcome" });
+                filterContext.Result = new RedirectToRouteResult(routeValueDictionary);
+            }
 
-            //var session = filterContext.Controller.ControllerContext.HttpContext.Session;
-
-            if (session != null && session["User"] != null) return;
-
-            var route = new RouteValueDictionary(new { controller = "BemVindo" });
-            filterContext.Result = new RedirectToRouteResult(route);
+            base.OnActionExecuting(filterContext);
         }
     }
 }

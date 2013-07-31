@@ -34,6 +34,10 @@
                     <img id="logoText" src="/Content/Images/BrMobi5.png" alt="BrMobi" />
                 </a>
             </div>
+            <a id="logout" href="Account/Logout">Sair</a>
+            <a id="profile_picture_link" href="#" target="_blank">
+                <img id="profile_picture" src="#"/>
+            </a>
         </header>
 
         <% Html.RenderPartial("LogOnUserControl"); %>
