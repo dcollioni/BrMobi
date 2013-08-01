@@ -23,7 +23,17 @@ namespace BrMobi.Web.Controllers
         {
             var accessToken = Session["accessToken"].ToString();
             var client = new FacebookClient(accessToken);
-            dynamic facebookUser = client.Get("me");
+
+            dynamic facebookUser = new object();
+
+            try
+            {
+                facebookUser = client.Get("me");
+            }
+            catch (FacebookOAuthException)
+            {
+                return RedirectToAction("Welcome", "Account");
+            }
 
             ViewBag.UserName = facebookUser.username;
             ViewBag.AccessToken = accessToken;
@@ -46,6 +56,7 @@ namespace BrMobi.Web.Controllers
                 };
                 userService.Create(user);
             }
+
             return View();
         }
     }
