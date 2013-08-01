@@ -1,9 +1,9 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl" %>
 
 <div id="mapFilters">
-    <span class="button bus active" title="Pontos de ônibus">
+    <%--<span class="button bus active" title="Pontos de ônibus">
         <img src="/Content/Images/busIcon.png" alt="Ônibus" />
-    </span>
+    </span>--%>
     <span class="button rideOffer active" title="Caronas oferecidas">
         <img src="/Content/Images/rideOfferIcon.png" alt="Caronas oferecidas" />
     </span>

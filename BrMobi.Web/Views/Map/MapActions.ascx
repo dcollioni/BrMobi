@@ -2,10 +2,10 @@
 
 <div id="mapActions" class="unselectable" oncontextmenu="return false;">
     <ul>
-        <li class="bus">
+        <%--<li class="bus">
             <span class="mark">&nbsp;</span>
             <span class="text">Marcar ponto de ônibus</span>
-        </li>
+        </li>--%>
         <li class="rideOffer">
             <span class="mark">&nbsp;</span>
             <span class="text">Marcar carona oferecida</span>
