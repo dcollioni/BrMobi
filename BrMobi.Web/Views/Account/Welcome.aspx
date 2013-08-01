@@ -5,6 +5,7 @@
 <html>
 <head runat="server">
     <title>BrMobi</title>
+    <% Html.RenderPartial("GoogleAnalytics"); %>
     <link href="http://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="../../Content/Images/favicon.ico" />
 	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../../Content/Images/favicon.ico" />
