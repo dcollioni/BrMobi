@@ -56,11 +56,14 @@ $(function () {
     });
 
     $('#registration form').submit(function () {
+        $('#registration .form .fields').addClass('loading');
+
         $.post(
                'Account/RegisterEmail',
                 $(this).serialize(),
                 function (response) {
                     console.log(response.Message);
+                    $('#registration .form .fields').removeClass('loading');
                 }
             );
         return false;

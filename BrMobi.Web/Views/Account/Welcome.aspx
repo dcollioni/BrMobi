@@ -60,7 +60,7 @@
         </div>
         <div class="form">
             <form action="Account/RegisterEmail" method="post">
-                <div>
+                <div class="fields">
                     <input type="text" name="email" class="email" placeholder="Seu e-mail" />
                 </div>
                 <div class="buttons">

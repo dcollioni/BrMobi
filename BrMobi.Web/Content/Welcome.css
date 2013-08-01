@@ -227,13 +227,19 @@ body
     margin-bottom: 25px;
     text-align: center;
 }
+
+#registration .form .fields.loading
+{
+    background: url('../../Content/Images/loader.gif') no-repeat 730px;
+    background-size: 30px 30px;
+}
         
 #registration .form input[type=text]
 {
     background-color: #F5F5F5;
     background-image: url('../../Content/Images/message_outline-26.png');
     background-repeat: no-repeat;
-    background-position: 500px 6px;
+    background-position: 500px 7px;
     border: 1px solid #AAA;
     font-family: SegoeUILight;
     font-size: 16pt;
@@ -241,7 +247,11 @@ body
     outline: none;
     width: 60%;
 }
-        
+#registration .form input[type=text]:focus
+{
+    border-color: #888;
+}
+
 #registration .form .buttons input
 {
     border: 1px solid #AAA;
@@ -249,7 +259,27 @@ body
     font-family: SegoeUILight;
     font-size: 14pt;
     margin-right: 10px;
+    outline: none;
     padding: 10px;
+}
+
+#registration .form .buttons input[type=submit]:focus
+{
+    border-color: #246;
+}
+#registration .form .buttons input[type=submit]:active
+{
+    background-color: #6093F9;
+    border-color: #246;
+}
+#registration .form .buttons input[type=button]:focus
+{
+    border-color: #888;
+}
+#registration .form .buttons input[type=button]:active
+{
+    background-color: #E8E8E8;
+    border-color: #888;
 }
 
 #registration .form .buttons
@@ -259,7 +289,7 @@ body
         
 #registration .form .buttons .send
 {
-    background-color: #79F;
+    background-color: #69F;
     border-color: #468;
 }
         
