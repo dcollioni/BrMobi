@@ -14,16 +14,17 @@ using BrMobi.Web.Attributes;
 
 namespace BrMobi.Web.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         //private IAccountService accountService;
         //private IEvaluationService evaluationService;
 
-        //public AccountController(IAccountService accountService, IEvaluationService evaluationService)
-        //{
-        //    this.accountService = accountService;
-        //    this.evaluationService = evaluationService;
-        //}
+        private readonly IPreUserService preUserService;
+
+        public AccountController(IPreUserService preUserService)
+        {
+            this.preUserService = preUserService;
+        }
 
         //[BrMobiAuthorize]
         //public ActionResult Access()
@@ -240,11 +241,32 @@ namespace BrMobi.Web.Controllers
             Session["accessToken"] = accessToken;
             return RedirectToAction("Index", "Home");
         }
+
         public ActionResult LogOut()
         {
             var client = new FacebookClient(Session["accessToken"].ToString());
             client.Delete("me/permissions");
             return RedirectToAction("Welcome", "Account");
+        }
+
+        [HttpPost]
+        public ActionResult RegisterEmail(string email)
+        {
+            var preUser = new PreUser(DateTime.Now)
+            {
+                Email = email.ToLower()
+            };
+
+            string error;
+
+            preUserService.Create(preUser, out error);
+
+            if (!string.IsNullOrEmpty(error))
+            {
+                return Json(new { Success = false, Message = error });
+            }
+
+            return Json(new { Success = true });
         }
     }
 }

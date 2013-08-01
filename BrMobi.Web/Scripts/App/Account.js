@@ -55,6 +55,17 @@ $(function () {
         closeRegistration();
     });
 
+    $('#registration form').submit(function () {
+        $.post(
+               'Account/RegisterEmail',
+                $(this).serialize(),
+                function (response) {
+                    console.log(response.Message);
+                }
+            );
+        return false;
+    });
+
     $(document).keyup(function (e) {
         if (e.keyCode == 27) {
             closeRegistration();
@@ -70,4 +81,3 @@ $(function () {
         $('#mask, #registration').fadeOut();
     }
 });
-

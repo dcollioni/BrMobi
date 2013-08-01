@@ -242,7 +242,7 @@ body
     width: 60%;
 }
         
-#registration .form input[type=button]
+#registration .form .buttons input
 {
     border: 1px solid #AAA;
     cursor: pointer;

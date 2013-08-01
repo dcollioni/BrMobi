@@ -58,12 +58,12 @@
             (Prometemos não enviar <i>spam</i>)
         </div>
         <div class="form">
-            <form action="RegisterEmail" method="post">
+            <form action="Account/RegisterEmail" method="post">
                 <div>
                     <input type="text" name="email" class="email" placeholder="Seu e-mail" />
                 </div>
                 <div class="buttons">
-                    <input type="button" name="send" class="send" value="Desejo ser avisado." />
+                    <input type="submit" name="send" class="send" value="Desejo ser avisado." />
                     <input type="button" name="cancel" class="cancel" value="Não, obrigado." />
                 </div>
             </form>
