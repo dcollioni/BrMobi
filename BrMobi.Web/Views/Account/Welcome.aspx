@@ -21,11 +21,11 @@
 
         <div id="connectPanel" class="unselectable">
             <div id="connect">
-                <%--<a href="#" class="facebookButton"></a>--%>
-                <div id="facebook_button" class="centered unselectable fb-login-button">
+                <a href="#" class="facebookButton"></a>
+                <%--<div id="facebook_button" class="centered unselectable fb-login-button">
                     <div id="facebook_logo">f</div>
                     <div id="facebook_text">Entre pelo Facebook</div>
-                </div>
+                </div>--%>
             </div>
 
             <div id="arrow"></div>
@@ -69,7 +69,6 @@
             </form>
         </div>
     </div>
-    <link href="<%: Url.Content("~/Content/Welcome.css") %>" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="<%: Url.Content("~/Scripts/App/Account.js") %>"></script>
 </body>
 </html>

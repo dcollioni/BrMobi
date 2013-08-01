@@ -233,7 +233,7 @@ body
     background-color: #F5F5F5;
     background-image: url('../../Content/Images/message_outline-26.png');
     background-repeat: no-repeat;
-    background-position: 514px 6px;
+    background-position: 500px 6px;
     border: 1px solid #AAA;
     font-family: SegoeUILight;
     font-size: 16pt;
@@ -245,6 +245,7 @@ body
 #registration .form input[type=button]
 {
     border: 1px solid #AAA;
+    cursor: pointer;
     font-family: SegoeUILight;
     font-size: 14pt;
     margin-right: 10px;
