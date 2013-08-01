@@ -56,6 +56,7 @@ namespace BrMobi.Web.Controllers
                 };
                 userService.Create(user);
             }
+
             return View();
         }
     }
