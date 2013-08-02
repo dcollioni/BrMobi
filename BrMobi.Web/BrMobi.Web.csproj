@@ -101,9 +101,6 @@
     <Compile Include="CastleWindsor\ComponentRegistrar.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\EvaluationController.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MapController.cs">
       <SubType>Code</SubType>
@@ -129,7 +126,6 @@
     <Content Include="Content\Images\rideRequestIcon_white.png" />
     <Content Include="Content\Libraries\perfect-scrollbar.css" />
     <Content Include="Content\Welcome.css" />
-    <Content Include="Content\Evaluation.css" />
     <Content Include="Content\FacebookButton.css" />
     <Content Include="Content\Images\1369359207_06-facebook.png" />
     <Content Include="Content\Images\arrow-right.png" />
@@ -218,7 +214,6 @@
     <Content Include="Content\Images\noise.png" />
     <Content Include="Scripts\App\MapActions.js" />
     <Content Include="Scripts\App\MapFilters.js" />
-    <Content Include="Content\Register.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -290,10 +285,6 @@
     </Content>
     <Content Include="Views\Account\Access.aspx" />
     <Content Include="Views\Account\Welcome.aspx" />
-    <Content Include="Views\Account\ResetPassword.aspx" />
-    <Content Include="Views\Evaluation\Index.aspx" />
-    <Content Include="Views\Evaluation\Result.aspx" />
-    <Content Include="Views\Map\Templates\BusInfo.htm" />
     <Content Include="Views\Map\Templates\HelpInfo.htm" />
     <Content Include="Views\Map\Templates\RideRequestInfo.htm" />
     <Content Include="Views\Map\Templates\RideOfferInfo.htm" />
@@ -354,6 +345,7 @@
     </Content>
     <None Include="Content\Images\facebook.pdn" />
     <None Include="Content\Images\facebook2.pdn" />
+    <Content Include="Views\Home\Robots.cshtml" />
     <None Include="_bin_deployableAssemblies\Microsoft.Web.Infrastructure.dll" />
     <None Include="_bin_deployableAssemblies\System.Web.WebPages.Razor.dll" />
     <None Include="_bin_deployableAssemblies\System.Web.WebPages.dll" />
