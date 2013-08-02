@@ -121,12 +121,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\ChangePicture.css" />
     <Content Include="Content\Images\loader.gif" />
     <Content Include="Content\Images\message_outline-26-red.png" />
     <Content Include="Content\Images\rideOfferIcon_white.png" />
     <Content Include="Content\Images\rideRequestIcon_white.png" />
-    <Content Include="Content\Libraries\perfect-scrollbar.css" />
     <Content Include="Content\Welcome.css" />
     <Content Include="Content\FacebookButton.css" />
     <Content Include="Content\Images\1369359207_06-facebook.png" />
@@ -265,8 +263,6 @@
     <Content Include="Scripts\App\Site.js" />
     <Content Include="Scripts\App\Utils.js" />
     <Content Include="Scripts\Default\underscore.js" />
-    <Content Include="Scripts\Libraries\jquery.mousewheel.js" />
-    <Content Include="Scripts\Libraries\perfect-scrollbar.js" />
     <Content Include="UserImages\user.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -279,7 +275,6 @@
     <Content Include="Views\Map\MapFilters.ascx" />
     <Content Include="Views\Map\MapHeader.ascx" />
     <Content Include="Views\Profile\Index.aspx" />
-    <Content Include="Views\Shared\ChangePicture.ascx" />
     <Content Include="Views\Shared\GoogleAnalytics.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
