@@ -15,5 +15,6 @@ namespace BrMobi.Core.ViewModels
         public DateTime? BirthDate { get; set; }
         public int CityId { get; set; }
         public int StateId { get; set; }
+        public string UserName { get; set; }
     }
 }

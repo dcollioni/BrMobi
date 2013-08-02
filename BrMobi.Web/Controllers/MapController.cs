@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using BrMobi.ApplicationServices.ServiceInterfaces.Map;
@@ -17,13 +18,15 @@ namespace BrMobi.Web.Controllers
         private readonly IRideOfferMarkerService rideOfferMarkerService;
         private readonly IRideRequestMarkerService rideRequestMarkerService;
         private readonly IHelpMarkerService helpMarkerService;
+        private readonly IMarkerService markerService;
 
         public MapController(IMapService mapService,
                              IBusLineService busLineService,
                              IBusMarkerService busMarkerService,
                              IRideOfferMarkerService rideOfferMarkerService,
                              IRideRequestMarkerService rideRequestMarkerService,
-                             IHelpMarkerService helpMarkerService)
+                             IHelpMarkerService helpMarkerService,
+                             IMarkerService markerService)
         {
             this.mapService = mapService;
             this.busLineService = busLineService;
@@ -31,6 +34,7 @@ namespace BrMobi.Web.Controllers
             this.rideOfferMarkerService = rideOfferMarkerService;
             this.rideRequestMarkerService = rideRequestMarkerService;
             this.helpMarkerService = helpMarkerService;
+            this.markerService = markerService;
         }
 
         public JsonResult MarkBus(double lat, double lng)
@@ -217,6 +221,77 @@ namespace BrMobi.Web.Controllers
             rideRequestMarkerService.Remove(markerId, LoggedUser);
 
             return Json(null);
+        }
+
+        public JsonResult GetUserRides(int page)
+        {
+            var rides = markerService.List(LoggedUser.Id, page);
+            return Json(rides, JsonRequestBehavior.AllowGet);
+        }
+
+        public void CreateALotOfRidesForTesting()
+        {
+            markerService.DeleteAll(LoggedUser.Id);
+            var rnd = new Random();
+            for (int i = 0; i < 20; i++)
+            {
+                var rideOfferMarker = new RideOfferMarker(GetFakeCoordinate(28,30), GetFakeCoordinate(35,57), LoggedUser, GetRideOfferMarkerImage());
+                mapService.MarkRideOffer(rideOfferMarker);
+                //Data.Server.Session.Commit();
+                UpdateRideOffer(DateTime.Now.AddDays(rnd.Next(10)), new TimeSpan(rnd.Next(23), rnd.Next(60), rnd.Next(60)), GetFakeDestination(), rideOfferMarker.Id);
+
+                var rideRequestMarker = new RideRequestMarker(GetFakeCoordinate(27, 33), GetFakeCoordinate(28, 57), LoggedUser, GetRideRequestMarkerImage());
+                mapService.MarkRideRequest(rideRequestMarker);
+                //Data.Server.Session.Commit();
+                UpdateRideRequest(DateTime.Now.AddDays(rnd.Next(10)), new TimeSpan(rnd.Next(23), rnd.Next(60), rnd.Next(60)), GetFakeDestination(), rideRequestMarker.Id);
+            }
+        }
+
+        private string GetFakeDestination()
+        {
+            var rnd = new Random();
+            var letterCount = rnd.Next(5, 50);
+            var str = "";
+            for (var i = 0; i < letterCount; i++)
+            {
+                str += (char)rnd.Next(65, 122);
+            }
+            return str;
+        }
+
+        private double GetFakeCoordinate(int lower, int upper)
+        {
+            //Pontos extremos da República
+
+            //Norte
+            //Latitude: -27º 04' 48''
+            //Longitude: -53º 01' 53''
+
+            //Sul
+            //Latitude: -33º 45' 06'
+            //Longitude: -53º 23' 48''
+
+            //Leste
+            //Latitude: -28º 37' 06''
+            //Longitude: -49º 41' 28''
+
+            //Oeste
+            //Latitude: -30º 11' 18''
+            //Longitude: -57º 38' 36''
+
+            //          --------27º 04' 48''--------
+            //          -                           -
+            //-28º 37' 06                           --57º 38' 36''
+            //          -                           -
+            //          --------33º 45' 06'---------
+            
+            var rnd = new Random();
+            var str = "-" + rnd.Next(lower, upper) + ",";
+            for (int i = 0; i < 14; i++)
+            {
+                str += rnd.Next(0, 9);
+            }
+            return double.Parse(str);
         }
     }
 }

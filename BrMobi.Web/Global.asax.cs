@@ -32,11 +32,8 @@ namespace BrMobi.Web
             routes.MapRoute("Access", "Acesso", new { controller = "Account", action = "Access" });
             routes.MapRoute("Logon", "Entrar", new { controller = "Account", action = "LogOn" });
             routes.MapRoute("Logoff", "Sair", new { controller = "Account", action = "LogOff" });
-            routes.MapRoute("Register", "Cadastro", new { controller = "Account", action = "Register" });
             routes.MapRoute("Profile", "Perfil/{id}", new { controller = "Profile", action = "Index", id = UrlParameter.Optional });
-            routes.MapRoute("Evaluation", "Avaliacao", new { controller = "Evaluation", action = "Index" });
-            routes.MapRoute("EvaluationResult", "ResultadoAvaliacao", new { controller = "Evaluation", action = "Result" });
-            routes.MapRoute("ResetPassword", "RedefinirSenha/{success}", new { controller = "Account", action = "ResetPassword", success = UrlParameter.Optional });
+            routes.MapRoute("Robots.txt","robots.txt",new { controller = "Home", action = "Robots" });
 
             routes.MapRoute(
                 "Default", // Route name

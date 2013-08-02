@@ -82,7 +82,7 @@
     vertical-align: middle;
 }
 
-#mapFilters
+#rides
 {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -94,17 +94,17 @@
     height: 450px;
     opacity: .3;
     position: absolute;
-    width: 83px;
+    width: 213px;
     z-index: 9997;
 }
 
-#mapFilters:hover
+#rides:hover
 {
     opacity: 1;
     box-shadow: 2px 0px 2px #C0C1C2;
 }
 
-#mapFilters .button
+#rides .button
 {
     border: 1px solid #F0F1F2;
     border-radius: 4px;
@@ -115,31 +115,31 @@
     width: 60px;
 }
 
-#mapFilters .button
+#rides .button
 {
     -webkit-transition: background-color 300ms;
     -moz-transition: background-color 300ms;
     transition: background-color 300ms;
 }
 
-#mapFilters .button img
+#rides .button img
 {
     opacity: .8;
 }
 
-#mapFilters .button:hover img, #mapFilters .button:active img, #mapFilters .button.active img
+#rides .button:hover img, #rides .button:active img, #rides .button.active img
 {
     opacity: 1;
 }
 
-#mapFilters .button:hover
+#rides .button:hover
 {
     background-color: #b0bad0;
     border: 1px solid #a0aac0;
     box-shadow: 0px 0px 1px #a0aac0;
 }
 
-#mapFilters .button:active, #mapFilters .button.active
+#rides .button:active, #rides .button.active
 {
     background-color: #d0daf0;
     background-image: -webkit-gradient(linear, 0% 70%, 0% 100%, from(#b0bad0), color-stop(1, #d0daf0));
@@ -148,35 +148,35 @@
     box-shadow: 0px 0px 20px #f2f8ff inset;
 }
 
-#mapFilters .button.bus img
+#rides .button.bus img
 {
     margin: 7px;
     width: 45px;
     height: 45px;
 }
 
-#mapFilters .button.rideOffer img
+#rides .button.rideOffer img
 {
     margin: -1px 3px;
     width: 50px;
     height: 50px;
 }
 
-#mapFilters .button.rideRequest img
+#rides .button.rideRequest img
 {
     margin: 10px;
     width: 40px;
     height: 40px;
 }
 
-#mapFilters .button.help img
+#rides .button.help img
 {
     margin: 5px;
     width: 50px;
     height: 50px;
 }
 
-#mapFilters .tip
+#rides .tip
 {
     color: #444;
     cursor: default;
@@ -188,14 +188,9 @@
     text-shadow: 1px 1px #BBB;
 }
 
-#mapFilters .tip:last-child
+#rides .tip:last-child
 {
     margin: 2px 16px;
-}
-
-#mapFilters div
-{
-    height: 5px;
 }
 
 #mapActions
@@ -671,4 +666,116 @@
 .busInfo li .remove
 {
     margin-left: 10px;
+}
+
+#rides_list{
+    overflow: auto;
+    height: 450px;
+    width: 210px;
+}
+
+#rides_list div.row{
+    padding: 30px 10px;
+    border-bottom: 1px solid #e3e3e3;
+    line-height: 0;
+}
+
+#rides_list div.row:hover {
+    background-color: #27497C;
+    color: white;    
+}
+
+#rides_list div.separator{
+    float: left;
+    height: 50px;
+    width: 0px;
+    border-left: 1px solid #e3e3e3;
+    margin-top: -25px;
+    margin-left: 10px;
+}
+
+#rides_list div:hover{
+    cursor: pointer;
+}
+
+#rides_list div.image{
+    height: 40px;
+    width: 40px;
+    display: block;
+    float: left;
+    margin-top: -20px;
+}
+
+#rides_list div.image.RideOfferMarker {
+    background-image: url(../Content/Images/rideOfferIcon.png);
+    background-size: 40px 40px;
+}
+
+#rides_list div.image.RideRequestMarker {
+    background-image: url(../Content/Images/rideRequestIcon.png);
+    background-size: 40px 40px;
+}
+
+#rides_list div.row:hover div.image.RideOfferMarker {
+    background-image: url(../Content/Images/rideOfferIcon_white.png);
+}
+
+#rides_list div.row:hover div.image.RideRequestMarker {
+    background-image: url(../Content/Images/rideRequestIcon_white.png);
+}
+
+#rides_list div.text{
+    display: block;
+    float: left;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-top: -8px;
+}
+
+#rides_list div.text div{
+    height: 20px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: transparent;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.loader 
+{
+    background-color: transparent;
+    cursor: default;
+    display: none;
+    float: left;
+    font-size: 11pt;
+    padding: 5px;
+    position: relative;
+    text-align: center;
+    width: 120px;
+    z-index: 9999;
+    top: -50%;
+    left: 20%;
+    
+}
+
+.loader img
+{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.loader span
+{
+    margin-left: 5px;
+    vertical-align: middle;
 }

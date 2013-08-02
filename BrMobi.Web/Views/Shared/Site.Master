@@ -1,7 +1,4 @@
 ﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
-<%@ Register TagPrefix="uc" TagName="LogOn" Src="~/Views/Shared/LogOnUserControl.ascx" %>
-<%--<%@ Register TagPrefix="ga" TagName="GoogleAnalytics" Src="~/Views/Shared/GoogleAnalytics.ascx" %>
---%>
 <!DOCTYPE html>
 <html>
 <head runat="server">
@@ -42,9 +39,6 @@
                 <img id="profile_picture" src="#"/>
             </a>
         </header>
-
-        <% Html.RenderPartial("LogOnUserControl"); %>
-        <% Html.RenderPartial("ChangePicture"); %>
 
         <section id="main">
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />

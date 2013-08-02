@@ -11,7 +11,7 @@ namespace BrMobi.Data.Repositories.Map
     {
         public void Create(RideRequestMarker rideRequestMarker)
         {
-            rideRequestMarker.Owner = Session.Query<User>(u => u.Email == rideRequestMarker.Owner.Email).SingleOrDefault();
+            rideRequestMarker.Owner = Session.Query<User>(u => u.Id == rideRequestMarker.Owner.Id).SingleOrDefault();
             rideRequestMarker.Id = rideRequestMarker.GetHashCode();
             rideRequestMarker.CreatedOn = DateTime.Now;
             Session.Store(rideRequestMarker);
