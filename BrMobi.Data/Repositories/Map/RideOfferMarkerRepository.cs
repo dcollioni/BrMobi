@@ -11,14 +11,23 @@ namespace BrMobi.Data.Repositories.Map
     {
         public void Create(RideOfferMarker rideOfferMarker)
         {
-            rideOfferMarker.Owner = Session.Query<User>(u => u.Email == rideOfferMarker.Owner.Email).SingleOrDefault();
             rideOfferMarker.Id = rideOfferMarker.GetHashCode();
             rideOfferMarker.CreatedOn = DateTime.Now;
+            rideOfferMarker.Owner = Session.Query<User>(u => u.Id == rideOfferMarker.Owner.Id).Single();
             Session.Store(rideOfferMarker);
         }
 
         public IList<RideOfferMarker> List(LatLng southWest, LatLng northEast, User loggedUser)
         {
+            var rides = Session.Query<RideOfferMarker>(m => m.Owner == null).ToList();
+            if (rides.Count > 0)
+            {
+                foreach (var ride in rides)
+                {
+                    Session.Delete(ride);
+                }
+            }
+
             return Session.Query<RideOfferMarker>(m => 
                 southWest.Lat() <= m.Lat && m.Lat <= northEast.Lat() && southWest.Lng() <= m.Lng && m.Lng <= northEast.Lng() &&
                     ((m.Owner.Email == loggedUser.Email) || (m.Destination != null && m.DateTime >= DateTime.Now))).ToList();

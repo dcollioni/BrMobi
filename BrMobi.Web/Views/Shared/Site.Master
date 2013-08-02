@@ -1,5 +1,4 @@
 ﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
-<%@ Register TagPrefix="uc" TagName="LogOn" Src="~/Views/Shared/LogOnUserControl.ascx" %>
 
 <!DOCTYPE html>
 <html>
@@ -39,9 +38,6 @@
                 <img id="profile_picture" src="#"/>
             </a>
         </header>
-
-        <% Html.RenderPartial("LogOnUserControl"); %>
-        <% Html.RenderPartial("ChangePicture"); %>
 
         <section id="main">
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />

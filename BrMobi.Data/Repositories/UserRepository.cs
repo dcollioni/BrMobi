@@ -145,6 +145,14 @@ namespace BrMobi.Data.Repositories
 
         public User GetByFacebookId(string facebookId)
         {
+            var users = Session.Query<User>(u => u.FacebookId == facebookId).ToList();
+            if (users.Count > 1)
+            {
+                foreach (var user in users)
+                {
+                    Session.Delete(user);
+                }
+            }
             return Session.Query<User>(u => u.FacebookId == facebookId).SingleOrDefault();
         }
     }

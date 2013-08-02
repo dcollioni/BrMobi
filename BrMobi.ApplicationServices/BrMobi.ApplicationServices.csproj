@@ -47,6 +47,7 @@
     <Compile Include="Evaluation\QuestionService.cs" />
     <Compile Include="Map\BusLineService.cs" />
     <Compile Include="Map\BusMarkerService.cs" />
+    <Compile Include="Map\MarkerService.cs" />
     <Compile Include="Map\HelpMarkerService.cs" />
     <Compile Include="Map\MapService.cs" />
     <Compile Include="Map\RideOfferMarkerService.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="ServiceInterfaces\IMessageService.cs" />
     <Compile Include="ServiceInterfaces\IStateService.cs" />
     <Compile Include="ServiceInterfaces\IUserService.cs" />
+    <Compile Include="ServiceInterfaces\Map\IMarkerService.cs" />
     <Compile Include="ServiceInterfaces\Map\IHelpMarkerService.cs" />
     <Compile Include="ServiceInterfaces\Map\IRideRequestMarkerService.cs" />
     <Compile Include="ServiceInterfaces\Map\IRideOfferMarkerService.cs" />
