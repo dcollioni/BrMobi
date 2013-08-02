@@ -267,21 +267,6 @@
     <Content Include="Scripts\Default\underscore.js" />
     <Content Include="Scripts\Libraries\jquery.mousewheel.js" />
     <Content Include="Scripts\Libraries\perfect-scrollbar.js" />
-    <Content Include="UserImages\12805968.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="UserImages\15946659.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="UserImages\35934220.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="UserImages\52001425.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="UserImages\66680586.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="UserImages\user.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
