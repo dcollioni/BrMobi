@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Repositories\Map\MarkerRepository.cs" />
+    <Compile Include="Repositories\PreUserRepository.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\CityRepository.cs" />

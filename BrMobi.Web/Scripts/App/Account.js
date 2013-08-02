@@ -55,6 +55,20 @@ $(function () {
         closeRegistration();
     });
 
+    $('#registration form').submit(function () {
+        $('#registration .form .fields').addClass('loading');
+
+        $.post(
+               'Account/RegisterEmail',
+                $(this).serialize(),
+                function (response) {
+                    console.log(response.Message);
+                    $('#registration .form .fields').removeClass('loading');
+                }
+            );
+        return false;
+    });
+
     $(document).keyup(function (e) {
         if (e.keyCode == 27) {
             closeRegistration();
@@ -70,4 +84,3 @@ $(function () {
         $('#mask, #registration').fadeOut();
     }
 });
-

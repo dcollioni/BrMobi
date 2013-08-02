@@ -18,3 +18,13 @@ C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Data\bin\Debug\BrMobi.C
 C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Data\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Data\obj\Debug\BrMobi.Data.dll
 C:\Users\douglas.collioni\Documents\GitHub\BrMobi\BrMobi.Data\obj\Debug\BrMobi.Data.pdb
+C:\GitHub\BrMobi\BrMobi.Data\bin\Debug\BrMobi.Data.dll
+C:\GitHub\BrMobi\BrMobi.Data\bin\Debug\BrMobi.Data.pdb
+C:\GitHub\BrMobi\BrMobi.Data\bin\Debug\BrMobi.Core.dll
+C:\GitHub\BrMobi\BrMobi.Data\bin\Debug\Db4objects.Db4o.CS.dll
+C:\GitHub\BrMobi\BrMobi.Data\bin\Debug\Db4objects.Db4o.dll
+C:\GitHub\BrMobi\BrMobi.Data\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\GitHub\BrMobi\BrMobi.Data\bin\Debug\BrMobi.Core.pdb
+C:\GitHub\BrMobi\BrMobi.Data\obj\Debug\BrMobi.Data.csprojResolveAssemblyReference.cache
+C:\GitHub\BrMobi\BrMobi.Data\obj\Debug\BrMobi.Data.dll
+C:\GitHub\BrMobi\BrMobi.Data\obj\Debug\BrMobi.Data.pdb

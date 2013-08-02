@@ -5,6 +5,7 @@
 <html>
 <head runat="server">
     <title>BrMobi</title>
+    <% Html.RenderPartial("GoogleAnalytics"); %>
     <link href="http://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="../../Content/Images/favicon.ico" />
 	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../../Content/Images/favicon.ico" />
@@ -21,11 +22,11 @@
 
         <div id="connectPanel" class="unselectable">
             <div id="connect">
-                <%--<a href="#" class="facebookButton"></a>--%>
-                <div id="facebook_button" class="centered unselectable fb-login-button">
+                <a href="#" class="facebookButton"></a>
+                <%--<div id="facebook_button" class="centered unselectable fb-login-button">
                     <div id="facebook_logo">f</div>
                     <div id="facebook_text">Entre pelo Facebook</div>
-                </div>
+                </div>--%>
             </div>
 
             <div id="arrow"></div>
@@ -58,18 +59,17 @@
             (Prometemos não enviar <i>spam</i>)
         </div>
         <div class="form">
-            <form action="RegisterEmail" method="post">
-                <div>
+            <form action="Account/RegisterEmail" method="post">
+                <div class="fields">
                     <input type="text" name="email" class="email" placeholder="Seu e-mail" />
                 </div>
                 <div class="buttons">
-                    <input type="button" name="send" class="send" value="Desejo ser avisado." />
+                    <input type="submit" name="send" class="send" value="Desejo ser avisado." />
                     <input type="button" name="cancel" class="cancel" value="Não, obrigado." />
                 </div>
             </form>
         </div>
     </div>
-    <link href="<%: Url.Content("~/Content/Welcome.css") %>" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="<%: Url.Content("~/Scripts/App/Account.js") %>"></script>
 </body>
 </html>

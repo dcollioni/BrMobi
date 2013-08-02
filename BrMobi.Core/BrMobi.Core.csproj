@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\City.cs" />
+    <Compile Include="Entities\PreUser.cs" />
     <Compile Include="Enums\Evaluation\QuestionCategory.cs" />
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\MarkerType.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Entities\Message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryInterfaces\IMarkerRepository.cs" />
+    <Compile Include="RepositoryInterfaces\IPreUserRepository.cs" />
     <Compile Include="RepositoryInterfaces\Evaluation\IQuestionRepository.cs" />
     <Compile Include="RepositoryInterfaces\Evaluation\IUserAnswerRepository.cs" />
     <Compile Include="RepositoryInterfaces\ICityRepository.cs" />
@@ -76,12 +78,24 @@
     <Compile Include="RepositoryInterfaces\Map\IRideOfferMarkerRepository.cs" />
     <Compile Include="RepositoryInterfaces\Map\IBusMarkerRepository.cs" />
     <Compile Include="RepositoryInterfaces\IUserRepository.cs" />
+    <Compile Include="Resources\Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ResourceHelper.cs" />
     <Compile Include="Service\OperationStatus.cs" />
     <Compile Include="Entities\State.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="ViewModels\Map\RideViewModel.cs" />
     <Compile Include="ViewModels\Map\MarkerViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Messages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

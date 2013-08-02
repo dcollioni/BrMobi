@@ -301,6 +301,8 @@
     <Content Include="Views\Map\MapFilters.ascx" />
     <Content Include="Views\Map\MapHeader.ascx" />
     <Content Include="Views\Profile\Index.aspx" />
+    <Content Include="Views\Shared\ChangePicture.ascx" />
+    <Content Include="Views\Shared\GoogleAnalytics.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

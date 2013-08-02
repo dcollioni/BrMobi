@@ -9,7 +9,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrMobi.Data", "BrMobi.Data\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrMobi.ApplicationServices", "BrMobi.ApplicationServices\BrMobi.ApplicationServices.csproj", "{2C7A7091-0F60-4656-B0C5-BC739D5D2D9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrMobi.Tests", "BrMobi.Tests\BrMobi.Tests.csproj", "{CBCED168-CC26-4DB7-91BF-9B38560C8B3B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0A82696F-C771-4497-BC04-BC16DF2AB33A}"
+	ProjectSection(SolutionItems) = preProject
+		BrMobi.vsmdi = BrMobi.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = BrMobi.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -31,6 +43,10 @@ Global
 		{2C7A7091-0F60-4656-B0C5-BC739D5D2D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C7A7091-0F60-4656-B0C5-BC739D5D2D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C7A7091-0F60-4656-B0C5-BC739D5D2D9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBCED168-CC26-4DB7-91BF-9B38560C8B3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBCED168-CC26-4DB7-91BF-9B38560C8B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBCED168-CC26-4DB7-91BF-9B38560C8B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBCED168-CC26-4DB7-91BF-9B38560C8B3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
