@@ -125,6 +125,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\ChangePicture.css" />
+    <Content Include="Content\Images\loader.gif" />
+    <Content Include="Content\Images\message_outline-26-red.png" />
     <Content Include="Content\Welcome.css" />
     <Content Include="Content\Evaluation.css" />
     <Content Include="Content\FacebookButton.css" />

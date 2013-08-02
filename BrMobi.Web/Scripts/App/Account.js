@@ -57,15 +57,29 @@ $(function () {
 
     $('#registration form').submit(function () {
         $('#registration .form .fields').addClass('loading');
+        $('#registration .form input[type=submit]').attr('disabled', 'disabled');
 
         $.post(
-               'Account/RegisterEmail',
-                $(this).serialize(),
-                function (response) {
-                    console.log(response.Message);
-                    $('#registration .form .fields').removeClass('loading');
+            'Account/RegisterEmail',
+            $(this).serialize(),
+            function (response) {
+                $('#registration .form .fields').removeClass('loading');
+                $('#registration .form input[type=submit]').removeAttr('disabled');
+
+                if (response.Success) {
+                    $('#registration .success').show();
+                    $('#registration .title').hide();
+                    $('#registration .description').hide();
+                    $('#registration .form').hide();
+                    $('#registration').css('margin-top', -58);
+                    $('#registration .form input[name=email]').removeClass('error');
                 }
-            );
+                else {
+                    $('#registration .form input[name=email]').addClass('error');
+                    $('#registration .form input[name=email]').attr('title', response.Message);
+                }
+            }
+        );
         return false;
     });
 
@@ -76,7 +90,15 @@ $(function () {
     });
 
     function openRegistration() {
+        $('#registration .success').hide();
+        $('#registration .title').show();
+        $('#registration .description').show();
+        $('#registration .form').show();
+        $('#registration').css('margin-top', -165);
+
         $('#mask, #registration').fadeIn();
+        $('#registration .email').removeClass('error');
+        $('#registration .email').val('');
         $('#registration .email').focus();
     }
 

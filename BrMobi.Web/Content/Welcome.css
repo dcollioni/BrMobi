@@ -251,6 +251,11 @@ body
 {
     border-color: #888;
 }
+#registration .form input[type=text].error
+{
+    background-image: url('../../Content/Images/message_outline-26-red.png');
+    border-color: #D00;
+}
 
 #registration .form .buttons input
 {
@@ -296,4 +301,16 @@ body
 #registration .form .buttons .cancel
 {
     background-color: #EEE;
+}
+
+#registration .success
+{
+    color: #0A0;
+    display: none;
+    font-family: SegoeUI;
+    font-size: 16pt;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+    text-shadow: 1px 1px #CCC;
 }

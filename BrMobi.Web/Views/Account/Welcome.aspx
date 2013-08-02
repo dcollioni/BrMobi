@@ -69,6 +69,10 @@
                 </div>
             </form>
         </div>
+        <div class="success">
+            <p>Obrigado por deixar seu e-mail!<br />
+            Você será avisado com exclusividade quando o BrMobi estiver disponível.</p>
+        </div>
     </div>
     <script type="text/javascript" src="<%: Url.Content("~/Scripts/App/Account.js") %>"></script>
 </body>
