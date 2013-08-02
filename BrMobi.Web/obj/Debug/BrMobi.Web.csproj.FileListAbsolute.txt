@@ -80,6 +80,8 @@ D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\Content\Fonts\seguisb.ttf
 D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\UserImages\user.png
 D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\Content\Fonts\BuxtonSketch.ttf
 D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\Content\Fonts\LondonMM.ttf
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\BrMobi.Web.dll
+D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\BrMobi.Web.pdb
 D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\BrMobi.ApplicationServices.dll
 D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\BrMobi.Core.dll
 D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\BrMobi.Data.dll
@@ -102,5 +104,3 @@ D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\Facebook.xml
 D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\obj\Debug\BrMobi.Web.csprojResolveAssemblyReference.cache
 D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\obj\Debug\BrMobi.Web.dll
 D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\obj\Debug\BrMobi.Web.pdb
-D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\BrMobi.Web.dll
-D:\Douglas\Documents\GitHub\BrMobi\BrMobi.Web\bin\BrMobi.Web.pdb
