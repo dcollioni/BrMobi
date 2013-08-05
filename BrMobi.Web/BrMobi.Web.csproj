@@ -121,6 +121,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\email-input-bg.png" />
     <Content Include="Content\Images\loader.gif" />
     <Content Include="Content\Images\message_outline-26-red.png" />
     <Content Include="Content\Images\rideOfferIcon_white.png" />
