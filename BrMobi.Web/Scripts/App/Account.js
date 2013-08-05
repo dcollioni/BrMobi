@@ -59,6 +59,9 @@ $(function () {
         $('#registration .form .fields').addClass('loading');
         $('#registration .form input[type=submit]').attr('disabled', 'disabled');
 
+        $('#registration .form input[name=email]').removeClass('error');
+        $('#registration .tooltip').hide();
+
         $.post(
             'Account/RegisterEmail',
             $(this).serialize(),
@@ -67,18 +70,13 @@ $(function () {
                 $('#registration .form input[type=submit]').removeAttr('disabled');
 
                 if (response.Success) {
-                    $('#registration .success').show();
-                    $('#registration .title').hide();
-                    $('#registration .description').hide();
-                    $('#registration .form').hide();
-                    $('#registration').css('margin-top', -58);
-                    $('#registration .form input[name=email]').removeClass('error');
-
+                    showSuccessMessage();
                     setTimeout("$('#mask, #registration').fadeOut();", 5000);
                 }
                 else {
                     $('#registration .form input[name=email]').addClass('error');
-                    $('#registration .form input[name=email]').attr('title', response.Message);
+                    $('#registration .tooltip').text(response.Message);
+                    $('#registration .tooltip').fadeIn();
                 }
             }
         );
@@ -98,6 +96,7 @@ $(function () {
         $('#registration .form').show();
         $('#registration').css('margin-top', -165);
 
+        $('#registration .tooltip').hide();
         $('#mask, #registration').fadeIn();
         $('#registration .email').removeClass('error');
         $('#registration .email').val('');
@@ -105,6 +104,16 @@ $(function () {
     }
 
     function closeRegistration() {
+        $('#registration .tooltip').fadeOut();
         $('#mask, #registration').fadeOut();
+    }
+
+    function showSuccessMessage() {
+        $('#registration .success').show();
+        $('#registration .title').hide();
+        $('#registration .description').hide();
+        $('#registration .form').hide();
+        $('#registration').css('margin-top', -58);
+        $('#registration .form input[name=email]').removeClass('error');
     }
 });

@@ -314,3 +314,14 @@ body
     text-align: center;
     text-shadow: 1px 1px #CCC;
 }
+
+#registration .tooltip
+{
+    background-color: #F88;
+    border: 1px solid #D22;
+    display: none;
+    padding: 5px;
+    position: absolute;
+    right: 180px;
+    top: 150px;
+}
