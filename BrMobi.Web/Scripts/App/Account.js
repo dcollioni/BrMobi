@@ -73,6 +73,8 @@ $(function () {
                     $('#registration .form').hide();
                     $('#registration').css('margin-top', -58);
                     $('#registration .form input[name=email]').removeClass('error');
+
+                    setTimeout("$('#mask, #registration').fadeOut();", 5000);
                 }
                 else {
                     $('#registration .form input[name=email]').addClass('error');
