@@ -71,7 +71,7 @@ $(function () {
 
                 if (response.Success) {
                     showSuccessMessage();
-                    setTimeout("$('#mask, #registration').fadeOut();", 5000);
+                    setTimeout("$('#mask, #registration').fadeOut();", 10000);
                 }
                 else {
                     $('#registration .form input[name=email]').addClass('error');
