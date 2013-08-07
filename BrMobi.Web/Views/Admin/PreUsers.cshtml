@@ -1,0 +1,23 @@
+﻿@using BrMobi.Core.Entities;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>PreUsers</title>
+</head>
+<body>
+    <ul>
+        @{
+            foreach (var preUser in ViewBag.PreUsers as List<PreUser>)
+            {
+                <li>@string.Format("{0} - {1}", preUser.RegisteredOn.ToString("g"), preUser.Email)</li>
+            }
+        }
+    </ul>
+</body>
+</html>

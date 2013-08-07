@@ -1,4 +1,5 @@
-﻿using System.Net.Mail;
+﻿using System.Collections.Generic;
+using System.Net.Mail;
 using BrMobi.ApplicationServices.ServiceInterfaces;
 using BrMobi.Core.Entities;
 using BrMobi.Core.RepositoryInterfaces;
@@ -54,6 +55,11 @@ namespace BrMobi.ApplicationServices
             }
 
             return true;
+        }
+
+        public IList<PreUser> GetAll()
+        {
+            return preUserRepository.GetAll();
         }
     }
 }

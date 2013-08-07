@@ -1,0 +1,69 @@
+﻿@using BrMobi.Core.Entities;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Admin</title>
+
+    <style type="text/css">
+        body
+        {
+            background-color: #f2f2f2;
+            font-family: "Segoe UI Light";
+        }
+        
+        input
+        {
+            background-color: #fcfcfc;
+            border: 1px solid #888;
+            font-family: "Segoe UI Light";
+            font-size: 12pt;
+            outline: none;
+            padding: 10px;
+        }
+        
+        .login
+        {
+            background-color: #f6f6f6;
+            border: 1px solid #ddd;
+            margin: 20px auto;
+            text-align: center;
+            width: 400px;
+        }
+        
+        .login h1,
+        .login form
+        {
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    @{
+        if (Session["Admin"] == null)
+        {
+            <div class="login">
+                <h1>Área administrativa</h1>
+                <form action="Admin/Login" method="post">
+                    <input type="text" name="username" placeholder="Username" />
+                    <br />
+                    <input type="password" name="password" placeholder="Password" />
+                    <br /><br />
+                    <input type="submit" name="login" value="Login" /> 
+                </form>
+            </div>
+        }
+        else
+        {
+            <a href="Admin/Logoff">Sair</a>
+            <br />
+            <a href="Admin/PreUsers">PreUsers</a>
+        }    
+    }
+</body>
+</html>

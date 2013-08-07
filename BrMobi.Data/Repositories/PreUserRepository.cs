@@ -1,4 +1,6 @@
-﻿using BrMobi.Core.Entities;
+﻿using System.Collections.Generic;
+using System.Linq;
+using BrMobi.Core.Entities;
 using BrMobi.Core.RepositoryInterfaces;
 
 namespace BrMobi.Data.Repositories
@@ -15,6 +17,11 @@ namespace BrMobi.Data.Repositories
         public int Count(string email)
         {
             return Session.Query<PreUser>(p => p.Email == email).Count;
+        }
+
+        public IList<PreUser> GetAll()
+        {
+            return Session.Query<PreUser>().OrderByDescending(p => p.RegisteredOn).ToList();
         }
     }
 }

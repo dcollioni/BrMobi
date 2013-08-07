@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using System.Web.Routing;
 
 namespace BrMobi.Web.Attributes
 {
@@ -7,7 +6,7 @@ namespace BrMobi.Web.Attributes
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            return;
+            base.OnActionExecuting(filterContext);
         }
     }
 }

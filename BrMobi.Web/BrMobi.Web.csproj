@@ -98,9 +98,11 @@
   <ItemGroup>
     <Compile Include="Attributes\BrMobiAuthorize.cs" />
     <Compile Include="Attributes\AlwaysAuthorize.cs" />
+    <Compile Include="Attributes\AdminAuthorize.cs" />
     <Compile Include="CastleWindsor\ComponentRegistrar.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MapController.cs">
       <SubType>Code</SubType>
@@ -329,6 +331,8 @@
     <None Include="Content\Images\facebook.pdn" />
     <None Include="Content\Images\facebook2.pdn" />
     <Content Include="Views\Home\Robots.cshtml" />
+    <Content Include="Views\Admin\PreUsers.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <None Include="_bin_deployableAssemblies\Microsoft.Web.Infrastructure.dll" />
     <None Include="_bin_deployableAssemblies\System.Web.WebPages.Razor.dll" />
     <None Include="_bin_deployableAssemblies\System.Web.WebPages.dll" />
