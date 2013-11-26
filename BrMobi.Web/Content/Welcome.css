@@ -17,6 +17,9 @@
 body
 {
     background: url('../../Content/Images/welcome-bg2.png') no-repeat 0px -200px;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
     margin: 0;
     -webkit-text-stroke-width: 0.1px;
 }
